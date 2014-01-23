@@ -457,4 +457,10 @@
   :load-path "lisp/howdoi-emacs/"
   :bind ("C-c x h" . howdoi))
 
+;;; Edit filenames at-point in dired:
+
+(use-package dired-efap
+  :load-path "lisp/dired-efap/"
+  :config (bind-key "<f2>" 'dired-efap dired-mode-map))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
