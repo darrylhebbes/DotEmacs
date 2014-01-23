@@ -324,6 +324,11 @@
   :load-path "/home/eric/Software/Rust/src/etc/emacs/"
   :mode ("\\.rs" . rust-mode))
 
+;;; Python:
+
+(use-package python-mode
+  :mode ("\\.py" . python-mode))
+
 ;;; Emacs Lisp:
 
 (defun ejmr/byte-compile-current-elisp-file ()
