@@ -468,4 +468,10 @@
   :load-path "lisp/dired-efap/"
   :config (bind-key "<f2>" 'dired-efap dired-mode-map))
 
+;;; God Mode:
+
+(use-package god-mode
+  :load-path "lisp/god-mode/"
+  :bind ("<f9>" . god-mode-all))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
