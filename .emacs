@@ -474,4 +474,20 @@
   :load-path "lisp/god-mode/"
   :bind ("<f9>" . god-mode-all))
 
+;;; Wand:
+
+(use-package wand
+  :load-path "lisp/wand/"
+  :bind ("C-c RET" . wand:execute)
+  :config
+  (progn
+    (setq wand:*rules*
+          (list
+           (wand:create-rule :match "https?://"
+                             :capture :whole
+                             :action browse-url-generic)
+           (wand:create-rule :match "file://"
+                             :capture :after
+                             :action find-file-other-window)))))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
