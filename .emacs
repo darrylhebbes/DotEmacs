@@ -495,4 +495,10 @@
                              :capture :after
                              :action find-file-other-window)))))
 
+;;; GLSL Mode:
+
+(use-package glsl-mode
+  :load-path "lisp/glsl-mode/"
+  :mode ("\\.glsl" . glsl-mode))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
