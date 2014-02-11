@@ -212,6 +212,22 @@
 (use-package ace-jump-mode
   :bind ("C-c SPC" . ace-jump-mode))
 
+;;; Use a mode-line that looks better and is more compact.
+
+(use-package smart-mode-line
+  :load-path "lisp/smart-mode-line/"
+  :config
+  (progn
+    (setq sml/theme 'respectful
+          sml/shorten-directory t
+          sml/shorten-modes t
+          sml/name-width 40
+          sml/mode-width 'full)
+    (add-to-list 'sml/replacer-regexp-list '("^~/Projects/" ":Pro:"))
+    (add-to-list 'sml/replacer-regexp-list '("^~/Projects/LAVO/" ":LAVO:"))
+    (add-to-list 'sml/replacer-regexp-list '("^~/Documents/To Read/" ":To-Read:"))
+    (sml/setup)))
+
 ;;; Load snippets that I use in a variety of major modes.
 
 (use-package yasnippet
