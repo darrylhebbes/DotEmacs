@@ -353,6 +353,10 @@
 
 (bind-key "C-c l" 'ejmr/byte-compile-current-elisp-file emacs-lisp-mode-map)
 
+(use-package litable
+  :load-path "lisp/litable/"
+  :config (bind-key "C-c t" 'litable-mode emacs-lisp-mode-map))
+
 ;;; Perl:
 
 (use-package perl-mode
