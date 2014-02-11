@@ -278,6 +278,8 @@
   :bind (("C-c \\" . unipoint-insert)
          ("C-\\" . toggle-input-method)))
 
+(use-package charmap :load-path "lisp/charmap/")
+
 (use-package on-screen
   :load-path "lisp/on-screen.el/"
   :bind ("C-c x o" . on-screen-mode))
