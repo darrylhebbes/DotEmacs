@@ -521,4 +521,10 @@
   :load-path "lisp/glsl-mode/"
   :mode ("\\.glsl" . glsl-mode))
 
+;;; Golang:
+
+(use-package go-mode
+  :load-path "lisp/go-mode/"
+  :mode ("\\.go" . go-mode))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
