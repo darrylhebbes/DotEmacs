@@ -175,6 +175,12 @@
 
 ;;; Configure the key chords I use globally.
 
+(defun ejmr/toggle-read-only-viewing ()
+  "Toggle `read-only-mode' and `view-mode' together."
+  (interactive)
+  (read-only-mode)
+  (view-mode))
+
 (use-package key-chord
   :bind ("C-c n k" . key-chord-mode)
   :init (key-chord-mode 1)
@@ -184,7 +190,7 @@
     (key-chord-define-global "VV" 'other-window)
     (key-chord-define-global "KK" 'ido-kill-buffer)
     (key-chord-define-global "BB" 'ido-switch-buffer)
-    (key-chord-define-global "RR" 'toggle-read-only)))
+    (key-chord-define-global "RR" 'ejmr/toggle-read-only-viewing)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
 ;;; with the Expand Region package being the foundation for the rest.
