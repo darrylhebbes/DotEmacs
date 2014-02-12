@@ -225,7 +225,7 @@
 
 (use-package yasnippet
   :load-path "lisp/yasnippet/"
-  :config
+  :idle
   (progn
     (setq yas-snippet-dirs
           (list"/home/eric/.emacs.d/lisp/yasnippet/snippets"
@@ -436,7 +436,7 @@
 
 (use-package org-install
   :load-path "lisp/org-mode/lisp/"
-  :config
+  :idle
   (progn
     (setq org-todo-keywords '((sequence "TODO(t)"
                                         "REVIEW(r)"
