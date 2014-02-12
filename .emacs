@@ -253,11 +253,10 @@
 
 (use-package typo
   :load-path "lisp/typoel/"
-  :commands (typo-global-mode typo-mode)
+  :commands typo-mode
   :bind ("C-c n t" . typo-mode)
   :config
   (progn
-    (typo-global-mode 1)
     (add-hook 'text-mode-hook 'typo-mode)
     (add-hook 'markdown-mode-hook 'typo-mode)
     (add-hook 'org-mode-hook 'typo-mode)))
