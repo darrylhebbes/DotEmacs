@@ -147,13 +147,6 @@
 (bind-key "<C-up>" 'ejmr/move-line-up)
 (bind-key "<C-down>" 'ejmr/move-line-down)
 
-(defun ejmr/top-join-line ()
-  "Join the current line with the line beneath it."
-  (interactive)
-  (delete-indentation 1))
-
-(bind-key "C-^" 'ejmr/top-join-line)
-
 ;;; These are commands that I mostly use for text editing, or more
 ;;; specifically not for programming.  So they use the 'C-c t' prefix
 ;;; for 'text'.
