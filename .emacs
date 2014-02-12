@@ -215,6 +215,7 @@
 
 (use-package smart-mode-line
   :load-path "lisp/smart-mode-line/"
+  :disabled t
   :config
   (progn
     (setq sml/theme 'respectful
