@@ -178,8 +178,8 @@
 (defun ejmr/toggle-read-only-viewing ()
   "Toggle `read-only-mode' and `view-mode' together."
   (interactive)
-  (read-only-mode)
-  (view-mode))
+  (read-only-mode 'toggle)
+  (view-mode 'toggle))
 
 (use-package key-chord
   :bind ("C-c n k" . key-chord-mode)
