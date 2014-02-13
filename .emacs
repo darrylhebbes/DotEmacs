@@ -262,6 +262,11 @@
     (add-hook 'markdown-mode-hook 'typo-mode)
     (add-hook 'org-mode-hook 'typo-mode)))
 
+(use-package writegood-mode
+  :load-path "lisp/writegood-mode/"
+  :commands writegood-mode
+  :bind ("C-c n g" . writegood-mode))
+
 (use-package flyspell
   :bind (("C-c n s" . flyspell-mode)
          ("C-c n c" . flyspell-prog-mode))
