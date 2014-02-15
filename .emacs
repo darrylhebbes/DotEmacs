@@ -121,6 +121,10 @@
 (use-package ido :config (ido-mode 1))
 (use-package popup :load-path "lisp/popup-el/")
 
+;;; Use Undo Tree instead of the Emacs default:
+
+(use-package undo-tree :init (global-undo-tree-mode))
+
 ;;; Replace 'C-x C-b' with Ibuffer:
 
 (use-package ibuffer
