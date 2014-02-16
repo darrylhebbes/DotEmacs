@@ -543,4 +543,11 @@
   :load-path "lisp/ggtags/"
   :commands ggtags-mode)
 
+;;; Perl and Emacs Regular Expression Utilities:
+
+(use-package pcre2el
+  :load-path "lisp/pcre2el/"
+  :commands rxt-global-mode
+  :bind ("C-c n r" . rxt-global-mode))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
