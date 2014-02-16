@@ -516,11 +516,6 @@
            (wand:create-rule :match "https?://"
                              :capture :whole
                              :action browse-url-generic)
-           (wand:create-rule :match "[[:xdigit:]]\\{32\\}"
-                             :capture :whole
-                             :action (lambda (sha1)
-                                       (switch-to-buffer-other-window
-                                        (vc-find-revision buffer-file-name sha1))))
            (wand:create-rule :match "file://"
                              :capture :after
                              :action find-file-other-window)))))
