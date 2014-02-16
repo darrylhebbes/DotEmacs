@@ -537,4 +537,10 @@
   :load-path "lisp/go-mode/"
   :mode ("\\.go" . go-mode))
 
+;;; Interface for GNU Global:
+
+(use-package ggtags-mode
+  :load-path "lisp/ggtags/"
+  :commands ggtags-mode)
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
