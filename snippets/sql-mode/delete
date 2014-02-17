@@ -1,0 +1,4 @@
+# name: DELETE FROM
+# key: delete
+# --
+DELETE FROM $1 ${2:WHERE} $0;
