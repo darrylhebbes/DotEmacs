@@ -91,9 +91,9 @@
 
 ;;; Setup registers for files I commonly edit.
 
+(set-register ?b '(file . "/home/eric/Documents/Personal/Brainstorming.org"))
 (set-register ?e '(file . "/home/eric/Projects/DotEmacs/.emacs"))
 (set-register ?m '(file . "/home/eric/Temp/mail.md"))
-(set-register ?n '(file . "/home/eric/.notes.org"))
 (set-register ?t '(file . "/home/eric/.todo.org"))
 
 ;;; Load use-package and bind-key before anything else so that I can
