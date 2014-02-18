@@ -473,11 +473,16 @@
          ("\\.fs" . forth-mode))
   :interpreter ("gforth" . forth-mode))
 
-;;; Zencoding
+;;; Zencoding and Emmet
 
-(use-package zencoding-mode
-  :load-path "lisp/zencoding/"
-  :bind ("C-c n z" . zencoding-mode))
+(use-package emmet-mode
+  :load-path "lisp/emmet-mode/"
+  :commands emmet-mode
+  :bind ("C-c n e" . emmet-mode)
+  :config
+  (progn
+    (add-hook 'sgml-mode-hook 'emmet-mode)
+    (add-hook 'css-mode-hook 'emmet-mode)))
 
 ;;; fic-mode:
 
