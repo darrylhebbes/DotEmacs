@@ -259,12 +259,7 @@
 (use-package typo
   :load-path "lisp/typoel/"
   :commands typo-mode
-  :bind ("C-c n t" . typo-mode)
-  :config
-  (progn
-    (add-hook 'text-mode-hook 'typo-mode)
-    (add-hook 'markdown-mode-hook 'typo-mode)
-    (add-hook 'org-mode-hook 'typo-mode)))
+  :bind ("C-c n t" . typo-mode))
 
 (use-package writegood-mode
   :load-path "lisp/writegood-mode/"
@@ -427,6 +422,8 @@
          ("\\.markdown" . markdown-mode))
   :config
   (progn
+    (add-hook 'markdown-mode-hook 'typo-mode)
+
     (defun ejmr/toggle-markdown-mode-wrapping ()
       (interactive)
       (let ((normal-settings (and auto-fill-function (not word-wrap))))
@@ -453,6 +450,7 @@
   :load-path "lisp/org-mode/lisp/"
   :idle
   (progn
+    (add-hook 'org-mode-hook 'typo-mode)
     (setq org-todo-keywords '((sequence "TODO(t)"
                                         "REVIEW(r)"
                                         "TESTING(e)"
