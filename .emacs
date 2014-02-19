@@ -247,7 +247,8 @@
 
 (use-package simple
   :commands visual-line-mode
-  :bind ("C-c n l" . visual-line-mode))
+  :bind ("C-c n l" . visual-line-mode)
+  :config (add-hook 'text-mode-hook 'typo-mode))
 
 (use-package autopair
   :load-path "lisp/autopair/"
