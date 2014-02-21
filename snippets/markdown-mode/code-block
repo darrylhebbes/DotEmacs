@@ -1,6 +1,6 @@
 # name: Code Block
 # key: code-block
 # --
-```${1:Language} ${2:.numberLines}
+```$1 .numberLines
 $0
 ```
