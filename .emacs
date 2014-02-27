@@ -8,6 +8,7 @@
 ;;;; Conventions for key-bindings:
 ;;;;
 ;;;;     - C-c t:    Text commands.
+;;;;     - C-c s:    Swoop commands.
 ;;;;     - C-c m:    Major modes.
 ;;;;     - C-c n:    Minor modes.
 ;;;;     - C-c x:    General commands.
@@ -120,6 +121,8 @@
 (use-package f)
 (use-package ido :config (ido-mode 1))
 (use-package popup :load-path "lisp/popup-el/")
+(use-package async :load-path "lisp/emacs-async/")
+(use-package ht :load-path "lisp/ht.el/")
 
 ;;; Use Undo Tree instead of the Emacs default:
 
@@ -130,6 +133,15 @@
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer)
   :config (setq ibuffer-default-sorting-mode 'major-mode))
+
+;;; More buffer-related configuration.
+
+(use-package swoop
+  :load-path "lisp/emacs-swoop/"
+  :bind (("C-c s s" . swoop)
+         ("C-c s m" . swoop-multi)
+         ("C-c s r" . swoop-pcre-regexp)
+         ("C-c s b" . swoop-back-to-last-position)))
 
 ;;; These are some personal editing commands that I use everywhere.
 
