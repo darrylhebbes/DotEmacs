@@ -199,6 +199,7 @@
     (key-chord-define-global "##" 'server-edit)
     (key-chord-define-global "VV" 'other-window)
     (key-chord-define-global "KK" 'ido-kill-buffer)
+    (key-chord-define-global "$$" 'ispell-buffer)
     (key-chord-define-global "BB" 'ido-switch-buffer)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
