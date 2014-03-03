@@ -394,7 +394,9 @@
   :load-path "lisp/js3-mode/"
   :mode (("\\.json" . js3-mode)
          ("\\.js" . js3-mode))
-  :init (defalias 'js-mode 'js3-mode))
+  :init (defalias 'js-mode 'js3-mode)
+  :config
+  (use-package json-reformat :load-path "lisp/json-reformat/"))
 
 ;;; PHP:
 
