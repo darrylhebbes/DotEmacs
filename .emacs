@@ -298,7 +298,9 @@
 
 (use-package on-screen
   :load-path "lisp/on-screen.el/"
-  :bind ("C-c x o" . on-screen-mode))
+  :commands on-screen-global-mode
+  :bind ("C-c n o" . on-screen-global-mode)
+  :config (on-screen-global-mode 1))
 
 ;;; My Pomodoro timer of choice.
 
