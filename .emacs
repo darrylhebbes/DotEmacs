@@ -82,7 +82,7 @@
 
 (put 'narrow-to-page 'disabled nil)
 
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-15"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-13"))
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "/usr/local/bin/conkeror")
