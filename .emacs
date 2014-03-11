@@ -124,6 +124,13 @@
 (use-package async :load-path "lisp/emacs-async/")
 (use-package ht :load-path "lisp/ht.el/")
 
+;;; A utility to help manage minor modes:
+
+(use-package manage-minor-mode
+  :load-path "lisp/manage-minor-mode/"
+  :commands manage-minor-mode
+  :bind ("C-c x n" . manage-minor-mode))
+
 ;;; Use Undo Tree instead of the Emacs default:
 
 (use-package undo-tree :init (global-undo-tree-mode))
