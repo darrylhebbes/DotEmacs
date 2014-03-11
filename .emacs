@@ -323,6 +323,12 @@
       :load-path "lisp/flycheck-tip/"
       :bind ("C-c ! t" . flycheck-tip-cycle))))
 
+;;; Make it easy to run `M-x compile` when saving source files:
+
+(use-package recompile-on-save
+  :load-path "lisp/recompile-on-save.el/"
+  :commands recompile-on-save)
+
 ;;; Git:
 
 (use-package conf-mode
