@@ -196,6 +196,12 @@
 (bind-key "C-c x v" 'visit-tags-table)
 (bind-key "C-c x w" 'whitespace-cleanup)
 
+;;; Easily visit recently opened files.
+
+(use-package recentf-mode
+  :init (recentf-mode 1)
+  :bind ("<f8>" . recentf-open-files))
+
 ;;; Configure the key chords I use globally.
 
 (use-package key-chord
