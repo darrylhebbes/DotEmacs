@@ -419,6 +419,7 @@
   :mode (("\\.json" . js3-mode)
          ("\\.js" . js3-mode))
   :init (defalias 'js-mode 'js3-mode)
+  :interpreter "node"
   :config
   (use-package json-reformat :load-path "lisp/json-reformat/"))
 
