@@ -109,6 +109,7 @@
 (bind-key "<RET>" 'newline-and-indent)
 (bind-key "<C-return>" 'newline)
 (bind-key "<M-return>" 'indent-new-comment-line)
+(bind-key "M-/" 'hippie-expand)
 
 ;;; These packages provide functions that others rely on so I want to
 ;;; load them early.
@@ -310,6 +311,7 @@
 
 (use-package ido-at-point
   :load-path "lisp/ido-at-point/"
+  :disabled t
   :commands ido-at-point-mode
   :config (ido-at-point-mode 1)
   :bind ("M-/" . completion-at-point))
