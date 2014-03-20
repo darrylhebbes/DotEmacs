@@ -362,6 +362,8 @@
 ;;; Lua:
 
 (use-package lua-mode
+  :commands lua-mode
+  :bind ("C-c m l" . lua-mode)
   :config
   (progn
     (setq lua-indent-level 4)
