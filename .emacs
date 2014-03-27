@@ -309,6 +309,11 @@
   :bind ("C-c n o" . on-screen-global-mode)
   :config (on-screen-global-mode 1))
 
+(use-package fancy-narrow
+  :load-path "lisp/fancy-narrow/"
+  :commands fancy-narrow-mode
+  :config (fancy-narrow-mode 1))
+
 (use-package ido-at-point
   :load-path "lisp/ido-at-point/"
   :disabled t
