@@ -123,6 +123,7 @@
 (use-package popup :load-path "lisp/popup-el/")
 (use-package async :load-path "lisp/emacs-async/")
 (use-package ht :load-path "lisp/ht.el/")
+(use-package noflet :load-path "lisp/emacs-noflet")
 
 ;;; A utility to help manage minor modes:
 
@@ -233,6 +234,11 @@
 
 (use-package ace-jump-mode
   :bind ("C-c SPC" . ace-jump-mode))
+
+(use-package ace-link
+  :load-path "lisp/ace-link/"
+  :commands ace-link-setup-default
+  :config (ace-link-setup-default))
 
 ;;; Use a mode-line that looks better and is more compact.
 
