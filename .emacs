@@ -269,6 +269,10 @@
   :bind ("C-c n l" . visual-line-mode)
   :config (add-hook 'text-mode-hook 'typo-mode))
 
+(use-package view-mode
+  :commands view-mode
+  :bind ("C-c n v" . view-mode))
+
 (use-package autopair
   :load-path "lisp/autopair/"
   :idle (autopair-global-mode))
