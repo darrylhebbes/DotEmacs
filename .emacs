@@ -441,7 +441,13 @@
 ;;; PHP:
 
 (use-package php-mode
-  :load-path "/home/eric/Projects/php-mode")
+  :load-path "/home/eric/Projects/php-mode"
+  :config
+  (progn
+    (use-package phpunit
+      :load-path "lisp/phpunit.el/"
+      :commands (phpunit-current-project
+                 phpunit-current-class))))
 
 ;;; These packages affect my modeline.
 
