@@ -592,6 +592,10 @@
   :load-path "lisp/glsl-mode/"
   :mode ("\\.glsl" . glsl-mode))
 
+;;; GNU APL
+
+(use-package gnu-apl-mode :load-path "lisp/gnu-apl-mode/")
+
 ;;; Golang:
 
 (use-package go-mode
