@@ -321,6 +321,7 @@
 
 (use-package fancy-narrow
   :load-path "lisp/fancy-narrow/"
+  :disabled t
   :commands fancy-narrow-mode
   :config (fancy-narrow-mode 1))
 
