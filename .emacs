@@ -304,6 +304,10 @@
 (use-package writeroom-mode
   :load-path "lisp/writeroom-mode/")
 
+(use-package screenwriter
+  :load-path "lisp/screenwriter"
+  :commands screenwriter-mode)
+
 (use-package unipoint
   :load-path "lisp/unipoint/"
   ;; The package rebinds C-\ by default, which I use.  So I restore
