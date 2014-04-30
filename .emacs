@@ -342,6 +342,11 @@
   :config (ido-at-point-mode 1)
   :bind ("M-/" . completion-at-point))
 
+(use-package tex-mode
+  :init
+  (progn
+    (add-hook 'tex-mode-hook (lambda () (typo-mode -1)))))
+
 ;;; My Pomodoro timer of choice.
 
 (use-package tomatinho
