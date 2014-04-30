@@ -9,6 +9,7 @@
 ;;;;
 ;;;;     - C-c t:    Text commands.
 ;;;;     - C-c s:    Swoop commands.
+;;;;     - C-c d:    Desktop commands.
 ;;;;     - C-c m:    Major modes.
 ;;;;     - C-c n:    Minor modes.
 ;;;;     - C-c x:    General commands.
@@ -191,11 +192,16 @@
     (completing-read "Project: " (directory-files "/home/eric/Documents/Logs/"))))
   (find-file (concat "/home/eric/Documents/Logs/" project)))
 
-(bind-key "C-c x c" 'desktop-clear)
 (bind-key "C-c x i" 'imenu)
 (bind-key "C-c x l" 'ejmr/open-project-log-file)
 (bind-key "C-c x v" 'visit-tags-table)
 (bind-key "C-c x w" 'whitespace-cleanup)
+
+;;; Desktop managament:
+
+(bind-key "C-c d c" 'desktop-clear)
+(bind-key "C-c d d" 'desktop-change-dir)
+(bind-key "C-c d s" 'desktop-save)
 
 ;;; Easily visit recently opened files.
 
