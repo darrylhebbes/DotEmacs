@@ -347,6 +347,14 @@
   (progn
     (add-hook 'tex-mode-hook (lambda () (typo-mode -1)))))
 
+;;; Share a region or buffer on <http://dpaste.com/>.
+(use-package dpaste
+  :load-path "lisp/dpaste.el/"
+  :bind ("C-c x d" . dpaste-region-or-buffer)
+  :init
+  (progn
+    (setq dpaste-poster "Eric James Michael Ritz")))
+
 ;;; My Pomodoro timer of choice.
 
 (use-package tomatinho
