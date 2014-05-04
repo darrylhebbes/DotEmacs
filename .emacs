@@ -640,4 +640,10 @@
   :commands rxt-global-mode
   :bind ("C-c n r" . rxt-global-mode))
 
+;;; Nimrod:
+
+(use-package nimrod-mode
+  :load-path "lisp/nimrod-mode/"
+  :commands nimrod-mode)
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
