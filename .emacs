@@ -345,7 +345,8 @@
 (use-package tex-mode
   :init
   (progn
-    (add-hook 'tex-mode-hook (lambda () (typo-mode -1)))))
+    (add-hook 'tex-mode-hook (lambda () (typo-mode -1)))
+    (add-hook 'tex-mode-hook (lambda () (flycheck-mode -1)))))
 
 ;;; Share a region or buffer on <http://dpaste.com/>.
 (use-package dpaste
