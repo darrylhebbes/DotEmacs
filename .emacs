@@ -644,6 +644,7 @@
 
 (use-package nimrod-mode
   :load-path "lisp/nimrod-mode/"
+  :mode ("\\.nim" . nimrod-mode)
   :commands nimrod-mode)
 
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
