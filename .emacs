@@ -324,6 +324,10 @@
 
 (use-package charmap :load-path "lisp/charmap/")
 
+(use-package wiki-nav
+  :load-path "lisp/button-lock/"
+  :config (global-wiki-nav-mode 1))
+
 (use-package on-screen
   :load-path "lisp/on-screen.el/"
   :commands on-screen-global-mode
