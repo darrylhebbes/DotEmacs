@@ -510,6 +510,10 @@
   (progn
     (add-hook 'markdown-mode-hook 'typo-mode)
 
+    (use-package pandoc-mode
+      :load-path "lisp/pandoc-mode/"
+      :config (add-hook 'markdown-mode-hook 'turn-on-pandoc))
+
     (defun ejmr/toggle-markdown-mode-wrapping ()
       (interactive)
       (let ((normal-settings (and auto-fill-function (not word-wrap))))
