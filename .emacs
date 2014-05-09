@@ -10,6 +10,7 @@
 ;;;;     - C-c t:    Text commands.
 ;;;;     - C-c s:    Swoop commands.
 ;;;;     - C-c d:    Desktop commands.
+;;;;     - C-c e:    Engine searching commands.
 ;;;;     - C-c m:    Major modes.
 ;;;;     - C-c n:    Minor modes.
 ;;;;     - C-c x:    General commands.
@@ -650,5 +651,23 @@
   :load-path "lisp/nimrod-mode/"
   :mode ("\\.nim" . nimrod-mode)
   :commands nimrod-mode)
+
+;;; Engine Mode:
+
+(use-package engine-mode
+  :load-path "lisp/engine-mode/"
+  :commands (engine-mode defengine)
+  :init (engine-mode t)
+  :config
+  (progn
+    (defengine duckduckgo
+      "https://duckduckgo.com/?q=%s"
+      "C-c e d")
+    (defengine github
+      "https://github.com/search?ref=simplesearch&q=%s"
+      "C-c e g")
+    (defengine wikipedia
+      "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+      "C-c e w")))
 
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
