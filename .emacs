@@ -444,6 +444,8 @@
   :load-path "lisp/litable/"
   :config (bind-key "C-c t" 'litable-mode emacs-lisp-mode-map))
 
+(use-package bump-version :load-path "lisp/emacs-bump-version/")
+
 ;;; Racket:
 
 (use-package racket-mode
