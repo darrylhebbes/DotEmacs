@@ -444,6 +444,13 @@
   :load-path "lisp/litable/"
   :config (bind-key "C-c t" 'litable-mode emacs-lisp-mode-map))
 
+;;; Racket:
+
+(use-package racket-mode
+  :load-path "lisp/racket-mode/"
+  :commands racket-mode
+  :mode ("\\.rkt" . racket-mode))
+
 ;;; Perl:
 
 (use-package perl-mode
