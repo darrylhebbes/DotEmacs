@@ -326,7 +326,7 @@
 
 (use-package wiki-nav
   :load-path "lisp/button-lock/"
-  :config (global-wiki-nav-mode 1))
+  :bind ("C-c n w" . wiki-nav-mode))
 
 (use-package on-screen
   :load-path "lisp/on-screen.el/"
