@@ -126,6 +126,7 @@
 (use-package async :load-path "lisp/emacs-async/")
 (use-package ht :load-path "lisp/ht.el/")
 (use-package noflet :load-path "lisp/emacs-noflet")
+(use-package makey :load-path "lisp/makey/")
 
 ;;; A utility to help manage minor modes:
 
@@ -133,6 +134,13 @@
   :load-path "lisp/manage-minor-mode/"
   :commands manage-minor-mode
   :bind ("C-c x n" . manage-minor-mode))
+
+;;; Show key-bindings for the current major mode:
+
+(use-package discover-my-major
+  :load-path "lisp/discover-my-major/"
+  :commands discover-my-major
+  :bind ("C-h C-m" . discover-my-major))
 
 ;;; Use Undo Tree instead of the Emacs default:
 
