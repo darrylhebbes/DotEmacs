@@ -454,6 +454,10 @@
 
 (use-package bump-version :load-path "lisp/emacs-bump-version/")
 
+(use-package macrostep
+  :load-path "lisp/macrostep/"
+  :config (bind-key "C-c C-e" 'macrostep-expand emacs-lisp-mode-map))
+
 ;;; Racket:
 
 (use-package racket-mode
