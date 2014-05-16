@@ -1,0 +1,13 @@
+# name: README: GNU GPL Info
+# key: readme-gpl-copyright
+# --
+## License ##
+
+[GNU General Public License][GPL]
+
+Copyright 2014 $1
+
+
+
+[GPL]: http://www.gnu.org/copyleft/gpl.html
+$0
