@@ -531,6 +531,13 @@
 
 (use-package bbcode-mode)
 
+;;; reStructuredText:
+
+(use-package rst
+  :commands rst-mode
+  :mode ("\\.rst" . rst-mode)
+  :config (add-hook 'rst-adjust-hook 'rst-toc-update))
+
 ;;; Markdown:
 
 (defun ejmr/insert-mail-signature ()
