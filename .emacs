@@ -161,6 +161,12 @@
          ("C-c s r" . swoop-pcre-regexp)
          ("C-c s b" . swoop-back-to-last-position)))
 
+(use-package buffer-move
+  :bind (("<M-down>" . buf-move-down)
+         ("<M-up>" . buf-move-up)
+         ("<M-left>" . buf-move-left)
+         ("<M-right>" . buf-move-right)))
+
 ;;; These are some personal editing commands that I use everywhere.
 
 (defun ejmr/move-line-up ()
