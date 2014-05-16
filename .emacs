@@ -701,4 +701,10 @@
       "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
       "C-c e w")))
 
+;;; Visual Basic Mode:
+
+(use-package visual-basic-mode
+  :commands visual-basic-mode
+  :mode ("\\.bas" . visual-basic-mode))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
