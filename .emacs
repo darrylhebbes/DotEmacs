@@ -719,4 +719,11 @@
   :commands visual-basic-mode
   :mode ("\\.bas" . visual-basic-mode))
 
+;;; Theme Park Minor Mode:
+
+(use-package theme-park-mode
+  :load-path "lisp/theme-park-mode/"
+  :commands theme-park-mode
+  :bind ("C-c n p" . theme-park-mode))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
