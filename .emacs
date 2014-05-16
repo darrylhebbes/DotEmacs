@@ -296,6 +296,11 @@
   :bind ("C-c n l" . visual-line-mode)
   :config (add-hook 'text-mode-hook 'typo-mode))
 
+(use-package operate-on-number
+  :load-path "lisp/operate-on-number.el/"
+  :commands operate-on-number-at-point
+  :config (key-chord-define-global "NN" 'operate-on-number-at-point))
+
 (use-package view-mode
   :commands view-mode
   :bind ("C-c n v" . view-mode))
