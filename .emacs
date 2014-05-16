@@ -449,7 +449,13 @@
 ;;; Python:
 
 (use-package python-mode
-  :mode ("\\.py" . python-mode))
+  :mode ("\\.py" . python-mode)
+  :config
+  (progn
+    (use-package traad
+      :load-path "lisp/Traad/elisp/"
+      :commands traad
+      :disabled t)))
 
 ;;; Emacs Lisp:
 
