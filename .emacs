@@ -482,6 +482,13 @@
   :commands racket-mode
   :mode ("\\.rkt" . racket-mode))
 
+;;; Clojure:
+
+(use-package clojure-mode
+  :load-path "lisp/clojure-mode/"
+  :commands clojure-mode
+  :mode ("\\.clj" . clojure-mode))
+
 ;;; Perl:
 
 (use-package perl-mode
