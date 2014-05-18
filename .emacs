@@ -487,7 +487,15 @@
 (use-package clojure-mode
   :load-path "lisp/clojure-mode/"
   :commands clojure-mode
-  :mode ("\\.clj" . clojure-mode))
+  :mode ("\\.clj" . clojure-mode)
+  :init
+  (progn
+    (use-package cider
+      :disabled t
+      :load-path "lisp/CIDER/"
+      :init
+      (progn
+        (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)))))
 
 ;;; Perl:
 
