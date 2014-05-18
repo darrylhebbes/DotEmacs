@@ -221,7 +221,10 @@
 ;;; Easily visit recently opened files.
 
 (use-package recentf-mode
-  :init (recentf-mode 1)
+  :init
+  (progn
+    (recentf-mode 1)
+    (add-hook 'emacs-startup-hook 'recentf-open-files))
   :bind ("<f8>" . recentf-open-files))
 
 ;;; Configure the key chords I use globally.
