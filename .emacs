@@ -478,6 +478,12 @@
   :load-path "lisp/macrostep/"
   :config (bind-key "C-c C-e" 'macrostep-expand emacs-lisp-mode-map))
 
+(use-package paredit-everywhere
+  :load-path "lisp/paredit-everywhere/"
+  :commands paredit-everywhere-mode
+  :bind ("C-c n p" . paredit-everywhere-mode)
+  :init (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
+
 ;;; Racket:
 
 (use-package racket-mode
@@ -747,7 +753,6 @@
 
 (use-package theme-park-mode
   :load-path "lisp/theme-park-mode/"
-  :commands theme-park-mode
-  :bind ("C-c n p" . theme-park-mode))
+  :commands theme-park-mode)
 
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
