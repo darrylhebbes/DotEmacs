@@ -550,6 +550,9 @@
   :load-path "/home/eric/Projects/php-mode"
   :config
   (progn
+    (use-package php-refactor-mode
+      :load-path "lisp/php-refactor-mode.el/"
+      :config (php-refactor-mode))
     (use-package phpunit
       :load-path "lisp/phpunit.el/"
       :commands (phpunit-current-project
