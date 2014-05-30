@@ -462,6 +462,9 @@
   :mode ("\\.py" . python-mode)
   :config
   (progn
+    (use-package py-autopep8
+      :load-path "lisp/py-autopep8/"
+      :config (add-hook 'before-save-hook 'py-autopep8-before-save))
     (use-package traad
       :load-path "lisp/Traad/elisp/"
       :commands traad
