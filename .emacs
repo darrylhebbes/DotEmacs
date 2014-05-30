@@ -465,6 +465,9 @@
     (use-package py-autopep8
       :load-path "lisp/py-autopep8/"
       :config (add-hook 'before-save-hook 'py-autopep8-before-save))
+    (use-package py-isort
+      :load-path "lisp/py-isort.el/"
+      :config (add-hook 'before-save-hook 'python-isort-before-save))
     (use-package traad
       :load-path "lisp/Traad/elisp/"
       :commands traad
