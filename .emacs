@@ -127,6 +127,7 @@
 (use-package ht :load-path "lisp/ht.el/")
 (use-package noflet :load-path "lisp/emacs-noflet")
 (use-package makey :load-path "lisp/makey/")
+(use-package request :load-path "lisp/emacs-request/")
 
 ;;; A utility to help manage minor modes:
 
@@ -238,8 +239,13 @@
     (key-chord-define-global "VV" 'other-window)
     (key-chord-define-global "KK" 'ido-kill-buffer)
     (key-chord-define-global "$$" 'ispell-buffer)
-    (key-chord-define-global "QQ" 'read-only-mode)
-    (key-chord-define-global "BB" 'ido-switch-buffer)))
+    (key-chord-define-global "BB" 'ido-switch-buffer)
+    ;; Pretty much everything in Enlish word beginning with 'q' is
+    ;; follewed the vowel 'u'.  These chords take advantage of that.
+    (key-chord-define-global "qq" 'read-only-mode)
+    (key-chord-define-global "qs" 'save-buffer)
+    (key-chord-define-global "q0" 'delete-window)
+    (key-chord-define-global "qf" 'flymake-popup-current-error-menu)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
 ;;; with the Expand Region package being the foundation for the rest.
@@ -500,6 +506,7 @@
   :mode ("\\.clj" . clojure-mode)
   :init
   (progn
+    (use-package 4clojure :load-path "lisp/4clojure.el/")
     (use-package cider
       :disabled t
       :load-path "lisp/CIDER/"
