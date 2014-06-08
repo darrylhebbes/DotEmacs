@@ -772,4 +772,11 @@
   :load-path "lisp/theme-park-mode/"
   :commands theme-park-mode)
 
+;;; YAML Mode:
+
+(use-package yaml-mode
+  :load-path "lisp/yaml-mode/"
+  :commands yaml-mode
+  :mode ("\\.yml" . yaml-mode))
+
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
