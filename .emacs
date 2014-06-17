@@ -237,12 +237,12 @@
   (progn
     (key-chord-define-global "##" 'server-edit)
     (key-chord-define-global "VV" 'other-window)
-    (key-chord-define-global "KK" 'ido-kill-buffer)
     (key-chord-define-global "$$" 'ispell-buffer)
-    (key-chord-define-global "BB" 'ido-switch-buffer)
     ;; Pretty much everything in Enlish word beginning with 'q' is
     ;; follewed the vowel 'u'.  These chords take advantage of that.
     (key-chord-define-global "qq" 'read-only-mode)
+    (key-chord-define-global "qb" 'ido-switch-buffer)
+    (key-chord-define-global "ql" 'ido-kill-buffer)
     (key-chord-define-global "qs" 'save-buffer)
     (key-chord-define-global "q0" 'delete-window)
     (key-chord-define-global "qf" 'flymake-popup-current-error-menu)))
