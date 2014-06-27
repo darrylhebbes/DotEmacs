@@ -436,6 +436,14 @@
   :load-path "lisp/emacs-git-messenger/"
   :bind ("C-c x g" . git-messenger:popup-message))
 
+(use-package git-gutter+
+  :load-path "lisp/git-gutter-plus/"
+  :init
+  (progn
+    (use-package git-commit-mode
+      :load-path "lisp/git-modes/"))
+  :config (global-git-gutter+-mode 1))
+
 ;;; Tup:
 
 (use-package tup-mode)
@@ -785,5 +793,11 @@
   :load-path "lisp/yaml-mode/"
   :commands yaml-mode
   :mode ("\\.yml" . yaml-mode))
+
+;;; Redmine:
+
+(use-package elmine
+  :disabled t
+  :load-path "lisp/elmine/")
 
 ;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
