@@ -143,6 +143,13 @@
   :commands discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
+;;; Company mode:
+
+(use-package company-mode
+  :load-path "lisp/company/"
+  :commands (company-mode global-company-mode)
+  :bind ("C-c x C-c" . global-company-mode))
+
 ;;; Use Undo Tree instead of the Emacs default:
 
 (use-package undo-tree :init (global-undo-tree-mode))
