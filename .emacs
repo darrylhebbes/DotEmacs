@@ -281,6 +281,7 @@
 ;;; Use a mode-line that looks better and is more compact.
 
 (use-package smart-mode-line
+  :disabled t
   :load-path "lisp/smart-mode-line/"
   :config
   (progn
