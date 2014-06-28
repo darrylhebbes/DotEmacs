@@ -128,6 +128,7 @@
 (use-package noflet :load-path "lisp/emacs-noflet")
 (use-package makey :load-path "lisp/makey/")
 (use-package request :load-path "lisp/emacs-request/")
+(use-package syntactic-sugar :load-path "lisp/syntactic-sugar/")
 
 ;;; A utility to help manage minor modes:
 
@@ -436,12 +437,11 @@
   :load-path "lisp/emacs-git-messenger/"
   :bind ("C-c x g" . git-messenger:popup-message))
 
+(use-package git-commit-mode
+  :load-path "lisp/git-modes/")
+
 (use-package git-gutter+
   :load-path "lisp/git-gutter-plus/"
-  :init
-  (progn
-    (use-package git-commit-mode
-      :load-path "lisp/git-modes/"))
   :config (global-git-gutter+-mode 1))
 
 ;;; Tup:
@@ -800,4 +800,23 @@
   :disabled t
   :load-path "lisp/elmine/")
 
-;;;; END ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Toggle tests:
+(use-package toggle-test
+  :load-path "lisp/toggle-test")
+
+;;; Wrap the region
+(use-package wrap-region
+  :load-path "lisp/wrap-region/")
+
+;;; Wrap a line or region
+(use-package whole-line-or-region
+  :load-path "lisp/whole-line-or-region/")
+
+;;; SQL
+(use-package sqlup-mode
+  :load-path "lisp/sqlup-mode.el/")
+
+;;; Dokuwiki:
+
+(use-package dokuwiki-mode
+  :load-path "lisp/dokuwiki-mode.el/")
