@@ -810,7 +810,8 @@
 
 ;;; Wrap a line or region
 (use-package whole-line-or-region
-  :load-path "lisp/whole-line-or-region/")
+  :load-path "lisp/whole-line-or-region/"
+  :config (whole-line-or-region-mode 1))
 
 ;;; SQL
 (use-package sqlup-mode
