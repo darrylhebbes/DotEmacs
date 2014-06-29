@@ -804,14 +804,17 @@
 (use-package toggle-test
   :load-path "lisp/toggle-test")
 
-;;; Wrap the region
+;;; Manipulate Regions:
+
 (use-package wrap-region
   :load-path "lisp/wrap-region/")
 
-;;; Wrap a line or region
 (use-package whole-line-or-region
   :load-path "lisp/whole-line-or-region/"
   :config (whole-line-or-region-mode 1))
+
+(use-package duplicate-thing
+  :config (key-chord-define-global "qd" 'duplicate-thing))
 
 ;;; SQL
 (use-package sqlup-mode
