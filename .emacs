@@ -27,6 +27,18 @@
 
 (server-start)
 
+;;; Load this as early as possible in order to automatically compile
+;;; Emacs Lisp files that I use.
+
+(add-to-list 'load-path "/home/eric/.emacs.d/lisp/auto-compile/")
+(add-to-list 'load-path "/home/eric/.emacs.d/lisp/packed/")
+(setq load-prefer-newer t)
+(require 'auto-compile)
+(auto-compile-on-load-mode 1)
+(auto-compile-on-save-mode 1)
+(setq auto-compile-display-buffer nil)
+(setq auto-compile-mode-line-counter t)
+
 ;;; Now comes a long section of general, global settings, minor modes,
 ;;; display configuration, and so on.
 
