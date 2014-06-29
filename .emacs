@@ -490,6 +490,11 @@
   :load-path "/home/eric/Software/Rust/src/etc/emacs/"
   :mode ("\\.rs" . rust-mode))
 
+;;; Arduino:
+
+(use-package arduino-mode
+  :load-path "lisp/arduino-mode/")
+
 ;;; Python:
 
 (use-package python-mode
