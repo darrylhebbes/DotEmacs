@@ -423,10 +423,14 @@
   :commands global-flycheck-mode
   :load-path "lisp/flycheck/"
   :bind ("C-c n f" . flycheck-mode)
+  :init
+  (use-package flycheck-pos-tip
+    :load-path "lisp/flycheck-pos-tip/")
   :config
   (progn
     (global-flycheck-mode 1)
     (use-package flycheck-tip
+      :disabled t
       :commands flycheck-tip-cycle
       :load-path "lisp/flycheck-tip/"
       :bind ("C-c ! t" . flycheck-tip-cycle))))
