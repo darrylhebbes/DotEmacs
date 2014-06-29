@@ -141,6 +141,7 @@
 (use-package makey :load-path "lisp/makey/")
 (use-package request :load-path "lisp/emacs-request/")
 (use-package syntactic-sugar :load-path "lisp/syntactic-sugar/")
+(use-package ample-regexps :load-path "lisp/ample-regexps.el/")
 
 ;;; A utility to help manage minor modes:
 
