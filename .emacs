@@ -824,3 +824,6 @@
 
 (use-package dokuwiki-mode
   :load-path "lisp/dokuwiki-mode.el/")
+
+;;; Backtrace Mode:
+(use-package backtrace-mode)
