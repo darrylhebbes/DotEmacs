@@ -444,6 +444,12 @@
   :load-path "lisp/git-gutter-plus/"
   :config (global-git-gutter+-mode 1))
 
+;;; Auto Indent:
+
+(use-package auto-indent-mode
+  :load-path "lisp/auto-indent-mode.el/"
+  :config (auto-indent-global-mode))
+
 ;;; Tup:
 
 (use-package tup-mode)
