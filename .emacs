@@ -108,6 +108,7 @@
 
 (set-register ?b '(file . "/home/eric/Documents/Personal/Brainstorming.org"))
 (set-register ?e '(file . "/home/eric/Projects/DotEmacs/.emacs"))
+(set-register ?j '(file . "/home/eric/Temp/Journal.txt"))
 (set-register ?m '(file . "/home/eric/Temp/mail.md"))
 (set-register ?t '(file . "/home/eric/.todo.org"))
 
@@ -218,6 +219,14 @@
 (bind-key "C-c t c" 'flyspell-auto-correct-word)
 (bind-key "C-c t f" 'toggle-text-mode-auto-fill)
 (bind-key "C-c t s" 'sort-lines)
+
+(defun ejmr/send-buffer-to-jrnl ()
+  "Sends the content of the current buffer to jrnl."
+  (interactive)
+  (call-process-region (point-min) (point-max) "jrnl")
+  (message "Saved buffer contents in journal"))
+
+(bind-key "C-c t j" 'ejmr/send-buffer-to-jrnl)
 
 ;;; These keys are for commands I often use and use the 'C-c x' prefix
 ;;; as an association with 'M-x'.
