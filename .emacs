@@ -855,3 +855,7 @@
 
 ;;; Backtrace Mode:
 (use-package backtrace-mode)
+
+;;; Diffscuss:
+(use-package diffscuss-mode
+  :load-path "lisp/diffscuss/diffscuss-mode/")
