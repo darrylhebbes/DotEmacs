@@ -13,6 +13,7 @@
 ;;;;     - C-c e:    Engine searching commands.
 ;;;;     - C-c m:    Major modes.
 ;;;;     - C-c n:    Minor modes.
+;;;;     - C-c q:    Quickrun commands.
 ;;;;     - C-c x:    General commands.
 ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -219,14 +220,6 @@
 (bind-key "C-c t c" 'flyspell-auto-correct-word)
 (bind-key "C-c t f" 'toggle-text-mode-auto-fill)
 (bind-key "C-c t s" 'sort-lines)
-
-(defun ejmr/send-buffer-to-jrnl ()
-  "Sends the content of the current buffer to jrnl."
-  (interactive)
-  (call-process-region (point-min) (point-max) "jrnl")
-  (message "Saved buffer contents in journal"))
-
-(bind-key "C-c t j" 'ejmr/send-buffer-to-jrnl)
 
 ;;; These keys are for commands I often use and use the 'C-c x' prefix
 ;;; as an association with 'M-x'.
@@ -868,3 +861,16 @@
 ;;; Diffscuss:
 (use-package diffscuss-mode
   :load-path "lisp/diffscuss/diffscuss-mode/")
+
+;;; Quickrun:
+(use-package quickrun
+  :load-path "lisp/emacs-quickrun/"
+  :bind ("C-c q q" . quickrun)
+  :config
+  (progn
+    (quickrun-add-command "jrnl"
+                          '((:command . "jrnl")
+                            (:exec . ("%c < %s"))
+                            (:default-directory . "/tmp")))
+    (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
+                          
