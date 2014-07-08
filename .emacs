@@ -109,7 +109,7 @@
 
 (set-register ?b '(file . "/home/eric/Documents/Personal/Brainstorming.org"))
 (set-register ?e '(file . "/home/eric/Projects/DotEmacs/.emacs"))
-(set-register ?j '(file . "/home/eric/Temp/Journal.txt"))
+(set-register ?j '(file . "/home/eric/Temp/Entry.jrnl.txt"))
 (set-register ?m '(file . "/home/eric/Temp/mail.md"))
 (set-register ?t '(file . "/home/eric/.todo.org"))
 
