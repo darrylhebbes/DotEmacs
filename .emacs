@@ -376,6 +376,9 @@
 
 (use-package charmap :load-path "lisp/charmap/")
 
+(use-package ids-edit
+  :load-path "lisp/ids-edit/")
+
 (use-package wiki-nav
   :load-path "lisp/button-lock/"
   :bind ("C-c n w" . wiki-nav-mode))
