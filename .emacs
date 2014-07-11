@@ -877,3 +877,6 @@
                             (:default-directory . "/tmp")))
     (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
                           
+;;; OCaml:
+
+(use-package tuareg :load-path "lisp/tuareg-2.0.7/")
