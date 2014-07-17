@@ -294,6 +294,13 @@
   :commands ace-link-setup-default
   :config (ace-link-setup-default))
 
+(use-package jump-char
+  :load-path "lisp/jump-char/"
+  :commands jump-char-forward
+  :config
+  (progn
+    (key-chord-define-global "qj" 'jump-char-forward)))
+
 ;;; Use a mode-line that looks better and is more compact.
 
 (use-package smart-mode-line
