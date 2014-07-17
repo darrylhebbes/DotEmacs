@@ -268,6 +268,7 @@
     (key-chord-define-global "ql" 'ido-kill-buffer)
     (key-chord-define-global "qs" 'save-buffer)
     (key-chord-define-global "q0" 'delete-window)
+    (key-chord-define-global "qv" 'vc-next-action)
     (key-chord-define-global "qf" 'flymake-popup-current-error-menu)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
