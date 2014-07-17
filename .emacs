@@ -888,3 +888,16 @@
 ;;; OCaml:
 
 (use-package tuareg :load-path "lisp/tuareg-2.0.7/")
+
+;;; Haskell:
+
+(use-package haskell-mode-autoloads
+  :load-path "lisp/haskell-mode/"
+  :init (add-to-list 'Info-default-directory-list "~/.emacs.d/lisp/haskell-mode/")
+  :config
+  (progn
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+    (bind-key "C-," 'haskell-move-nested-left haskell-mode-map)
+    (bind-key "C-." 'haskell-move-nested-right haskell-mode-map)
+    (bind-key "C-c C-c" 'haskell-compile haskell-mode-map)
+    (add-to-list 'which-func-modes 'haskell-mode)))
