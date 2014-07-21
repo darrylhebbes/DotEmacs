@@ -93,7 +93,7 @@
 (tooltip-mode 1)
 (electric-pair-mode 0)
 
-(setq c-default-style "linux")
+(setq-default c-default-style "linux")
 
 (put 'narrow-to-page 'disabled nil)
 
@@ -269,7 +269,7 @@
     (key-chord-define-global "qs" 'save-buffer)
     (key-chord-define-global "q0" 'delete-window)
     (key-chord-define-global "qv" 'vc-next-action)
-    (key-chord-define-global "qf" 'flymake-popup-current-error-menu)))
+    (key-chord-define-global "qf" 'ido-find-file)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
 ;;; with the Expand Region package being the foundation for the rest.
