@@ -603,6 +603,8 @@
   :config
   (use-package json-reformat :load-path "lisp/json-reformat/"))
 
+(use-package coffee-mode :load-path "lisp/coffee-mode/")
+
 ;;; PHP:
 
 (use-package php-mode
