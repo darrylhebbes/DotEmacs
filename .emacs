@@ -128,6 +128,7 @@
 (bind-key "<C-return>" 'newline)
 (bind-key "<M-return>" 'indent-new-comment-line)
 (bind-key "M-/" 'hippie-expand)
+(global-unset-key (kbd "C-z"))
 
 ;;; These packages provide functions that others rely on so I want to
 ;;; load them early.
