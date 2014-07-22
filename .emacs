@@ -904,3 +904,7 @@
     (bind-key "C-." 'haskell-move-nested-right haskell-mode-map)
     (bind-key "C-c C-c" 'haskell-compile haskell-mode-map)
     (add-to-list 'which-func-modes 'haskell-mode)))
+
+;;; Elm:
+
+(use-package elm-mode :load-path "lisp/elm-mode/")
