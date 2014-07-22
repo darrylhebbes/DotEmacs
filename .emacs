@@ -747,7 +747,7 @@
 
 (use-package god-mode
   :load-path "lisp/god-mode/"
-  :bind ("<f9>" . god-local-mode))
+  :bind ("C-z" . god-local-mode))
 
 ;;; Wand:
 
