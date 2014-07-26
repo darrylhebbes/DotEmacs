@@ -272,6 +272,7 @@
     (key-chord-define-global "qs" 'save-buffer)
     (key-chord-define-global "q0" 'delete-window)
     (key-chord-define-global "qv" 'vc-next-action)
+    (key-chord-define-global "qh" 'mark-whole-buffer)
     (key-chord-define-global "qf" 'ido-find-file)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
