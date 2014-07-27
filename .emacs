@@ -261,6 +261,7 @@
   :init (key-chord-mode 1)
   :config
   (progn
+    (setq key-chord-two-keys-delay 0.5)
     (key-chord-define-global "##" 'server-edit)
     (key-chord-define-global "VV" 'other-window)
     (key-chord-define-global "$$" 'ispell-buffer)
