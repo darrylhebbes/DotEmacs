@@ -93,8 +93,6 @@
 (tooltip-mode 1)
 (electric-pair-mode 0)
 
-(setq-default c-default-style "linux")
-
 (put 'narrow-to-page 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
