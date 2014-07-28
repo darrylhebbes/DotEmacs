@@ -609,6 +609,7 @@
 
 (use-package php-mode
   :load-path "/home/eric/Projects/php-mode"
+  :disabled t
   :config
   (progn
     (use-package php-refactor-mode
