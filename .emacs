@@ -592,6 +592,13 @@
           cperl-indent-level 4
           cperl-indent-parens-as-block t)))
 
+;;; CC Mode:
+
+(use-package cc-mode
+  :init
+  (add-hook 'c-mode-common-hook
+            (lambda () (c-set-style "linux"))))
+
 ;;; JavaScript:
 
 (use-package js3-mode
