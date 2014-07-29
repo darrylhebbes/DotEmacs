@@ -301,7 +301,7 @@
 (use-package jump-char
   :load-path "lisp/jump-char/"
   :commands jump-char-forward
-  :config
+  :init
   (progn
     (key-chord-define-global "qj" 'jump-char-forward)))
 
