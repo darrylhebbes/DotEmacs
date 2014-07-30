@@ -389,6 +389,10 @@
   :bind ("C-c n o" . on-screen-global-mode)
   :config (on-screen-global-mode 1))
 
+(use-package centered-window-mode
+  :load-path "lisp/centered-window-mode/"
+  :config (centered-window-mode t))
+
 (use-package fancy-narrow
   :load-path "lisp/fancy-narrow/"
   :disabled t
