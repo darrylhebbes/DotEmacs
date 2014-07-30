@@ -329,6 +329,10 @@
   :bind ("C-c n l" . visual-line-mode)
   :config (add-hook 'text-mode-hook 'typo-mode))
 
+(use-package easy-kill
+  :load-path "lisp/easy-kill/"
+  :init (global-set-key [remap kill-ring-save] 'easy-kill))
+
 (use-package operate-on-number
   :load-path "lisp/operate-on-number.el/"
   :commands operate-on-number-at-point
