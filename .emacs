@@ -236,6 +236,7 @@
 (bind-key "C-c x l" 'ejmr/open-project-log-file)
 (bind-key "C-c x v" 'visit-tags-table)
 (bind-key "C-c x w" 'whitespace-cleanup)
+(bind-key "C-c x o" 'occur)
 
 ;;; Desktop managament:
 
