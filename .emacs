@@ -322,17 +322,6 @@
     (add-to-list 'sml/replacer-regexp-list '("^~/Documents/To Read/" ":To-Read:"))
     (sml/setup)))
 
-;;; Load snippets that I use in a variety of major modes.
-
-(use-package yasnippet
-  :load-path "lisp/yasnippet/"
-  :idle
-  (progn
-    (setq yas-snippet-dirs
-          (list"/home/eric/.emacs.d/lisp/yasnippet/snippets"
-               "/home/eric/Projects/DotEmacs/snippets"))
-    (yas-global-mode)))
-
 ;;; These are packages I use for plain text in general.
 
 (use-package simple
