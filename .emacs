@@ -97,7 +97,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-14"))
+(add-to-list 'default-frame-alist '(font . "Cousine-14"))
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "/usr/local/bin/conkeror")
