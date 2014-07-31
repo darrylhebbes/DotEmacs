@@ -337,7 +337,7 @@
 (use-package operate-on-number
   :load-path "lisp/operate-on-number.el/"
   :commands operate-on-number-at-point
-  :config (key-chord-define-global "NN" 'operate-on-number-at-point))
+  :init (key-chord-define-global "NN" 'operate-on-number-at-point))
 
 (use-package view-mode
   :commands view-mode
