@@ -417,7 +417,12 @@
     (add-hook 'tex-mode-hook (lambda () (typo-mode -1)))
     (add-hook 'tex-mode-hook (lambda () (flycheck-mode -1)))))
 
+(use-package spray
+  :load-path "lisp/spray/"
+  :bind ("<f5>" . spray))
+
 ;;; Share a region or buffer on <http://dpaste.com/>.
+
 (use-package dpaste
   :load-path "lisp/dpaste.el/"
   :bind ("C-c x d" . dpaste-region-or-buffer)
