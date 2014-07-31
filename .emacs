@@ -922,4 +922,4 @@
     (helm-mode 1)
     (key-chord-define-global "qb" 'helm-mini)
     (key-chord-define-global "qo" 'helm-occur)
-    (key-chord-define-global "qf" 'helm-find-files))
+    (key-chord-define-global "qf" 'helm-find-files)))
