@@ -75,6 +75,9 @@
       scroll-conservatively           most-positive-fixnum
       scroll-step                     0)
 
+(setq c-default-style '((java-mode . "java")
+                        (other . "linux")))
+
 (setq-default truncate-lines t)
 (setq-default abbrev-mode 1)
 (setq-default indent-tabs-mode nil)
@@ -598,13 +601,6 @@
           cperl-indent-level 4
           cperl-indent-parens-as-block t)))
 
-;;; CC Mode:
-
-(use-package cc-mode
-  :init
-  (add-hook 'c-mode-common-hook
-            (lambda () (c-set-style "linux"))))
-
 ;;; JavaScript:
 
 (use-package js3-mode
@@ -904,7 +900,7 @@
                             (:exec . ("%c < %s"))
                             (:default-directory . "/tmp")))
     (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
-                          
+
 ;;; OCaml:
 
 (use-package tuareg :load-path "lisp/tuareg-2.0.7/")
