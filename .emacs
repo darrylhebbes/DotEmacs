@@ -168,17 +168,11 @@
 (use-package company-mode
   :load-path "lisp/company/"
   :commands (company-mode global-company-mode)
-  :bind ("C-c x C-c" . global-company-mode))
+  :bind ("C-c x c" . global-company-mode))
 
 ;;; Use Undo Tree instead of the Emacs default:
 
 (use-package undo-tree :init (global-undo-tree-mode))
-
-;;; Replace 'C-x C-b' with Ibuffer:
-
-(use-package ibuffer
-  :bind ("C-x C-b" . ibuffer)
-  :config (setq ibuffer-default-sorting-mode 'major-mode))
 
 ;;; More buffer-related configuration.
 
@@ -239,7 +233,6 @@
 (bind-key "C-c x l" 'ejmr/open-project-log-file)
 (bind-key "C-c x v" 'visit-tags-table)
 (bind-key "C-c x w" 'whitespace-cleanup)
-(bind-key "C-c x o" 'occur)
 
 ;;; Desktop managament:
 
@@ -270,8 +263,6 @@
     ;; Pretty much everything in Enlish word beginning with 'q' is
     ;; follewed the vowel 'u'.  These chords take advantage of that.
     (key-chord-define-global "qq" 'read-only-mode)
-    (key-chord-define-global "qb" 'ido-switch-buffer)
-    (key-chord-define-global "ql" 'ido-kill-buffer)
     (key-chord-define-global "qs" 'save-buffer)
     (key-chord-define-global "q0" 'delete-window)
     (key-chord-define-global "qv" 'vc-next-action)
@@ -921,3 +912,14 @@
 ;;; Elm:
 
 (use-package elm-mode :load-path "lisp/elm-mode/")
+
+;;; Helm:
+
+(use-package helm-config
+  :load-path "lisp/emacs-helm/"
+  :config
+  (progn
+    (helm-mode 1)
+    (key-chord-define-global "qb" 'helm-mini)
+    (key-chord-define-global "qo" 'helm-occur)
+    (key-chord-define-global "qf" 'helm-find-files))
