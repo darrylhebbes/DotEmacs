@@ -267,7 +267,7 @@
     (key-chord-define-global "q0" 'delete-window)
     (key-chord-define-global "qv" 'vc-next-action)
     (key-chord-define-global "qh" 'mark-whole-buffer)
-    (key-chord-define-global "qf" 'ido-find-file)))
+    (key-chord-define-global "ql" 'ido-kill-buffer)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
 ;;; with the Expand Region package being the foundation for the rest.
