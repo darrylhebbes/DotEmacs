@@ -930,5 +930,7 @@
     (use-package helm-ag
       :load-path "lisp/emacs-helm-ag/"
       :config (key-chord-define-global "qa" 'helm-ag))
+    (use-package helm-dictionary
+      :load-path "lisp/helm-dictionary/")
     (use-package helm-open-github
       :load-path "lisp/gh.el")))
