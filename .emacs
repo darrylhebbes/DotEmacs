@@ -330,7 +330,7 @@
 
 (use-package easy-kill
   :load-path "lisp/easy-kill/"
-  :bind ("M-w" . easy-kill))
+  :config (key-chord-define-global "qw" 'easy-kill))
 
 (use-package operate-on-number
   :load-path "lisp/operate-on-number.el/"
@@ -862,7 +862,6 @@
 
 (use-package whole-line-or-region
   :load-path "lisp/whole-line-or-region/"
-  :init (global-unset-key (kbd "M-w"))
   :config (whole-line-or-region-mode 1))
 
 (use-package duplicate-thing
