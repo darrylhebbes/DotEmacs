@@ -932,5 +932,14 @@
       :config (key-chord-define-global "qa" 'helm-ag))
     (use-package helm-dictionary
       :load-path "lisp/helm-dictionary/")
+    (use-package helm-css-scss
+      :load-path "lisp/helm-css-scss/"
+      :config
+      (progn
+        (add-hook 'css-mode-hook
+                  (lambda ()
+                    (local-set-key (kbd "C-c c") 'helm-css-scss)))
+        (bind-key "C-c c" 'helm-css-scss-from-isearch isearch-mode-map)
+        (bind-key "C-c c" 'helm-css-scss-multi-from-helm-css-scss)))
     (use-package helm-open-github
       :load-path "lisp/gh.el")))
