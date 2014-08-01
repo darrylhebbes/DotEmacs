@@ -11,6 +11,7 @@
 ;;;;     - C-c s:    Swoop commands.
 ;;;;     - C-c d:    Desktop commands.
 ;;;;     - C-c e:    Engine searching commands.
+;;;;     - C-c h:    Helm commands.
 ;;;;     - C-c m:    Major modes.
 ;;;;     - C-c n:    Minor modes.
 ;;;;     - C-c q:    Quickrun commands.
@@ -148,6 +149,9 @@
 (use-package request :load-path "lisp/emacs-request/")
 (use-package syntactic-sugar :load-path "lisp/syntactic-sugar/")
 (use-package ample-regexps :load-path "lisp/ample-regexps.el/")
+(use-package logito :load-path "lisp/logito/")
+(use-package pcache :load-path "lisp/pcache/")
+(use-package gh :load-path "lisp/gh.el/")
 
 ;;; A utility to help manage minor modes:
 
@@ -925,4 +929,6 @@
     (key-chord-define-global "qf" 'helm-find-files)
     (use-package helm-ag
       :load-path "lisp/emacs-helm-ag/"
-      :config (key-chord-define-global "qa" 'helm-ag))))
+      :config (key-chord-define-global "qa" 'helm-ag))
+    (use-package helm-open-github
+      :load-path "lisp/gh.el")))
