@@ -816,15 +816,14 @@
   :init (engine-mode t)
   :config
   (progn
+    (setq engine/keymap-prefix (kbd "C-c e"))
     (defengine duckduckgo
-      "https://duckduckgo.com/?q=%s"
-      "C-c e d")
+      "https://duckduckgo.com/?q=%s" "d")
     (defengine github
-      "https://github.com/search?ref=simplesearch&q=%s"
-      "C-c e g")
+      "https://github.com/search?ref=simplesearch&q=%s" "g")
     (defengine wikipedia
-      "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
-      "C-c e w")))
+      "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s" "w")))
+      
 
 ;;; Visual Basic Mode:
 
