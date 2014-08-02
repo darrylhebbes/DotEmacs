@@ -824,7 +824,6 @@
       "https://github.com/search?ref=simplesearch&q=%s" "g")
     (defengine wikipedia
       "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s" "w")))
-      
 
 ;;; Visual Basic Mode:
 
@@ -852,6 +851,7 @@
   :load-path "lisp/elmine/")
 
 ;;; Toggle tests:
+
 (use-package toggle-test
   :load-path "lisp/toggle-test")
 
@@ -868,6 +868,7 @@
   :config (key-chord-define-global "qd" 'duplicate-thing))
 
 ;;; SQL
+
 (use-package sqlup-mode
   :load-path "lisp/sqlup-mode.el/")
 
@@ -877,13 +878,16 @@
   :load-path "lisp/dokuwiki-mode.el/")
 
 ;;; Backtrace Mode:
+
 (use-package backtrace-mode)
 
 ;;; Diffscuss:
+
 (use-package diffscuss-mode
   :load-path "lisp/diffscuss/diffscuss-mode/")
 
 ;;; Quickrun:
+
 (use-package quickrun
   :load-path "lisp/emacs-quickrun/"
   :bind ("C-c q q" . quickrun)
