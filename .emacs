@@ -152,6 +152,7 @@
 (use-package logito :load-path "lisp/logito/")
 (use-package pcache :load-path "lisp/pcache/")
 (use-package gh :load-path "lisp/gh.el/")
+(use-package truthy :load-path "lisp/truthy/")
 
 ;;; A utility to help manage minor modes:
 
