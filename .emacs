@@ -154,6 +154,7 @@
 (use-package gh :load-path "lisp/gh.el/")
 (use-package truthy :load-path "lisp/truthy/")
 (use-package ws-butler :load-path "lisp/ws-butler/")
+(use-package diminish)
 
 ;;; A utility to help manage minor modes:
 
@@ -178,7 +179,9 @@
 
 ;;; Use Undo Tree instead of the Emacs default:
 
-(use-package undo-tree :init (global-undo-tree-mode))
+(use-package undo-tree
+  :init (global-undo-tree-mode)
+  :diminish undo-tree-mode)
 
 ;;; More buffer-related configuration.
 
@@ -240,7 +243,7 @@
 (bind-key "C-c x v" 'visit-tags-table)
 (bind-key "C-c x w" 'whitespace-cleanup)
 
-;;; Desktop managament:
+;;; Desktop management:
 
 (bind-key "C-c d c" 'desktop-clear)
 (bind-key "C-c d d" 'desktop-change-dir)
@@ -258,6 +261,7 @@
 ;;; Configure the key chords I use globally.
 
 (use-package key-chord
+  :diminish key-chord-mode
   :bind ("C-c n k" . key-chord-mode)
   :init (key-chord-mode 1)
   :config
@@ -345,6 +349,7 @@
 
 (use-package autopair
   :load-path "lisp/autopair/"
+  :diminish autopair-mode
   :idle (autopair-global-mode))
 
 (use-package anchored-transpose
@@ -361,6 +366,7 @@
   :bind ("C-c n g" . writegood-mode))
 
 (use-package flyspell
+  :diminish flyspell-mode
   :bind (("C-c n s" . flyspell-mode)
          ("C-c n c" . flyspell-prog-mode))
   :config (flyspell-mode 1))
@@ -440,8 +446,9 @@
 ;;; I use Flycheck in many programming modes by default.
 
 (use-package flycheck
-  :commands global-flycheck-mode
   :load-path "lisp/flycheck/"
+  :commands global-flycheck-mode
+  :diminish flycheck-mode
   :bind ("C-c n f" . flycheck-mode)
   :init
   (use-package flycheck-pos-tip
@@ -479,6 +486,7 @@
 
 (use-package git-gutter+
   :load-path "lisp/git-gutter-plus/"
+  :diminish git-gutter+-mode
   :config (global-git-gutter+-mode 1))
 
 (use-package git-timemachine
@@ -488,6 +496,7 @@
 
 (use-package auto-indent-mode
   :load-path "lisp/auto-indent-mode.el/"
+  :diminish auto-indent-mode
   :config (auto-indent-global-mode))
 
 ;;; Tup:
@@ -561,6 +570,7 @@
 (use-package paredit-everywhere
   :load-path "lisp/paredit-everywhere/"
   :commands paredit-everywhere-mode
+  :diminish paredit-everywhere-mode
   :bind ("C-c n p" . paredit-everywhere-mode)
   :init (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
 
@@ -633,6 +643,7 @@
 
 (use-package anzu
   :load-path "lisp/emacs-anzu/"
+  :diminish anzu-mode
   :config (global-anzu-mode 1))
 
 ;;; Twitter:
@@ -928,6 +939,7 @@
 
 (use-package helm-config
   :load-path "lisp/emacs-helm/"
+  :diminish helm-mode
   :config
   (progn
     (helm-mode 1)
