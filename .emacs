@@ -395,6 +395,7 @@
   :config (on-screen-global-mode 1))
 
 (use-package centered-window-mode
+  :disabled t
   :load-path "lisp/centered-window-mode/"
   :config (centered-window-mode t))
 
