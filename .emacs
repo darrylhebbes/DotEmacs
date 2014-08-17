@@ -947,3 +947,8 @@
         (bind-key "C-c c" 'helm-css-scss-multi-from-helm-css-scss)))
     (use-package helm-open-github
       :load-path "lisp/gh.el")))
+
+;;; Dummy H Mode:
+
+(use-package dummy-h-mode
+  :mode ("\\.h$" . dummy-h-mode))
