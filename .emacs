@@ -153,6 +153,7 @@
 (use-package pcache :load-path "lisp/pcache/")
 (use-package gh :load-path "lisp/gh.el/")
 (use-package truthy :load-path "lisp/truthy/")
+(use-package ws-butler :load-path "lisp/ws-butler/")
 
 ;;; A utility to help manage minor modes:
 
@@ -500,6 +501,7 @@
   :config
   (progn
     (setq lua-indent-level 4)
+    (add-hook 'lua-mode-hook 'ws-butler-mode)
     (use-package lua-block
       :commands lua-block-mode
       :config (lua-block-mode t)))
