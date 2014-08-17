@@ -426,7 +426,7 @@
 
 (use-package spray
   :load-path "lisp/spray/"
-  :bind ("<f5>" . spray))
+  :bind ("<f5>" . spray-mode))
 
 ;;; Share a region or buffer on <http://dpaste.com/>.
 
