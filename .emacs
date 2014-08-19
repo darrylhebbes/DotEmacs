@@ -338,6 +338,11 @@
   :load-path "lisp/easy-kill/"
   :config (key-chord-define-global "qw" 'easy-kill))
 
+(use-package browse-kill-ring
+  :load-path "lisp/browse-kill-ring/"
+  :commands browse-kill-ring
+  :config (key-chord-define-global "qy" 'browse-kill-ring))
+
 (use-package operate-on-number
   :load-path "lisp/operate-on-number.el/"
   :commands operate-on-number-at-point
