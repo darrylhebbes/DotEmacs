@@ -971,3 +971,10 @@
 
 (use-package dummy-h-mode
   :mode ("\\.h$" . dummy-h-mode))
+
+;;; Neotree:
+
+(use-package neotree
+  :load-path "lisp/emacs-neotree/"
+  :commands neotree-toggle
+  :bind ("<f7>" . neotree-toggle))
