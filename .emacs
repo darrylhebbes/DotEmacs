@@ -68,7 +68,7 @@
       select-active-region t
       shift-select-mode nil
       x-select-enable-clipboard t
-      auto-hscroll-mode t
+      auto-hscroll-mode nil
       delete-active-region 'kill)
 
 (setq scroll-preserve-screen-position 'always
