@@ -519,11 +519,11 @@
     (use-package lua-block
       :commands lua-block-mode
       :config (lua-block-mode t)))
-  :mode (("\\.lua" . lua-mode)
-         ("\\.rockspec" . lua-mode)
-         ("\\.busted" . lua-mode)
-         ("\\.spec.lua" . fundamental-mode)
-         ("\\.slua" . lua-mode)))
+  :mode (("\\.lua$" . lua-mode)
+         ("\\.rockspec$" . lua-mode)
+         ("\\.busted$" . lua-mode)
+         ("\\.spec.lua$" . fundamental-mode)
+         ("\\.slua$" . lua-mode)))
 
 ;;; Rust:
 
