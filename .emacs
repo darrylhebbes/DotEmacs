@@ -653,6 +653,7 @@
 ;;; Twitter:
 
 (use-package twittering-mode
+  :disabled t
   :load-path "lisp/twittering-mode/"
   :bind ("C-c x t" . twit)
   :config
