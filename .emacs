@@ -472,6 +472,13 @@
   :load-path "lisp/recompile-on-save.el/"
   :commands recompile-on-save)
 
+;;; C and C++:
+
+(defun ejmr/enable-c-mode-preferences ()
+  (c-set-style "linux"))
+
+(add-hook 'c-mode-hook 'ejmr/enable-c-mode-preferences)
+
 ;;; Git:
 
 (use-package conf-mode
