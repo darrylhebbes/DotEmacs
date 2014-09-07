@@ -75,9 +75,6 @@
       scroll-conservatively           most-positive-fixnum
       scroll-step                     0)
 
-(setq c-default-style '((java-mode . "java")
-                        (other . "linux")))
-
 (setq-default truncate-lines t)
 (setq-default abbrev-mode 1)
 (setq-default indent-tabs-mode nil)
@@ -634,6 +631,13 @@
   (use-package json-reformat :load-path "lisp/json-reformat/"))
 
 (use-package coffee-mode :load-path "lisp/coffee-mode/")
+
+;;; Java:
+
+(defun ejmr/enable-java-mode-settings ()
+  (c-set-style "java"))
+
+(add-hook 'java-mode-hook 'ejmr/enable-java-mode-settings)
 
 ;;; PHP:
 
