@@ -990,3 +990,10 @@
   :load-path "lisp/emacs-neotree/"
   :commands neotree-toggle
   :bind ("<f7>" . neotree-toggle))
+
+;;; D:
+
+(use-package d-mode
+  :load-path "lisp/Emacs-D-Mode/"
+  :commands d-mode
+  :mode ("\\.d$" . d-mode))
