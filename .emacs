@@ -450,7 +450,7 @@
   :load-path "lisp/flycheck/"
   :commands global-flycheck-mode
   :diminish flycheck-mode
-  :bind ("C-c n f" . flycheck-mode)
+  :bind ("C-c n f" . global-flycheck-mode)
   :init
   (use-package flycheck-pos-tip
     :load-path "lisp/flycheck-pos-tip/")
