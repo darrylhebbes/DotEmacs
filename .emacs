@@ -476,6 +476,10 @@
 
 (add-hook 'c-mode-hook 'ejmr/enable-c-mode-preferences)
 
+(use-package function-args
+  :load-path "lisp/function-args/"
+  :config (fa-config-default))
+
 ;;; Git:
 
 (use-package conf-mode
