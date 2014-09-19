@@ -966,9 +966,6 @@
     (key-chord-define-global "qb" 'helm-mini)
     (key-chord-define-global "qo" 'helm-occur)
     (key-chord-define-global "qf" 'helm-find-files)
-    (use-package helm-ag
-      :load-path "lisp/emacs-helm-ag/"
-      :config (key-chord-define-global "qa" 'helm-ag))
     (use-package helm-dictionary
       :load-path "lisp/helm-dictionary/")
     (use-package helm-css-scss
