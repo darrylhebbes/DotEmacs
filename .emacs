@@ -694,7 +694,10 @@
 
     (use-package pandoc-mode
       :load-path "lisp/pandoc-mode/"
-      :config (add-hook 'markdown-mode-hook 'turn-on-pandoc))
+      :config
+      (progn
+        (add-hook 'markdown-mode-hook 'turn-on-pandoc)
+        (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)))
 
     (defun ejmr/toggle-markdown-mode-wrapping ()
       (interactive)
