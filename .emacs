@@ -990,3 +990,13 @@
   :load-path "lisp/Emacs-D-Mode/"
   :commands d-mode
   :mode ("\\.d$" . d-mode))
+
+;;; Powerline:
+
+(use-package powerline
+  :load-path "lisp/emacs-powerline/"
+  :config
+  (progn
+    (setq powerline-color1 "grey60")
+    (setq powerline-color2 "grey20")))
+
