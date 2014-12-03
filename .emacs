@@ -543,10 +543,12 @@
       :load-path "lisp/py-autopep8/"
       :config (add-hook 'before-save-hook 'py-autopep8-before-save))
     (use-package py-isort
+      :disabled t
       :load-path "lisp/py-isort.el/"
       :config (add-hook 'before-save-hook 'python-isort-before-save))
     (use-package traad
       :load-path "lisp/Traad/elisp/"
+      :disabled t
       :commands traad
       :disabled t)))
 
