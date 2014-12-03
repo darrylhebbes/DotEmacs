@@ -734,7 +734,9 @@
                                         "DONE(d)"
                                         "ABORTED(a)"))
           org-drawers '("PROPERTIES" "CLOCK" "NOTES" "LOGBOOK")
-          org-log-done 'time)))
+          org-log-done 'time)
+    (use-package org-trello
+      :load-path "lisp/org-trello/")))
 
 ;;; Forth:
 
