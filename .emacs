@@ -736,6 +736,7 @@
           org-drawers '("PROPERTIES" "CLOCK" "NOTES" "LOGBOOK")
           org-log-done 'time)
     (use-package org-trello
+      :disabled t
       :load-path "lisp/org-trello/")))
 
 ;;; Forth:
