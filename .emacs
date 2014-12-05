@@ -261,7 +261,7 @@
     (key-chord-define-global "qs" 'save-buffer)
     (key-chord-define-global "q0" 'delete-window)
     (key-chord-define-global "qv" 'vc-next-action)
-    (key-chord-define-global "qh" 'mark-whole-buffer)
+    (key-chord-define-global "qm" 'mark-whole-buffer)
     (key-chord-define-global "ql" 'ido-kill-buffer)))
 
 ;;; I use these packages to navigate and edit text in semantic terms,
@@ -737,6 +737,11 @@
                                         "ABORTED(a)"))
           org-drawers '("PROPERTIES" "CLOCK" "NOTES" "LOGBOOK")
           org-log-done 'time)
+    (use-package org-repo-todo
+      :load-path "lisp/org-repo-todo/"
+      :bind (("C-c o t" . ort/capture-todo)
+             ("C-c o c" . ort/capture-checkitem)
+             ("C-c o g" . ort/goto-todos)))
     (use-package org-trello
       :disabled t
       :load-path "lisp/org-trello/")))
