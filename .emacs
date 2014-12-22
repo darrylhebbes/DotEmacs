@@ -391,6 +391,9 @@
   :diminish flycheck-mode
   :bind ("C-c n f" . global-flycheck-mode)
   :init
+  (use-package flycheck-package
+    :load-path "lisp/flycheck-package/"
+    :init (eval-after-load 'flycheck '(flycheck-package-setup)))
   (use-package flycheck-pos-tip
     :load-path "lisp/flycheck-pos-tip/")
   :config
@@ -607,7 +610,11 @@
                                         "ON-HOLD(h)"
                                         "DELEGATED(g)"))
           org-drawers '("PROPERTIES" "CLOCK" "NOTES" "LOGBOOK")
-          org-log-done 'time)))
+          org-log-done 'time)
+    (bind-key "C-c o a" 'org-agenda)
+    (bind-key "C-c o c" 'org-capture)
+    (bind-key "C-c o l" 'org-store-link)
+    (bind-key "C-c o b" 'org-iswitchb)))
 
 ;;; Edit filenames at-point in dired:
 
