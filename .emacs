@@ -728,3 +728,8 @@
   (progn
     (setq powerline-color1 "grey60")
     (setq powerline-color2 "grey20")))
+
+;;; REST Client:
+
+(use-package restclient
+  :load-path "lisp/restclient.el/")
