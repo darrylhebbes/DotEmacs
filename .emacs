@@ -10,8 +10,6 @@
 ;;;;     - C-c t:    Text commands.
 ;;;;     - C-c s:    Swoop commands.
 ;;;;     - C-c d:    Desktop commands.
-;;;;     - C-c e:    Engine searching commands.
-;;;;     - C-c h:    Helm commands.
 ;;;;     - C-c m:    Major modes.
 ;;;;     - C-c n:    Minor modes.
 ;;;;     - C-c q:    Quickrun commands.
@@ -155,19 +153,6 @@
   :commands discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
-;;; Company mode:
-
-(use-package company-mode
-  :load-path "lisp/company/"
-  :commands (company-mode global-company-mode)
-  :bind ("C-c x c" . global-company-mode))
-
-;;; Use Undo Tree instead of the Emacs default:
-
-(use-package undo-tree
-  :init (global-undo-tree-mode)
-  :diminish undo-tree-mode)
-
 ;;; More buffer-related configuration.
 
 (use-package swoop
@@ -295,23 +280,6 @@
   (progn
     (key-chord-define-global "qj" 'jump-char-forward)))
 
-;;; Use a mode-line that looks better and is more compact.
-
-(use-package smart-mode-line
-  :disabled t
-  :load-path "lisp/smart-mode-line/"
-  :config
-  (progn
-    (setq sml/theme 'respectful
-          sml/shorten-directory t
-          sml/shorten-modes t
-          sml/name-width 40
-          sml/mode-width 'full)
-    (add-to-list 'sml/replacer-regexp-list '("^~/Projects/" ":Pro:"))
-    (add-to-list 'sml/replacer-regexp-list '("^~/Projects/LAVO/" ":LAVO:"))
-    (add-to-list 'sml/replacer-regexp-list '("^~/Documents/To Read/" ":To-Read:"))
-    (sml/setup)))
-
 ;;; These are packages I use for plain text in general.
 
 (use-package simple
@@ -390,24 +358,6 @@
   :bind ("C-c n o" . on-screen-global-mode)
   :config (on-screen-global-mode 1))
 
-(use-package centered-window-mode
-  :disabled t
-  :load-path "lisp/centered-window-mode/"
-  :config (centered-window-mode t))
-
-(use-package fancy-narrow
-  :load-path "lisp/fancy-narrow/"
-  :disabled t
-  :commands fancy-narrow-mode
-  :config (fancy-narrow-mode 1))
-
-(use-package ido-at-point
-  :load-path "lisp/ido-at-point/"
-  :disabled t
-  :commands ido-at-point-mode
-  :config (ido-at-point-mode 1)
-  :bind ("M-/" . completion-at-point))
-
 (use-package tex-mode
   :init
   (progn
@@ -465,10 +415,6 @@
 
 (add-hook 'c-mode-hook 'ejmr/enable-c-mode-preferences)
 
-(use-package function-args
-  :load-path "lisp/function-args/"
-  :config (fa-config-default))
-
 ;;; Git:
 
 (use-package conf-mode
@@ -477,21 +423,6 @@
 
 (use-package diff-mode
   :mode ("COMMIT_EDITMSG" . diff-mode))
-
-(use-package git-messenger
-  :load-path "lisp/emacs-git-messenger/"
-  :bind ("C-c x g" . git-messenger:popup-message))
-
-(use-package git-commit-mode
-  :load-path "lisp/git-modes/")
-
-(use-package git-gutter+
-  :load-path "lisp/git-gutter-plus/"
-  :diminish git-gutter+-mode
-  :config (global-git-gutter+-mode 1))
-
-(use-package git-timemachine
-  :load-path "lisp/git-timemachine/")
 
 ;;; Auto Indent:
 
@@ -508,7 +439,7 @@
 
 (use-package lua-mode
   :commands lua-mode
-  :bind ("C-c m l" . lua-mode)
+  :init (bind-key "C-c m l" 'lua-mode)
   :config
   (progn
     (setq lua-indent-level 4)
@@ -528,11 +459,6 @@
   :load-path "/home/eric/Software/Rust/src/etc/emacs/"
   :mode ("\\.rs" . rust-mode))
 
-;;; Arduino:
-
-(use-package arduino-mode
-  :load-path "lisp/arduino-mode/")
-
 ;;; Python:
 
 (use-package python-mode
@@ -541,16 +467,7 @@
   (progn
     (use-package py-autopep8
       :load-path "lisp/py-autopep8/"
-      :config (add-hook 'before-save-hook 'py-autopep8-before-save))
-    (use-package py-isort
-      :disabled t
-      :load-path "lisp/py-isort.el/"
-      :config (add-hook 'before-save-hook 'python-isort-before-save))
-    (use-package traad
-      :load-path "lisp/Traad/elisp/"
-      :disabled t
-      :commands traad
-      :disabled t)))
+      :config (add-hook 'before-save-hook 'py-autopep8-before-save))))
 
 ;;; Emacs Lisp:
 
@@ -562,7 +479,7 @@
 
 (use-package litable
   :load-path "lisp/litable/"
-  :config (bind-key "C-c t" 'litable-mode emacs-lisp-mode-map))
+  :config (bind-key "C-c b" 'litable-mode emacs-lisp-mode-map))
 
 (use-package bump-version :load-path "lisp/emacs-bump-version/")
 
@@ -576,29 +493,6 @@
   :diminish paredit-everywhere-mode
   :bind ("C-c n p" . paredit-everywhere-mode)
   :init (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
-
-;;; Racket:
-
-(use-package racket-mode
-  :load-path "lisp/racket-mode/"
-  :commands racket-mode
-  :mode ("\\.rkt" . racket-mode))
-
-;;; Clojure:
-
-(use-package clojure-mode
-  :load-path "lisp/clojure-mode/"
-  :commands clojure-mode
-  :mode ("\\.clj" . clojure-mode)
-  :init
-  (progn
-    (use-package 4clojure :load-path "lisp/4clojure.el/")
-    (use-package cider
-      :disabled t
-      :load-path "lisp/CIDER/"
-      :init
-      (progn
-        (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)))))
 
 ;;; Perl:
 
@@ -649,34 +543,9 @@
       :commands (phpunit-current-project
                  phpunit-current-class))))
 
-;;; These packages affect my modeline.
-
-(use-package anzu
-  :load-path "lisp/emacs-anzu/"
-  :diminish anzu-mode
-  :config (global-anzu-mode 1))
-
-;;; Twitter:
-
-(use-package twittering-mode
-  :disabled t
-  :load-path "lisp/twittering-mode/"
-  :bind ("C-c x t" . twit)
-  :config
-  (progn
-    (setq twittering-use-master-password t)
-    (setq twittering-number-of-tweets-on-retrieval 50)))
-
 ;;; BBCode:
 
 (use-package bbcode-mode)
-
-;;; reStructuredText:
-
-(use-package rst
-  :commands rst-mode
-  :mode ("\\.rst" . rst-mode)
-  :config (add-hook 'rst-adjust-hook 'rst-toc-update))
 
 ;;; Markdown:
 
@@ -687,7 +556,7 @@
 
 (use-package markdown-mode
   :load-path "lisp/markdown-mode/"
-  :bind ("C-c m k" . markdown-mode)
+  :init (bind-key "C-c m k" 'markdown-mode)
   :mode (("\\.md" . markdown-mode)
          ("\\.markdown" . markdown-mode))
   :config
@@ -719,7 +588,7 @@
 ;;; Mail:
 
 (use-package sendmail
-  :bind ("C-c m a" . mail-mode))
+  :init (bind-key "C-c m a" 'mail-mode))
 
 ;;; Org Mode:
 
@@ -734,53 +603,11 @@
                                         "FEEDBACK(f)"
                                         "|"
                                         "DONE(d)"
-                                        "ABORTED(a)"))
+                                        "ABORTED(a)"
+                                        "ON-HOLD(h)"
+                                        "DELEGATED(g)"))
           org-drawers '("PROPERTIES" "CLOCK" "NOTES" "LOGBOOK")
-          org-log-done 'time)
-    (use-package org-repo-todo
-      :load-path "lisp/org-repo-todo/"
-      :bind (("C-c o t" . ort/capture-todo)
-             ("C-c o c" . ort/capture-checkitem)
-             ("C-c o g" . ort/goto-todos)))
-    (use-package org-trello
-      :disabled t
-      :load-path "lisp/org-trello/")))
-
-;;; Forth:
-
-(use-package forth-mode
-  :commands forth-mode
-  :bind ("C-c m f" . forth-mode)
-  :mode (("\\.forth" . forth-mode)
-         ("\\.fth" . forth-mode)
-         ("\\.fs" . forth-mode))
-  :interpreter ("gforth" . forth-mode))
-
-;;; Zencoding and Emmet
-
-(use-package emmet-mode
-  :load-path "lisp/emmet-mode/"
-  :commands emmet-mode
-  :bind ("C-c n e" . emmet-mode)
-  :config
-  (progn
-    (add-hook 'sgml-mode-hook 'emmet-mode)
-    (add-hook 'html-mode-hook 'emmet-mode)
-    (add-hook 'nxml-mode-hook 'emmet-mode)
-    (add-hook 'css-mode-hook 'emmet-mode)))
-
-;;; fic-mode:
-
-(use-package fic-mode
-  :load-path "lisp/fic-mode/"
-  :config
-  (progn (add-hook 'prog-mode-hook 'fic-mode)))
-
-;;; howdoi:
-
-(use-package howdoi
-  :load-path "lisp/howdoi-emacs/"
-  :bind ("C-c x h" . howdoi))
+          org-log-done 'time)))
 
 ;;; Edit filenames at-point in dired:
 
@@ -794,43 +621,11 @@
   :load-path "lisp/god-mode/"
   :bind ("C-z" . god-local-mode))
 
-;;; Wand:
-
-(use-package wand
-  :load-path "lisp/wand/"
-  :bind ("C-c RET" . wand:execute)
-  :config
-  (progn
-    (setq wand:*rules*
-          (list
-           (wand:create-rule :match "https?://"
-                             :capture :whole
-                             :action browse-url-generic)
-           (wand:create-rule :match "file://"
-                             :capture :after
-                             :action find-file-other-window)))))
-
 ;;; GLSL Mode:
 
 (use-package glsl-mode
   :load-path "lisp/glsl-mode/"
   :mode ("\\.glsl" . glsl-mode))
-
-;;; GNU APL
-
-(use-package gnu-apl-mode :load-path "lisp/gnu-apl-mode/")
-
-;;; Golang:
-
-(use-package go-mode
-  :load-path "lisp/go-mode/"
-  :mode ("\\.go" . go-mode))
-
-;;; Interface for GNU Global:
-
-(use-package ggtags-mode
-  :load-path "lisp/ggtags/"
-  :commands ggtags-mode)
 
 ;;; Perl and Emacs Regular Expression Utilities:
 
@@ -839,53 +634,12 @@
   :commands rxt-global-mode
   :bind ("C-c n r" . rxt-global-mode))
 
-;;; Nimrod:
-
-(use-package nimrod-mode
-  :load-path "lisp/nimrod-mode/"
-  :mode ("\\.nim" . nimrod-mode)
-  :commands nimrod-mode)
-
-;;; Engine Mode:
-
-(use-package engine-mode
-  :load-path "lisp/engine-mode/"
-  :commands (engine-mode defengine)
-  :init (engine-mode t)
-  :config
-  (progn
-    (setq engine/keymap-prefix (kbd "C-c e"))
-    (defengine duckduckgo
-      "https://duckduckgo.com/?q=%s" "d")
-    (defengine github
-      "https://github.com/search?ref=simplesearch&q=%s" "g")
-    (defengine wikipedia
-      "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s" "w")))
-
-;;; Visual Basic Mode:
-
-(use-package visual-basic-mode
-  :commands visual-basic-mode
-  :mode ("\\.bas" . visual-basic-mode))
-
-;;; Theme Park Minor Mode:
-
-(use-package theme-park-mode
-  :load-path "lisp/theme-park-mode/"
-  :commands theme-park-mode)
-
 ;;; YAML Mode:
 
 (use-package yaml-mode
   :load-path "lisp/yaml-mode/"
   :commands yaml-mode
   :mode ("\\.yml" . yaml-mode))
-
-;;; Redmine:
-
-(use-package elmine
-  :disabled t
-  :load-path "lisp/elmine/")
 
 ;;; Toggle tests:
 
@@ -914,15 +668,6 @@
 (use-package dokuwiki-mode
   :load-path "lisp/dokuwiki-mode.el/")
 
-;;; Backtrace Mode:
-
-(use-package backtrace-mode)
-
-;;; Diffscuss:
-
-(use-package diffscuss-mode
-  :load-path "lisp/diffscuss/diffscuss-mode/")
-
 ;;; Quickrun:
 
 (use-package quickrun
@@ -936,10 +681,6 @@
                             (:default-directory . "/tmp")))
     (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
 
-;;; OCaml:
-
-(use-package tuareg :load-path "lisp/tuareg-2.0.7/")
-
 ;;; Haskell:
 
 (use-package haskell-mode-autoloads
@@ -952,35 +693,6 @@
     (bind-key "C-." 'haskell-move-nested-right haskell-mode-map)
     (bind-key "C-c C-c" 'haskell-compile haskell-mode-map)
     (add-to-list 'which-func-modes 'haskell-mode)))
-
-;;; Elm:
-
-(use-package elm-mode :load-path "lisp/elm-mode/")
-
-;;; Helm:
-
-(use-package helm-config
-  :load-path "lisp/emacs-helm/"
-  :diminish helm-mode
-  :config
-  (progn
-    (helm-mode 1)
-    (key-chord-define-global "qb" 'helm-mini)
-    (key-chord-define-global "qo" 'helm-occur)
-    (key-chord-define-global "qf" 'helm-find-files)
-    (use-package helm-dictionary
-      :load-path "lisp/helm-dictionary/")
-    (use-package helm-css-scss
-      :load-path "lisp/helm-css-scss/"
-      :config
-      (progn
-        (add-hook 'css-mode-hook
-                  (lambda ()
-                    (local-set-key (kbd "C-c c") 'helm-css-scss)))
-        (bind-key "C-c c" 'helm-css-scss-from-isearch isearch-mode-map)
-        (bind-key "C-c c" 'helm-css-scss-multi-from-helm-css-scss)))
-    (use-package helm-open-github
-      :load-path "lisp/gh.el")))
 
 ;;; Dummy H Mode:
 
@@ -1009,4 +721,3 @@
   (progn
     (setq powerline-color1 "grey60")
     (setq powerline-color2 "grey20")))
-
