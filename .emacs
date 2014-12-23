@@ -685,12 +685,12 @@
 
 (use-package quickrun
   :load-path "lisp/emacs-quickrun/"
-  :commands ((quickrun
-              quickrun-region
-              quickrun-shell
-              quickrun-compile-only
-              quickrun-replace-region
-              quickrun-add-command))
+  :commands (quickrun
+             quickrun-region
+             quickrun-shell
+             quickrun-compile-only
+             quickrun-replace-region
+             quickrun-add-command)
   :bind (("C-c q q" . quickrun)
          ("C-c q r" . quickrun-region)
          ("C-c q s" . quickrun-shell)
@@ -698,10 +698,18 @@
          ("C-c q g" . quickrun-replace-region))
   :config
   (progn
+
     (quickrun-add-command "jrnl"
                           '((:command . "jrnl")
                             (:exec . ("%c < %s"))
                             (:default-directory . "/tmp")))
+    (quickrun-add-command "doku/org"
+                          '((:command . "pandoc")
+                            (:exec . "%c --from=org --to=dokuwiki %o %s %a")
+                            (:default-directory . "/tmp"))
+                          :mode 'org-mode)
+
+    (add-to-list 'quickrun-file-alist '("\\.org$" . "doku/org"))
     (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
 
 ;;; Haskell:
