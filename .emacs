@@ -686,10 +686,16 @@
 (use-package quickrun
   :load-path "lisp/emacs-quickrun/"
   :commands ((quickrun
+              quickrun-region
+              quickrun-shell
+              quickrun-compile-only
               quickrun-replace-region
               quickrun-add-command))
   :bind (("C-c q q" . quickrun)
-         ("C-c q r" . quickrun-replace-region))
+         ("C-c q r" . quickrun-region)
+         ("C-c q s" . quickrun-shell)
+         ("C-c q c" . quickrun-compile-only)
+         ("C-c q g" . quickrun-replace-region))
   :config
   (progn
     (quickrun-add-command "jrnl"
