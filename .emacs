@@ -141,6 +141,9 @@
 (use-package nav-flash :load-path "lisp/nav-flash/")
 (use-package m-buffer :load-path "lisp/m-buffer-el/")
 (use-package diminish)
+(use-package popwin
+  :load-path "lisp/popwin-el/"
+  :init (popwin-mode 1))
 
 ;;; A utility to help manage minor modes:
 
@@ -396,6 +399,7 @@
   :init
   (use-package flycheck-package
     :load-path "lisp/flycheck-package/"
+    :commands flycheck-package-setup
     :init (eval-after-load 'flycheck '(flycheck-package-setup)))
   (use-package flycheck-pos-tip
     :load-path "lisp/flycheck-pos-tip/")
@@ -513,6 +517,7 @@
 
 (use-package js3-mode
   :load-path "lisp/js3-mode/"
+  :commands js3-mode
   :mode (("\\.json" . js3-mode)
          ("\\.js" . js3-mode))
   :init (defalias 'js-mode 'js3-mode)
@@ -563,7 +568,7 @@
   :config
   (progn
     (add-hook 'markdown-mode-hook 'typo-mode)
-    
+
     (defun ejmr/toggle-markdown-mode-wrapping ()
       (interactive)
       (let ((normal-settings (and auto-fill-function (not word-wrap))))
@@ -680,6 +685,9 @@
 
 (use-package quickrun
   :load-path "lisp/emacs-quickrun/"
+  :commands ((quickrun
+              quickrun-replace-region
+              quickrun-add-command))
   :bind (("C-c q q" . quickrun)
          ("C-c q r" . quickrun-replace-region))
   :config
@@ -712,3 +720,10 @@
 
 (use-package restclient
   :load-path "lisp/restclient.el/")
+
+;;; Shelltest Mode:
+
+(use-package shelltest-mode
+  :load-path "lisp/shelltest-mode/"
+  :commands shelltest-mode
+  :mode ("\\.shelltest" . shelltest-mode))
