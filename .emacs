@@ -703,12 +703,18 @@
                           '((:command . "jrnl")
                             (:exec . ("%c < %s"))
                             (:default-directory . "/tmp")))
-    (quickrun-add-command "doku/org"
+    (quickrun-add-command "org/doku"
                           '((:command . "pandoc")
                             (:exec . "%c --from=org --to=dokuwiki %o %s %a")
                             (:default-directory . "/tmp"))
                           :mode 'org-mode)
+    (quickrun-add-command "markdown/doku"
+                          '((:command . "pandoc")
+                            (:exec . "%c --from=markdown --to=dokuwiki %o %s %a")
+                            (:default-directory . "/tmp"))
+                          :mode 'markdown-mode)
 
+    (quickrun-set-default "markdown" "markdown/doku")
     (add-to-list 'quickrun-file-alist '("\\.org$" . "doku/org"))
     (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
 
