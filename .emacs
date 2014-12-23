@@ -94,7 +94,6 @@
 
 ;;; Setup registers for files I commonly edit.
 
-(set-register ?b '(file . "/home/eric/Documents/Personal/Brainstorming.org"))
 (set-register ?e '(file . "/home/eric/Projects/DotEmacs/.emacs"))
 (set-register ?j '(file . "/home/eric/Temp/Entry.jrnl.txt"))
 (set-register ?m '(file . "/home/eric/Temp/mail.md"))
@@ -136,8 +135,10 @@
 (use-package pcache :load-path "lisp/pcache/")
 (use-package gh :load-path "lisp/gh.el/")
 (use-package truthy :load-path "lisp/truthy/")
+(use-package grizzl :load-path "lisp/grizzl/")
 (use-package ws-butler :load-path "lisp/ws-butler/")
 (use-package deferred :load-path "lisp/emacs-deferred/")
+(use-package nav-flash :load-path "lisp/nav-flash/")
 (use-package diminish)
 
 ;;; A utility to help manage minor modes:
@@ -161,7 +162,8 @@
   :bind (("C-c s s" . swoop)
          ("C-c s m" . swoop-multi)
          ("C-c s r" . swoop-pcre-regexp)
-         ("C-c s b" . swoop-back-to-last-position)))
+         ("C-c s b" . swoop-back-to-last-position))
+  :config (setq swoop-window-split-direction: 'split-window-vertically))
 
 (use-package buffer-move
   :bind (("<M-down>" . buf-move-down)
@@ -353,12 +355,6 @@
   :load-path "lisp/button-lock/"
   :bind ("C-c n w" . wiki-nav-mode))
 
-(use-package on-screen
-  :load-path "lisp/on-screen.el/"
-  :commands on-screen-global-mode
-  :bind ("C-c n o" . on-screen-global-mode)
-  :config (on-screen-global-mode 1))
-
 (use-package tex-mode
   :init
   (progn
@@ -483,10 +479,6 @@
 
 (bind-key "C-c l" 'ejmr/byte-compile-current-elisp-file emacs-lisp-mode-map)
 
-(use-package litable
-  :load-path "lisp/litable/"
-  :config (bind-key "C-c b" 'litable-mode emacs-lisp-mode-map))
-
 (use-package bump-version :load-path "lisp/emacs-bump-version/")
 
 (use-package macrostep
@@ -567,14 +559,7 @@
   :config
   (progn
     (add-hook 'markdown-mode-hook 'typo-mode)
-
-    (use-package pandoc-mode
-      :load-path "lisp/pandoc-mode/"
-      :config
-      (progn
-        (add-hook 'markdown-mode-hook 'turn-on-pandoc)
-        (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)))
-
+    
     (defun ejmr/toggle-markdown-mode-wrapping ()
       (interactive)
       (let ((normal-settings (and auto-fill-function (not word-wrap))))
@@ -590,14 +575,21 @@
     (bind-key "C-c w" 'ejmr/toggle-markdown-mode-wrapping markdown-mode-map)
     (bind-key "C-c s" 'ejmr/insert-mail-signature markdown-mode-map)))
 
+;;; Pandoc:
+
+(use-package pandoc-mode
+  :load-path "lisp/pandoc-mode/"
+  :config
+  (progn
+    (add-hook 'markdown-mode-hook 'turn-on-pandoc)
+    (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)))
+
 ;;; Mail:
 
 (use-package sendmail
   :init (bind-key "C-c m a" 'mail-mode))
 
 ;;; Org Mode:
-
-
 
 (use-package org-install
   :load-path "lisp/org-mode/lisp/"
@@ -684,7 +676,8 @@
 
 (use-package quickrun
   :load-path "lisp/emacs-quickrun/"
-  :bind ("C-c q q" . quickrun)
+  :bind (("C-c q q" . quickrun)
+         ("C-c q r" . quickrun-replace-region))
   :config
   (progn
     (quickrun-add-command "jrnl"
@@ -705,25 +698,6 @@
     (bind-key "C-." 'haskell-move-nested-right haskell-mode-map)
     (bind-key "C-c C-c" 'haskell-compile haskell-mode-map)
     (add-to-list 'which-func-modes 'haskell-mode)))
-
-;;; Dummy H Mode:
-
-(use-package dummy-h-mode
-  :mode ("\\.h$" . dummy-h-mode))
-
-;;; Neotree:
-
-(use-package neotree
-  :load-path "lisp/emacs-neotree/"
-  :commands neotree-toggle
-  :bind ("<f7>" . neotree-toggle))
-
-;;; D:
-
-(use-package d-mode
-  :load-path "lisp/Emacs-D-Mode/"
-  :commands d-mode
-  :mode ("\\.d$" . d-mode))
 
 ;;; Powerline:
 
