@@ -364,10 +364,6 @@
     (add-hook 'tex-mode-hook (lambda () (typo-mode -1)))
     (add-hook 'tex-mode-hook (lambda () (flycheck-mode -1)))))
 
-(use-package spray
-  :load-path "lisp/spray/"
-  :bind ("<f5>" . spray-mode))
-
 ;;; HTML, XML, CSS:
 
 (use-package emmet-mode
