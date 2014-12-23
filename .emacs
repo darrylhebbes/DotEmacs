@@ -137,6 +137,7 @@
 (use-package gh :load-path "lisp/gh.el/")
 (use-package truthy :load-path "lisp/truthy/")
 (use-package ws-butler :load-path "lisp/ws-butler/")
+(use-package deferred :load-path "lisp/emacs-deferred/")
 (use-package diminish)
 
 ;;; A utility to help manage minor modes:
@@ -596,10 +597,13 @@
 
 ;;; Org Mode:
 
+
+
 (use-package org-install
   :load-path "lisp/org-mode/lisp/"
   :idle
   (progn
+    (use-package org-trello :load-path "lisp/org-trello/")
     (add-hook 'org-mode-hook 'typo-mode)
     (setq org-todo-keywords '((sequence "TODO(t)"
                                         "REVIEW(r)"
