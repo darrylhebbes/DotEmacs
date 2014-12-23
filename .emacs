@@ -139,6 +139,7 @@
 (use-package ws-butler :load-path "lisp/ws-butler/")
 (use-package deferred :load-path "lisp/emacs-deferred/")
 (use-package nav-flash :load-path "lisp/nav-flash/")
+(use-package m-buffer :load-path "lisp/m-buffer-el/")
 (use-package diminish)
 
 ;;; A utility to help manage minor modes:
@@ -170,6 +171,9 @@
          ("<M-up>" . buf-move-up)
          ("<M-left>" . buf-move-left)
          ("<M-right>" . buf-move-right)))
+
+(use-package lentic
+  :load-path "lisp/lentic/")
 
 ;;; These are some personal editing commands that I use everywhere.
 
