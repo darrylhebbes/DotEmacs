@@ -515,7 +515,6 @@
 ;;; JavaScript:
 
 (use-package js3-mode
-  :disabled t
   :load-path "lisp/js3-mode/"
   :mode (("\\.json" . js3-mode)
          ("\\.js" . js3-mode))
