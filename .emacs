@@ -368,6 +368,12 @@
   :load-path "lisp/spray/"
   :bind ("<f5>" . spray-mode))
 
+;;; HTML, XML, CSS:
+
+(use-package emmet-mode
+  :load-path "lisp/emmet-mode/"
+  :bind ("C-c m e" . emmet-mode))
+
 ;;; Share a region or buffer on <http://dpaste.com/>.
 
 (use-package dpaste
@@ -723,11 +729,7 @@
 ;;; Powerline:
 
 (use-package powerline
-  :load-path "lisp/emacs-powerline/"
-  :config
-  (progn
-    (setq powerline-color1 "grey60")
-    (setq powerline-color2 "grey20")))
+  :load-path "lisp/emacs-powerline/")
 
 ;;; REST Client:
 
