@@ -313,6 +313,11 @@
   :commands browse-kill-ring
   :config (key-chord-define-global "qy" 'browse-kill-ring))
 
+(use-package toggle-quotes
+  :load-path "lisp/toggle-quotes.el/"
+  :commands toggle-quotes
+  :bind ("C-c t q" . toggle-quotes))
+
 (use-package anyins
   :load-path "lisp/anyins/"
   :bind ("C-c m i" . anyins-mode))
