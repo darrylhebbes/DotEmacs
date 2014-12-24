@@ -791,3 +791,8 @@
   :commands toggle-window-hide-show-window
   :bind ("<f9>" . toggle-window-hide-show-window)
   :config (setq window-min-height 5))
+
+;;; Travis CI:
+
+(use-package travis
+  :load-path "lisp/emacs-travis/")
