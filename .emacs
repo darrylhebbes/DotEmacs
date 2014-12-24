@@ -796,3 +796,8 @@
 
 (use-package travis
   :load-path "lisp/emacs-travis/")
+
+;;; Try:
+
+(use-package try
+  :load-path "lisp/Try/")
