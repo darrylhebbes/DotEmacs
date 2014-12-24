@@ -801,3 +801,9 @@
 
 (use-package try
   :load-path "lisp/Try/")
+
+;;; Word Count Mode:
+
+(use-package wc-goal-mode
+  :load-path "lisp/wc-goal-mode/"
+  :bind ("C-c n M-w" . wc-goal-mode))
