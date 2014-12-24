@@ -322,6 +322,14 @@
   :commands operate-on-number-at-point
   :init (key-chord-define-global "NN" 'operate-on-number-at-point))
 
+(use-package tiny
+  :load-path "lisp/tiny/"
+  :commands tiny-expand
+  :config
+  (progn
+    (tiny-setup-default)
+    (key-chord-define-global "qt" 'tiny-expand)))
+
 (use-package view-mode
   :commands view-mode
   :bind ("C-c n v" . view-mode))
