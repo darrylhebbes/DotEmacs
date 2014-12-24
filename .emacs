@@ -811,3 +811,9 @@
 (use-package wc-goal-mode
   :load-path "lisp/wc-goal-mode/"
   :bind ("C-c n M-w" . wc-goal-mode))
+
+;;; Folding:
+
+(use-package yafolding
+  :load-path "lisp/yafolding.el/"
+  :bind ("C-c x y" . yafolding-toggle-all))
