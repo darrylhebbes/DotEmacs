@@ -304,6 +304,10 @@
   :bind ("C-c n l" . visual-line-mode)
   :config (add-hook 'text-mode-hook 'typo-mode))
 
+(use-package centered-window-mode
+  :load-path "lisp/centered-window-mode/"
+  :config (centered-window-mode 1))
+
 (use-package easy-kill
   :load-path "lisp/easy-kill/"
   :config (key-chord-define-global "qw" 'easy-kill))
