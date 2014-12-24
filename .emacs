@@ -140,6 +140,7 @@
 (use-package deferred :load-path "lisp/emacs-deferred/")
 (use-package nav-flash :load-path "lisp/nav-flash/")
 (use-package m-buffer :load-path "lisp/m-buffer-el/")
+(use-package alert :load-path "lisp/alert/")
 (use-package diminish)
 (use-package popwin
   :load-path "lisp/popwin-el/"
@@ -159,7 +160,7 @@
   :commands discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
-;;; More buffer-related configuration.
+;;; More buffer-related settings:
 
 (use-package swoop
   :load-path "lisp/emacs-swoop/"
@@ -177,6 +178,10 @@
 
 (use-package lentic
   :load-path "lisp/lentic/")
+
+(use-package highlight-blocks
+  :load-path "lisp/highlight-blocks"
+  :bind ("C-c n b" . highlight-blocks-mode))
 
 ;;; These are some personal editing commands that I use everywhere.
 
@@ -306,6 +311,10 @@
   :commands browse-kill-ring
   :config (key-chord-define-global "qy" 'browse-kill-ring))
 
+(use-package anyins
+  :load-path "lisp/anyins/"
+  :bind ("C-c m i" . anyins-mode))
+
 (use-package operate-on-number
   :load-path "lisp/operate-on-number.el/"
   :commands operate-on-number-at-point
@@ -339,6 +348,9 @@
          ("C-c n c" . flyspell-prog-mode))
   :config (flyspell-mode 1))
 
+(use-package hl-sentence
+  :load-path "lisp/hl-sentence/")
+
 (use-package writeroom-mode
   :load-path "lisp/writeroom-mode/")
 
@@ -362,6 +374,9 @@
   :load-path "lisp/button-lock/"
   :bind ("C-c n w" . wiki-nav-mode))
 
+(use-package page-break-lines
+  :load-path "lisp/page-break-lines/")
+
 (use-package tex-mode
   :init
   (progn
@@ -374,7 +389,9 @@
   :load-path "lisp/emmet-mode/"
   :bind ("C-c m e" . emmet-mode))
 
-;;; Share a region or buffer on <http://dpaste.com/>.
+;;; Share a region or buffer:
+
+(use-package pastebin)
 
 (use-package dpaste
   :load-path "lisp/dpaste.el/"
@@ -419,6 +436,13 @@
   :commands recompile-on-save)
 
 ;;; C and C++:
+
+(use-package delim-kill
+  :bind ("C-c n d" . delim-kill))
+
+(use-package never-comment
+  :commands never-comment-init
+  :config (never-comment-init))
 
 (defun ejmr/enable-c-mode-preferences ()
   (c-set-style "linux"))
