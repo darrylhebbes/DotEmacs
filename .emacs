@@ -415,6 +415,10 @@
   (progn
     (setq dpaste-poster "Eric James Michael Ritz")))
 
+(use-package yagist
+  :load-path "lisp/yagist.el/"
+  :init (setq yagist-github-token "9b5e95348e3de4b793de5e1d27d5871ef3ef8032"))
+
 ;;; My Pomodoro timer of choice.
 
 (use-package tomatinho
