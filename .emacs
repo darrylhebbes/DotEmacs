@@ -269,7 +269,9 @@
 
 (use-package expand-region
   :load-path "lisp/expand-region.el/"
-  :bind ("C-=" . er/expand-region)
+  :bind (("C-=" . er/expand-region)
+         ("C-0" . whole-line-or-region-kill-ring-save)
+         ("C-9" . whole-line-or-region-kill-region))
   :config
   (progn
     (use-package change-inner
