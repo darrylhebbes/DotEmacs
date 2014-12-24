@@ -641,10 +641,7 @@
                                         "DELEGATED(g)"))
           org-drawers '("PROPERTIES" "CLOCK" "NOTES" "LOGBOOK")
           org-log-done 'time)
-    (bind-key "C-c o a" 'org-agenda)
-    (bind-key "C-c o c" 'org-capture)
-    (bind-key "C-c o l" 'org-store-link)
-    (bind-key "C-c o b" 'org-iswitchb)))
+    (bind-key "C-c a" 'org-agenda org-mode-map)))
 
 ;;; Edit filenames at-point in dired:
 
