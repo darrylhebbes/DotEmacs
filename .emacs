@@ -783,3 +783,11 @@
   :load-path "lisp/shelltest-mode/"
   :commands shelltest-mode
   :mode ("\\.shelltest" . shelltest-mode))
+
+;;; Toggle Window:
+
+(use-package toggle-window
+  :load-path "lisp/toggle-window/"
+  :commands toggle-window-hide-show-window
+  :bind ("<f9>" . toggle-window-hide-show-window)
+  :config (setq window-min-height 5))
