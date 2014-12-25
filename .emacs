@@ -15,6 +15,9 @@
 ;;;;     - C-c q:    Quickrun commands.
 ;;;;     - C-c x:    General commands.
 ;;;;
+;;;; All key chords consist of repeat a character twice, e.g 'NN', or
+;;;; the letter 'q' followed by anything except 'u', e.g. 'qs'.
+;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; First, setup my load path before anything else so that Emacs can
@@ -80,14 +83,23 @@
 (tooltip-mode 1)
 (electric-pair-mode 0)
 
+;;; By default these commands are disabled, but I use them.
+
 (put 'narrow-to-page 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+;;; Default Font:
+
 (add-to-list 'default-frame-alist '(font . "Cousine-14"))
+
+;;; Browser:
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "/usr/local/bin/conkeror")
+
+;;; This sets the location of my custom file, i.e. all of the settings
+;;; I change via commands like `customize-group'.
 
 (setq custom-file "/home/eric/.emacs.d/lisp/.emacs-custom.el")
 (load custom-file 'noerror)
@@ -146,7 +158,9 @@
   :load-path "lisp/popwin-el/"
   :init (popwin-mode 1))
 
-;;; A utility to help manage minor modes:
+;;; A utility to help manage minor modes.  It gives me a menu where I
+;;; can enable or disable each minor mode.  And it shows me which
+;;; minor modes are active.
 
 (use-package manage-minor-mode
   :load-path "lisp/manage-minor-mode/"
@@ -160,7 +174,10 @@
   :commands discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
-;;; More buffer-related settings:
+;;; Swoop lets me search buffers.  It is more useful than the standard
+;;; C-s because I can search multiple buffers at once and search using
+;;; Perl-compatible regular expressions, which I am more comfortable
+;;; with than Elisp's.
 
 (use-package swoop
   :load-path "lisp/emacs-swoop/"
@@ -170,14 +187,25 @@
          ("C-c s b" . swoop-back-to-last-position))
   :config (setq swoop-window-split-direction: 'split-window-vertically))
 
+;;; Commands to move the location of buffers on screen, i.e. moving
+;;; around their windows.
+
 (use-package buffer-move
   :bind (("<M-down>" . buf-move-down)
          ("<M-up>" . buf-move-up)
          ("<M-left>" . buf-move-left)
          ("<M-right>" . buf-move-right)))
 
+;;; Lentic allows me to view the same file in more than one buffer
+;;; with the benefit that each buffer can use a separate major mode.
+;;; This is very useful for writing documents with code, where I may
+;;; have one buffer in Markdown Mode and the other in the appropriate
+;;; programming language mode.
+
 (use-package lentic
   :load-path "lisp/lentic/")
+
+;;; Highlight the current block of code in which the point resides.
 
 (use-package highlight-blocks
   :load-path "lisp/highlight-blocks"
@@ -270,6 +298,8 @@
 (use-package expand-region
   :load-path "lisp/expand-region.el/"
   :bind (("C-=" . er/expand-region)
+         ;; These next two bindings are because I use Dvorak and they
+         ;; are easy to reach.
          ("C-0" . whole-line-or-region-kill-ring-save)
          ("C-9" . whole-line-or-region-kill-region))
   :config
@@ -285,10 +315,10 @@
 (use-package ace-jump-mode
   :bind ("C-c SPC" . ace-jump-mode))
 
-(use-package ace-link
-  :load-path "lisp/ace-link/"
-  :commands ace-link-setup-default
-  :config (ace-link-setup-default))
+;;; Generates classic Lorem Ipsum filler content.
+(use-package lorem-ipsum
+  :load-path "lisp/emacs-lorem-ipsum/"
+  :config (lorem-ipsum-use-default-bindings))
 
 (use-package jump-char
   :load-path "lisp/jump-char/"
@@ -304,32 +334,51 @@
   :bind ("C-c n l" . visual-line-mode)
   :config (add-hook 'text-mode-hook 'typo-mode))
 
+;;; This will center the contents of a window if I only have one
+;;; window open.  It makes better use of screen space.
+
 (use-package centered-window-mode
   :load-path "lisp/centered-window-mode/"
   :config (centered-window-mode 1))
+
+;;; Faster navigation of the mark ring.
+(use-package mark-tools
+  :load-path "lisp/emacs-mark-tools/")
+
+;;; A semantic kill command which lets me do such things as kill a
+;;; sexp or filename at point.
 
 (use-package easy-kill
   :load-path "lisp/easy-kill/"
   :config (key-chord-define-global "qw" 'easy-kill))
 
 (use-package browse-kill-ring
-  :load-path "lisp/browse-kill-ring/"
   :commands browse-kill-ring
-  :config (key-chord-define-global "qy" 'browse-kill-ring))
+  :config (key-chord-define-global "C-c x k" 'browse-kill-ring))
+
+;;; Switches between double and single quotes.
 
 (use-package toggle-quotes
   :load-path "lisp/toggle-quotes.el/"
   :commands toggle-quotes
   :bind ("C-c t q" . toggle-quotes))
 
+;;; Insert content from the kill ring or from the output of shell
+;;; commands.
+
 (use-package anyins
   :load-path "lisp/anyins/"
   :bind ("C-c m i" . anyins-mode))
+
+;;; Increases the number at point.
 
 (use-package operate-on-number
   :load-path "lisp/operate-on-number.el/"
   :commands operate-on-number-at-point
   :init (key-chord-define-global "NN" 'operate-on-number-at-point))
+
+;;; This package provides a shorthand for enumerating lists.  See the
+;;; README at <https://github.com/abo-abo/tiny> for examples.
 
 (use-package tiny
   :load-path "lisp/tiny/"
@@ -351,10 +400,15 @@
 (use-package anchored-transpose
   :bind ("C-c t t" . anchored-transpose))
 
+;;; Inserts fancy characters like true ellipses, en and em-dashes,
+;;; ligatures, and some mathematical symbols.
+
 (use-package typo
   :load-path "lisp/typoel/"
-  :commands typo-mode
-  :bind ("C-c n t" . typo-mode))
+  :commands global-typo-mode
+  :bind ("C-c n t" . global-typo-mode))
+
+;;; Highlights poor English writing.
 
 (use-package writegood-mode
   :load-path "lisp/writegood-mode/"
@@ -367,15 +421,19 @@
          ("C-c n c" . flyspell-prog-mode))
   :config (flyspell-mode 1))
 
+;;; Highlights the current sentence at point, which I find helps me
+;;; read documents more easily.
+
 (use-package hl-sentence
-  :load-path "lisp/hl-sentence/")
+  :load-path "lisp/hl-sentence/"
+  :config (hl-sentence-mode 1))
+
+;;; Mode for distraction-free writing.
 
 (use-package writeroom-mode
   :load-path "lisp/writeroom-mode/")
 
-(use-package screenwriter
-  :load-path "lisp/screenwriter"
-  :commands screenwriter-mode)
+;;; Allows entering a Unicode character by its name.
 
 (use-package unipoint
   :load-path "lisp/unipoint/"
@@ -384,17 +442,24 @@
   :bind (("C-c \\" . unipoint-insert)
          ("C-\\" . toggle-input-method)))
 
+;;; Displays entire Unicode blocks.
+
 (use-package charmap :load-path "lisp/charmap/")
 
-(use-package ids-edit
-  :load-path "lisp/ids-edit/")
+;;; A minor mode which recognizes [[wiki-style]] double-bracketed
+;;; navigation links in any type of file, providing the ability to
+;;; jump between sections, between files, or open external links.
 
 (use-package wiki-nav
   :load-path "lisp/button-lock/"
-  :bind ("C-c n w" . wiki-nav-mode))
+  :bind ("C-c n w" . wiki-nav-mode)
+  :config (wiki-nav-mode 1))
+
+;;; Shows horizontal lines where there are page breaks.
 
 (use-package page-break-lines
-  :load-path "lisp/page-break-lines/")
+  :load-path "lisp/page-break-lines/"
+  :config (global-page-break-lines-mode 1))
 
 (use-package tex-mode
   :init
@@ -402,13 +467,13 @@
     (add-hook 'tex-mode-hook (lambda () (typo-mode -1)))
     (add-hook 'tex-mode-hook (lambda () (flycheck-mode -1)))))
 
-;;; HTML, XML, CSS:
+;;; Shorthand notation for HTML, XML, and CSS.
 
 (use-package emmet-mode
   :load-path "lisp/emmet-mode/"
   :bind ("C-c m e" . emmet-mode))
 
-;;; Share a region or buffer:
+;;; Share a region or buffer with different sites.
 
 (use-package pastebin)
 
@@ -463,10 +528,6 @@
 (use-package delim-kill
   :bind ("C-c n d" . delim-kill))
 
-(use-package never-comment
-  :commands never-comment-init
-  :config (never-comment-init))
-
 (defun ejmr/enable-c-mode-preferences ()
   (c-set-style "linux"))
 
@@ -478,6 +539,10 @@
   :mode ((".gitignore" . conf-mode)
          (".gitconfig" . conf-mode)))
 
+;;; I use the verbose flag with git-commit, which includes a diff of
+;;; what I'm about to commit, and so I use this mode so I can easily
+;;; read that diff.
+
 (use-package diff-mode
   :mode ("COMMIT_EDITMSG" . diff-mode))
 
@@ -488,7 +553,7 @@
   :diminish auto-indent-mode
   :config (auto-indent-global-mode))
 
-;;; Tup:
+;;; Tup build tool:
 
 (use-package tup-mode)
 
@@ -501,14 +566,11 @@
   (progn
     (setq lua-indent-level 4)
     (add-hook 'lua-mode-hook 'ws-butler-mode)
-    (use-package lua-block
-      :commands lua-block-mode
-      :config (lua-block-mode t)))
-  :mode (("\\.lua$" . lua-mode)
-         ("\\.rockspec$" . lua-mode)
-         ("\\.busted$" . lua-mode)
-         ("\\.spec.lua$" . fundamental-mode)
-         ("\\.slua$" . lua-mode)))
+    :mode (("\\.lua$" . lua-mode)
+           ("\\.rockspec$" . lua-mode)
+           ("\\.busted$" . lua-mode)
+           ("\\.spec.lua$" . fundamental-mode)
+           ("\\.slua$" . lua-mode))))
 
 ;;; Rust:
 
@@ -526,7 +588,7 @@
       :load-path "lisp/py-autopep8/"
       :config (add-hook 'before-save-hook 'py-autopep8-before-save))))
 
-;;; Emacs Lisp:
+;;; Emacs Lisp
 
 (defun ejmr/byte-compile-current-elisp-file ()
   (interactive)
@@ -534,11 +596,27 @@
 
 (bind-key "C-c l" 'ejmr/byte-compile-current-elisp-file emacs-lisp-mode-map)
 
+;;; Extract the header comment of an Elisp file into a Markdown
+;;; document suitable for a README, particularly on GitHub.
+
+(use-package md-readme :load-path "lisp/md-readme/")
+
 (use-package bump-version :load-path "lisp/emacs-bump-version/")
+  
+;;; Steps through macro expansion.
 
 (use-package macrostep
   :load-path "lisp/macrostep/"
   :config (bind-key "C-c C-e" 'macrostep-expand emacs-lisp-mode-map))
+
+;;; Indicate on the mode-line if a variable has lexical binding or is
+;;; a dynamic variable.
+
+(use-package lexbind-mode
+  :load-path "lisp/lexbind-mode/"
+  :config (add-hook 'emacs-lisp-mode-hook 'lexbind-mode))
+
+;;; Make paredit commands available in all programming modes.
 
 (use-package paredit-everywhere
   :load-path "lisp/paredit-everywhere/"
@@ -571,6 +649,8 @@
   :interpreter "node"
   :config
   (use-package json-reformat :load-path "lisp/json-reformat/"))
+
+;;; CoffeeScript
 
 (use-package coffee-mode :load-path "lisp/coffee-mode/")
 
@@ -616,6 +696,10 @@
   (progn
     (add-hook 'markdown-mode-hook 'typo-mode)
 
+    ;; When writing email I do not want to use auto-fill-mode because
+    ;; I do not want arbitrary line-breaks in the message.  This
+    ;; function toggles between the settings I prefer for writing
+    ;; email and those I prefer for everything else.
     (defun ejmr/toggle-markdown-mode-wrapping ()
       (interactive)
       (let ((normal-settings (and auto-fill-function (not word-wrap))))
@@ -649,7 +733,7 @@
 
 (use-package org-install
   :load-path "lisp/org-mode/lisp/"
-  :idle
+  :config
   (progn
     (use-package org-trello :load-path "lisp/org-trello/")
     (add-hook 'org-mode-hook 'typo-mode)
@@ -698,15 +782,18 @@
   :commands yaml-mode
   :mode ("\\.yml" . yaml-mode))
 
-;;; Toggle tests:
+;;; A mode for toggling between source files and tests.  I have not
+;;; yet configured this because you must make the library aware of
+;;; each project and where it can find the unit tests.
 
 (use-package toggle-test
-  :load-path "lisp/toggle-test")
+  :load-path "lisp/toggle-test/")
 
-;;; Manipulate Regions:
+;;; Packages to manipulate regions.
 
 (use-package wrap-region
-  :load-path "lisp/wrap-region/")
+  :load-path "lisp/wrap-region.el/"
+  :config (wrap-region-mode t))
 
 (use-package whole-line-or-region
   :load-path "lisp/whole-line-or-region/"
@@ -720,7 +807,7 @@
 (use-package sqlup-mode
   :load-path "lisp/sqlup-mode.el/")
 
-;;; Dokuwiki:
+;;; DokuWiki:
 
 (use-package dokuwiki-mode
   :load-path "lisp/dokuwiki-mode.el/")
@@ -785,14 +872,7 @@
 (use-package restclient
   :load-path "lisp/restclient.el/")
 
-;;; Shelltest Mode:
-
-(use-package shelltest-mode
-  :load-path "lisp/shelltest-mode/"
-  :commands shelltest-mode
-  :mode ("\\.shelltest" . shelltest-mode))
-
-;;; Toggle Window:
+;;; Increases the amount of screen space for the current window.
 
 (use-package toggle-window
   :load-path "lisp/toggle-window/"
@@ -800,17 +880,14 @@
   :bind ("<f9>" . toggle-window-hide-show-window)
   :config (setq window-min-height 5))
 
-;;; Travis CI:
+;;; Interface with Travis CI:
 
 (use-package travis
   :load-path "lisp/emacs-travis/")
 
-;;; Try:
-
-(use-package try
-  :load-path "lisp/Try/")
-
-;;; Word Count Mode:
+;;; Word Count Mode.  It keeps track of the number of characters,
+;;; words, and lines entered, and allows me to set goals so that I can
+;;; motivate myself to write 'X' amount of material at a time.
 
 (use-package wc-goal-mode
   :load-path "lisp/wc-goal-mode/"
@@ -821,3 +898,12 @@
 (use-package yafolding
   :load-path "lisp/yafolding.el/"
   :bind ("C-c x y" . yafolding-toggle-all))
+
+;;; Better navigation for selecting open files and buffers.  The
+;;; commands begin with 'C-c l' as a mnemonic for 'lusty'.
+
+(use-package lusty-explorer
+  :load-path "lisp/lusty-emacs/"
+  :bind (("C-c l f" . lusty-file-explorer)
+         ("C-c l b" . lusty-buffer-explorer)
+         ("C-c l o" . lusty-open-this)))
