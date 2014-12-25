@@ -564,13 +564,12 @@
   :init (bind-key "C-c m l" 'lua-mode)
   :config
   (progn
-    (setq lua-indent-level 4)
-    (add-hook 'lua-mode-hook 'ws-butler-mode)
-    :mode (("\\.lua$" . lua-mode)
-           ("\\.rockspec$" . lua-mode)
-           ("\\.busted$" . lua-mode)
-           ("\\.spec.lua$" . fundamental-mode)
-           ("\\.slua$" . lua-mode))))
+    (setq lua-indent-level 4))
+  :mode (("\\.lua$" . lua-mode)
+         ("\\.rockspec$" . lua-mode)
+         ("\\.busted$" . lua-mode)
+         ("\\.spec.lua$" . fundamental-mode)
+         ("\\.slua$" . lua-mode)))
 
 ;;; Rust:
 
