@@ -653,10 +653,7 @@
   :init (defalias 'js-mode 'js3-mode)
   :interpreter "node"
   :config
-  (use-package json-reformat :load-path "lisp/json-reformat/")
-  (use-package js2-refactor
-    :load-path "lisp/js2-refactor.el/"
-    :config (js2r-add-keybindings-with-prefix "C-c C-r")))
+  (use-package json-reformat :load-path "lisp/json-reformat/"))
 
 ;;; CoffeeScript
 
