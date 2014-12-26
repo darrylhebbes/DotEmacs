@@ -309,6 +309,9 @@
       :bind (("M-i" . change-inner)
              ("M-o" . change-outer)))))
 
+;;; Unfill:
+(use-package unfill :load-path "lisp/unfill/")
+
 ;;; These packages also help navigate through text but are more
 ;;; focused on jumping to specific characters or fixed positions.
 
@@ -471,7 +474,10 @@
 
 (use-package emmet-mode
   :load-path "lisp/emmet-mode/"
-  :bind ("C-c m e" . emmet-mode))
+  :bind ("C-c m e" . emmet-mode)
+  :init (progn
+          (add-hook 'sgml-mode-hook 'emmet-mode)
+          (add-hook 'css-mode-hook  'emmet-mode)))V
 
 ;;; Share a region or buffer with different sites.
 
