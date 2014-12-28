@@ -325,10 +325,11 @@
 
 (use-package jump-char
   :load-path "lisp/jump-char/"
-  :commands jump-char-forward
+  :commands (jump-char-forward jump-char-backward)
   :init
   (progn
-    (key-chord-define-global "qj" 'jump-char-forward)))
+    (key-chord-define-global "qj" 'jump-char-forward)
+    (key-chord-define-global "q;" 'jump-char-backward)))
 
 ;;; These are packages I use for plain text in general.
 
