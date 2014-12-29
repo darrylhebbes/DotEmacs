@@ -342,6 +342,7 @@
 ;;; window open.  It makes better use of screen space.
 
 (use-package centered-window-mode
+  :disabled t
   :load-path "lisp/centered-window-mode/"
   :config (centered-window-mode 1))
 
@@ -857,7 +858,7 @@
 
     (quickrun-set-default "markdown" "markdown/doku")
     (add-to-list 'quickrun-file-alist '("\\.xml$" . "xml/fmt"))
-    (add-to-list 'quickrun-file-alist '("\\.org$" . "doku/org"))
+    (add-to-list 'quickrun-file-alist '("\\.org$" . "org/doku"))
     (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
 
 ;;; Haskell:
