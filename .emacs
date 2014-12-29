@@ -849,8 +849,14 @@
                             (:exec . "%c --from=markdown --to=dokuwiki %o %s %a")
                             (:default-directory . "/tmp"))
                           :mode 'markdown-mode)
+    (quickrun-add-command "xml/fmt"
+                          '((:command . "xml-fmt")
+                            (:exec . "%c %s")
+                            (:default-directory . "/tmp"))
+                          :mode 'nxml-mode)
 
     (quickrun-set-default "markdown" "markdown/doku")
+    (add-to-list 'quickrun-file-alist '("\\.xml$" . "xml/fmt"))
     (add-to-list 'quickrun-file-alist '("\\.org$" . "doku/org"))
     (add-to-list 'quickrun-file-alist '("\\.jrnl.txt$" . "jrnl"))))
 
