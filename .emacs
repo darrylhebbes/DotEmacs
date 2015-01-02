@@ -271,6 +271,16 @@
     (add-hook 'emacs-startup-hook 'recentf-open-files))
   :bind ("<f8>" . recentf-open-files))
 
+;;; Find temporary files:
+
+(use-package find-temp-file
+  :load-path "lisp/find-temp-file/"
+  :bind ("C-c x t" . find-temp-file)
+  :config
+  (progn
+    (setq find-temp-file-directory "/tmp")
+    (setq find-temp-template-default "%M/%N-%T.%E")))
+
 ;;; Configure the key chords I use globally.
 
 (use-package key-chord
@@ -310,6 +320,7 @@
              ("M-o" . change-outer)))))
 
 ;;; Unfill:
+
 (use-package unfill :load-path "lisp/unfill/")
 
 ;;; These packages also help navigate through text but are more
@@ -319,6 +330,7 @@
   :bind ("C-c SPC" . ace-jump-mode))
 
 ;;; Generates classic Lorem Ipsum filler content.
+
 (use-package lorem-ipsum
   :load-path "lisp/emacs-lorem-ipsum/"
   :config (lorem-ipsum-use-default-bindings))
