@@ -164,14 +164,12 @@
 
 (use-package manage-minor-mode
   :load-path "lisp/manage-minor-mode/"
-  :commands manage-minor-mode
   :bind ("C-c x n" . manage-minor-mode))
 
 ;;; Show key-bindings for the current major mode:
 
 (use-package discover-my-major
   :load-path "lisp/discover-my-major/"
-  :commands discover-my-major
   :bind ("C-h C-m" . discover-my-major))
 
 ;;; Swoop lets me search buffers.  It is more useful than the standard
@@ -337,7 +335,6 @@
 
 (use-package jump-char
   :load-path "lisp/jump-char/"
-  :commands (jump-char-forward jump-char-backward)
   :init
   (progn
     (key-chord-define-global "qj" 'jump-char-forward)
@@ -346,7 +343,6 @@
 ;;; These are packages I use for plain text in general.
 
 (use-package simple
-  :commands visual-line-mode
   :bind ("C-c n l" . visual-line-mode)
   :config (add-hook 'text-mode-hook 'typo-mode))
 
@@ -359,6 +355,7 @@
   :config (centered-window-mode 1))
 
 ;;; Faster navigation of the mark ring.
+
 (use-package mark-tools
   :load-path "lisp/emacs-mark-tools/")
 
@@ -370,14 +367,13 @@
   :config (key-chord-define-global "qw" 'easy-kill))
 
 (use-package browse-kill-ring
-  :commands browse-kill-ring
-  :config (key-chord-define-global "C-c x k" 'browse-kill-ring))
+  :load-path "lisp/browse-kill-ring/"
+  :bind ("C-c x k" . browse-kill-ring))
 
 ;;; Switches between double and single quotes.
 
 (use-package toggle-quotes
   :load-path "lisp/toggle-quotes.el/"
-  :commands toggle-quotes
   :bind ("C-c t q" . toggle-quotes))
 
 ;;; Insert content from the kill ring or from the output of shell
@@ -391,7 +387,6 @@
 
 (use-package operate-on-number
   :load-path "lisp/operate-on-number.el/"
-  :commands operate-on-number-at-point
   :init (key-chord-define-global "NN" 'operate-on-number-at-point))
 
 ;;; This package provides a shorthand for enumerating lists.  See the
@@ -399,14 +394,12 @@
 
 (use-package tiny
   :load-path "lisp/tiny/"
-  :commands tiny-expand
   :config
   (progn
     (tiny-setup-default)
     (key-chord-define-global "qt" 'tiny-expand)))
 
 (use-package view-mode
-  :commands view-mode
   :bind ("C-c n v" . view-mode))
 
 (use-package autopair
@@ -422,14 +415,12 @@
 
 (use-package typo
   :load-path "lisp/typoel/"
-  :commands global-typo-mode
   :bind ("C-c n t" . global-typo-mode))
 
 ;;; Highlights poor English writing.
 
 (use-package writegood-mode
   :load-path "lisp/writegood-mode/"
-  :commands writegood-mode
   :bind ("C-c n g" . writegood-mode))
 
 (use-package flyspell
@@ -491,7 +482,7 @@
   :bind ("C-c m e" . emmet-mode)
   :init (progn
           (add-hook 'sgml-mode-hook 'emmet-mode)
-          (add-hook 'css-mode-hook  'emmet-mode)))V
+          (add-hook 'css-mode-hook  'emmet-mode)))
 
 ;;; Share a region or buffer with different sites.
 
@@ -518,13 +509,11 @@
 
 (use-package flycheck
   :load-path "lisp/flycheck/"
-  :commands global-flycheck-mode
   :diminish flycheck-mode
   :bind ("C-c n f" . global-flycheck-mode)
   :init
   (use-package flycheck-package
     :load-path "lisp/flycheck-package/"
-    :commands flycheck-package-setup
     :init (eval-after-load 'flycheck '(flycheck-package-setup)))
   (use-package flycheck-pos-tip
     :load-path "lisp/flycheck-pos-tip/")
@@ -533,15 +522,13 @@
     (global-flycheck-mode 1)
     (use-package flycheck-tip
       :disabled t
-      :commands flycheck-tip-cycle
       :load-path "lisp/flycheck-tip/"
       :bind ("C-c ! t" . flycheck-tip-cycle))))
 
 ;;; Make it easy to run `M-x compile` when saving source files:
 
 (use-package recompile-on-save
-  :load-path "lisp/recompile-on-save.el/"
-  :commands recompile-on-save)
+  :load-path "lisp/recompile-on-save.el/")
 
 ;;; C and C++:
 
@@ -580,7 +567,6 @@
 ;;; Lua:
 
 (use-package lua-mode
-  :commands lua-mode
   :init (bind-key "C-c m l" 'lua-mode)
   :config
   (progn
@@ -639,7 +625,6 @@
 
 (use-package paredit-everywhere
   :load-path "lisp/paredit-everywhere/"
-  :commands paredit-everywhere-mode
   :diminish paredit-everywhere-mode
   :bind ("C-c n p" . paredit-everywhere-mode)
   :init (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
@@ -661,7 +646,6 @@
 
 (use-package js3-mode
   :load-path "lisp/js3-mode/"
-  :commands js3-mode
   :mode (("\\.json" . js3-mode)
          ("\\.js" . js3-mode))
   :init (defalias 'js-mode 'js3-mode)
@@ -691,9 +675,7 @@
       :load-path "lisp/php-refactor-mode.el/"
       :config (php-refactor-mode))
     (use-package phpunit
-      :load-path "lisp/phpunit.el/"
-      :commands (phpunit-current-project
-                 phpunit-current-class))))
+      :load-path "lisp/phpunit.el/")))
 
 ;;; BBCode:
 
@@ -790,14 +772,12 @@
 
 (use-package pcre2el
   :load-path "lisp/pcre2el/"
-  :commands rxt-global-mode
   :bind ("C-c n r" . rxt-global-mode))
 
 ;;; YAML Mode:
 
 (use-package yaml-mode
   :load-path "lisp/yaml-mode/"
-  :commands yaml-mode
   :mode ("\\.yml" . yaml-mode))
 
 ;;; A mode for toggling between source files and tests.  I have not
@@ -834,12 +814,6 @@
 
 (use-package quickrun
   :load-path "lisp/emacs-quickrun/"
-  :commands (quickrun
-             quickrun-region
-             quickrun-shell
-             quickrun-compile-only
-             quickrun-replace-region
-             quickrun-add-command)
   :bind (("C-c q q" . quickrun)
          ("C-c q r" . quickrun-region)
          ("C-c q s" . quickrun-shell)
@@ -900,7 +874,6 @@
 
 (use-package toggle-window
   :load-path "lisp/toggle-window/"
-  :commands toggle-window-hide-show-window
   :bind ("<f9>" . toggle-window-hide-show-window)
   :config (setq window-min-height 5))
 
