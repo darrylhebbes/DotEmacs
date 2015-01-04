@@ -415,8 +415,8 @@
 
 (use-package typo
   :load-path "lisp/typoel/"
-  :demand t
-  :bind ("C-c n t" . global-typo-mode))
+  :bind ("C-c n t" . typo-mode)
+  :config (typo-global-mode 1))
 
 ;;; Highlights poor English writing.
 
