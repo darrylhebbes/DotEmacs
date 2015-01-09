@@ -123,7 +123,6 @@
 (bind-key "<RET>" 'newline-and-indent)
 (bind-key "<C-return>" 'newline)
 (bind-key "<M-return>" 'indent-new-comment-line)
-(bind-key "M-/" 'hippie-expand)
 (global-unset-key (kbd "C-z"))
 
 ;;; These packages provide functions that others rely on so I want to
@@ -208,6 +207,14 @@
 (use-package highlight-blocks
   :load-path "lisp/highlight-blocks"
   :bind ("C-c n b" . highlight-blocks-mode))
+
+;;; Company mode for auto-completion:
+
+(use-package company
+  :load-path "lisp/company-mode/"
+  :diminish company-mode
+  :bind ("M-/" . company-complete)
+  :init (add-hook 'after-init-hook 'global-company-mode))
 
 ;;; These are some personal editing commands that I use everywhere.
 
