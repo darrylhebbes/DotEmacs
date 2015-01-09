@@ -106,7 +106,7 @@
 
 ;;; Setup registers for files I commonly edit.
 
-(set-register ?e '(file . "/home/eric/Projects/DotEmacs/.emacs"))
+(set-register ?e '(file . "/home/eric/.emacs"))
 (set-register ?j '(file . "/home/eric/Temp/Entry.jrnl.txt"))
 (set-register ?m '(file . "/home/eric/Temp/mail.md"))
 (set-register ?t '(file . "/home/eric/.todo.org"))
