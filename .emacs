@@ -454,6 +454,7 @@
 ;;; Mode for distraction-free writing.
 
 (use-package writeroom-mode
+  :disabled t
   :load-path "lisp/writeroom-mode/")
 
 ;;; Allows entering a Unicode character by its name.
