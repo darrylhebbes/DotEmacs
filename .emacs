@@ -247,6 +247,12 @@
 (bind-key "C-c t f" 'toggle-text-mode-auto-fill)
 (bind-key "C-c t s" 'sort-lines)
 
+;;; Improve Japanese word movement.
+
+(use-package tinysegmenter
+  :load-path "lisp/tinysegmenter.el/"
+  :config (use-package jaword :load-path "lisp/jaword/"))
+
 ;;; These keys are for commands I often use and use the 'C-c x' prefix
 ;;; as an association with 'M-x'.
 
