@@ -920,3 +920,31 @@
   :bind (("C-c l f" . lusty-file-explorer)
          ("C-c l b" . lusty-buffer-explorer)
          ("C-c l o" . lusty-open-this)))
+
+;;; Evil
+
+(use-package evil
+  :load-path "lisp/evil/"
+  :bind ("C-c n e" . evil-mode)
+  :config
+  (progn
+    (use-package evil-numbers
+      :load-path "lisp/evil-numbers/"
+      :config (progn
+                (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
+                (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)))
+    (use-package evil-surround
+      :load-path "lisp/evil-surround/"
+      :config (global-evil-surround-mode 1))
+    (use-package evil-snipe
+      :load-path "lisp/evil-snipe"
+      :config (global-evil-snipe-mode 1))
+    (use-package evil-commentary
+      :load-path "lisp/evil-commentary/"
+      :config (evil-commentary-mode))
+    (use-package evil-exchange
+      :load-path "lisp/evil-exchange/"
+      :config (evil-exchange-install))
+    (use-package evil-easymotion
+      :load-path "lisp/evil-easymotion"
+      :config (evilem-default-keybindings "SPC"))))
