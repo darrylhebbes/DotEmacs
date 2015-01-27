@@ -213,7 +213,8 @@
 (use-package company
   :load-path "lisp/company-mode/"
   :diminish company-mode
-  :bind ("M-/" . company-complete)
+  :bind (("M-/" . company-complete)
+         ("C-c n m" . global-company-mode))
   :init (add-hook 'after-init-hook 'global-company-mode))
 
 ;;; These are some personal editing commands that I use everywhere.
