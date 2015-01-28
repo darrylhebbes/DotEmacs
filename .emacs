@@ -776,6 +776,7 @@
 
 (use-package god-mode
   :load-path "lisp/god-mode/"
+  :disabled t
   :bind ("C-z" . god-local-mode))
 
 ;;; GLSL Mode:
