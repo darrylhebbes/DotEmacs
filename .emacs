@@ -364,6 +364,12 @@
   :load-path "lisp/centered-window-mode/"
   :config (centered-window-mode 1))
 
+;;; Resize windows more easily.
+
+(use-package windsize
+  :load-path "lisp/windsize/"
+  :config (windsize-default-keybindings))
+
 ;;; Faster navigation of the mark ring.
 
 (use-package mark-tools
@@ -472,7 +478,7 @@
 
 (use-package wiki-nav
   :load-path "lisp/button-lock/"
-  :diminish button-lock-mode
+  :diminish (button-lock-mode wiki-nav-mode)
   :bind ("C-c n w" . wiki-nav-mode)
   :config (wiki-nav-mode 1))
 
