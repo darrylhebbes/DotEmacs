@@ -13,10 +13,14 @@
 ;;;;     - C-c m:    Major modes.
 ;;;;     - C-c n:    Minor modes.
 ;;;;     - C-c q:    Quickrun commands.
+;;;;     - C-c a:    Anzu commands.
 ;;;;     - C-c x:    General commands.
 ;;;;
 ;;;; All key chords consist of repeat a character twice, e.g 'NN', or
 ;;;; the letter 'q' followed by anything except 'u', e.g. 'qs'.
+;;;;
+;;;; C-z toggles Evil mode on and off in buffers. The keys 'C-c n e'
+;;;; toggle it globally.
 ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -476,6 +480,7 @@
 
 (use-package wiki-nav
   :load-path "lisp/button-lock/"
+  :diminish button-lock-mode
   :bind ("C-c n w" . wiki-nav-mode)
   :config (wiki-nav-mode 1))
 
@@ -483,6 +488,7 @@
 
 (use-package page-break-lines
   :load-path "lisp/page-break-lines/"
+  :diminish page-break-lines-mode
   :config (global-page-break-lines-mode 1))
 
 (use-package tex-mode
@@ -808,10 +814,12 @@
 
 (use-package wrap-region
   :load-path "lisp/wrap-region.el/"
+  :diminish wrap-region-mode
   :config (wrap-region-mode t))
 
 (use-package whole-line-or-region
   :load-path "lisp/whole-line-or-region/"
+  :diminish whole-line-or-region-mode
   :config (whole-line-or-region-mode 1))
 
 (use-package duplicate-thing
@@ -937,15 +945,38 @@
     (use-package evil-surround
       :load-path "lisp/evil-surround/"
       :config (global-evil-surround-mode 1))
+    (use-package evil-matchit
+      :load-path "lisp/evil-matchit/"
+      :config (global-evil-matchit-mode 1))
+    (use-package evil-args
+      :load-path "lisp/evil-args/"
+      :config (progn
+                (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+                (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
+                (define-key evil-normal-state-map "L" 'evil-forward-arg)
+                (define-key evil-normal-state-map "H" 'evil-backward-arg)
+                (define-key evil-motion-state-map "L" 'evil-forward-arg)
+                (define-key evil-motion-state-map "H" 'evil-backward-arg)
+                (define-key evil-normal-state-map "K" 'evil-jump-out-args)))
     (use-package evil-snipe
       :load-path "lisp/evil-snipe"
       :config (global-evil-snipe-mode 1))
     (use-package evil-commentary
       :load-path "lisp/evil-commentary/"
+      :diminish evil-commentary-mode
       :config (evil-commentary-mode))
     (use-package evil-exchange
       :load-path "lisp/evil-exchange/"
       :config (evil-exchange-install))
+    (use-package anzu
+      :load-path "lisp/emacs-anzu/"
+      :diminish anzu-mode
+      :bind ("C-c a c" . anzu-replace-at-cursor-thing)
+      :config
+      (progn
+        (global-anzu-mode 1)
+        (use-package evil-anzu
+          :load-path "lisp/emacs-evil-anzu/")))
     (use-package evil-easymotion
       :load-path "lisp/evil-easymotion"
       :config (evilem-default-keybindings "SPC"))))
