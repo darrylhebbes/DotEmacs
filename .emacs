@@ -14,6 +14,7 @@
 ;;;;     - C-c n:    Minor modes.
 ;;;;     - C-c q:    Quickrun commands.
 ;;;;     - C-c a:    Anzu commands.
+;;;;     - C-c r:    Rainbow commands.
 ;;;;     - C-c x:    General commands.
 ;;;;
 ;;;; All key chords consist of repeat a character twice, e.g 'NN', or
@@ -980,3 +981,19 @@
     (use-package evil-easymotion
       :load-path "lisp/evil-easymotion"
       :config (evilem-default-keybindings "SPC"))))
+
+;;; Rainbow Modes
+
+(use-package rainbow-identifiers
+  :load-path "lisp/rainbow-identifiers/"
+  :bind ("C-c r i" . rainbow-identifiers-mode)
+  :config (setq rainbow-identifiers-choose-face-function
+                #'rainbow-identifiers-cie-l*a*b*-choose-face))
+
+(use-package rainbow-delimiters
+  :load-path "lisp/rainbow-delimiters/"
+  :bind ("C-c r d" . rainbow-delimiters-mode))
+
+(use-package rainbow-blocks
+  :load-path "lisp/rainbow-blocks/"
+  :bind ("C-c r b" . rainbow-blocks-mode))
