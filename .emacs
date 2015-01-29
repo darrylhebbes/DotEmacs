@@ -224,25 +224,14 @@
          ("C-c n m" . global-company-mode))
   :init (add-hook 'after-init-hook 'global-company-mode))
 
-;;; These are some personal editing commands that I use everywhere.
+;;; Drag text around.
 
-(defun ejmr/move-line-up ()
-  "Move the current line up."
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2)
-  (indent-according-to-mode))
-
-(defun ejmr/move-line-down ()
-  "Move the current line down."
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1)
-  (indent-according-to-mode))
-
-(bind-key "<C-up>" 'ejmr/move-line-up)
-(bind-key "<C-down>" 'ejmr/move-line-down)
+(use-package drag-stuff
+  :load-path "lisp/drag-stuff.el/"
+  :diminish drag-stuff-mode
+  :config (progn
+            (drag-stuff-global-mode 1)
+            (setq drag-stuff-modifier '(meta shift))))
 
 ;;; These are commands that I mostly use for text editing, or more
 ;;; specifically not for programming.  So they use the 'C-c t' prefix
