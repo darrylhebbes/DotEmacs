@@ -154,6 +154,8 @@
 (use-package grizzl :load-path "lisp/grizzl/")
 (use-package ws-butler :load-path "lisp/ws-butler/")
 (use-package deferred :load-path "lisp/emacs-deferred/")
+(use-package ctable :load-path "lisp/emacs-ctable/"
+  :config (use-package epc :load-path "lisp/emacs-epc/"))
 (use-package nav-flash :load-path "lisp/nav-flash/")
 (use-package m-buffer :load-path "lisp/m-buffer-el/")
 (use-package alert :load-path "lisp/alert/")
@@ -830,6 +832,10 @@
 
 (use-package sqlup-mode
   :load-path "lisp/sqlup-mode.el/")
+
+(use-package edbi
+  :load-path "lisp/emacs-edbi/"
+  :config (use-package edbi-sqlite :load-path "lisp/edbi-sqlite/"))
 
 ;;; DokuWiki:
 
