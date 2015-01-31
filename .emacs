@@ -112,9 +112,9 @@
 ;;; Setup registers for files I commonly edit.
 
 (set-register ?e '(file . "/home/eric/.emacs"))
-(set-register ?j '(file . "/home/eric/Temp/Entry.jrnl.txt"))
 (set-register ?m '(file . "/home/eric/Temp/mail.md"))
 (set-register ?t '(file . "/home/eric/.todo.org"))
+(set-register ?j '(file . "/tmp/Entry.jrnl.txt"))
 
 ;;; Load use-package and bind-key before anything else so that I can
 ;;; use those for loading all other packages.
@@ -851,7 +851,7 @@
 
     (quickrun-add-command "jrnl"
                           '((:command . "jrnl")
-                            (:exec . ("%c < %s"))
+                            (:exec . ("%c now < %s"))
                             (:default-directory . "/tmp")))
     (quickrun-add-command "org/doku"
                           '((:command . "pandoc")
