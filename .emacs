@@ -768,6 +768,12 @@
                                         "DELEGATED(g)"))
           org-drawers '("PROPERTIES" "CLOCK" "NOTES" "LOGBOOK")
           org-log-done 'time)
+    ;; My key-bindings for moving around buffers shadow those for
+    ;; promoting and demoting headers and trees.
+    (bind-key "C-c <left>" 'org-do-promote org-mode-map)
+    (bind-key "C-c <S-left>" 'org-promote-subtree org-mode-map)
+    (bind-key "C-c <right>" 'org-do-demote org-mode-map)
+    (bind-key "C-c <S-right>" 'org-demote-subtree org-mode-map)
     (bind-key "C-c a" 'org-agenda org-mode-map)))
 
 ;;; Edit filenames at-point in dired:
