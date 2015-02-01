@@ -857,7 +857,7 @@
 
     (quickrun-add-command "jrnl"
                           '((:command . "jrnl")
-                            (:exec . ("%c now < %s"))
+                            (:exec . ("%c < %s"))
                             (:default-directory . "/tmp")))
     (quickrun-add-command "org/doku"
                           '((:command . "pandoc")
