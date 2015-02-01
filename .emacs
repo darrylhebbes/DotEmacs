@@ -945,6 +945,9 @@
   :bind ("C-c n e" . evil-mode)
   :config
   (progn
+    ;; I use 'q' for many key-chords so I do not want Evil using it to
+    ;; record macros or anything else.
+    (define-key evil-normal-state-map (kbd "q") nil)
     (use-package evil-numbers
       :load-path "lisp/evil-numbers/"
       :config (progn
