@@ -399,7 +399,12 @@
 
 (use-package browse-kill-ring
   :load-path "lisp/browse-kill-ring/"
-  :bind ("C-c x k" . browse-kill-ring))
+  :bind ("C-c x k" . browse-kill-ring)
+  :config
+  (use-package bbyac
+    :load-path "lisp/bbyac/"
+    :diminish bbyac-mode
+    :config (bbyac-global-mode 1)))
 
 ;;; Switches between double and single quotes.
 
