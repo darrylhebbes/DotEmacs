@@ -163,6 +163,7 @@
 (use-package popwin
   :load-path "lisp/popwin-el/"
   :init (popwin-mode 1))
+(use-package hydra :load-path "lisp/hydra/")
 
 ;;; A utility to help manage minor modes.  It gives me a menu where I
 ;;; can enable or disable each minor mode.  And it shows me which
@@ -185,11 +186,17 @@
 
 (use-package swoop
   :load-path "lisp/emacs-swoop/"
-  :bind (("C-c s s" . swoop)
-         ("C-c s m" . swoop-multi)
-         ("C-c s r" . swoop-pcre-regexp)
-         ("C-c s b" . swoop-back-to-last-position))
-  :config (setq swoop-window-split-direction: 'split-window-vertically))
+  :config
+  (progn
+    (setq swoop-window-split-direction: 'split-window-vertically)
+    (global-set-key
+     (kbd "C-c s")
+     (defhydra swoop (:color blue)
+       "swoop"
+       ("s" swoop "swoop")
+       ("m" swoop-multi "multi")
+       ("r" swoop-prce-regexp "pcre")
+       ("b" swoop-back-to-last-position "back")))))
 
 ;;; Commands to move the location of buffers on screen, i.e. moving
 ;;; around their windows.
@@ -238,10 +245,14 @@
 ;;; for 'text'.
 
 (bind-key "C-c m t" 'text-mode)
-(bind-key "C-c t a" 'align-regexp)
-(bind-key "C-c t c" 'flyspell-auto-correct-word)
-(bind-key "C-c t f" 'toggle-text-mode-auto-fill)
-(bind-key "C-c t s" 'sort-lines)
+(global-set-key
+ (kbd "C-c t")
+ (defhydra text-commands ()
+   "text"
+   ("a" align-regexp "align")
+   ("c" flyspell-auto-correct-word "correct")
+   ("f" toggle-text-mode-auto-fill "fill")
+   ("s" sort-lines "sort")))
 
 ;;; Improve Japanese word movement.
 
@@ -266,9 +277,13 @@
 
 ;;; Desktop management:
 
-(bind-key "C-c d c" 'desktop-clear)
-(bind-key "C-c d d" 'desktop-change-dir)
-(bind-key "C-c d s" 'desktop-save)
+(global-set-key
+ (kbd "C-c d")
+ (defhydra desktop ()
+   "desktop"
+   ("c" desktop-clear "clear")
+   ("d" desktop-change-dir "dir")
+   ("s" desktop-save "save")))
 
 ;;; Easily visit recently opened files.
 
@@ -848,13 +863,17 @@
 
 (use-package quickrun
   :load-path "lisp/emacs-quickrun/"
-  :bind (("C-c q q" . quickrun)
-         ("C-c q r" . quickrun-region)
-         ("C-c q s" . quickrun-shell)
-         ("C-c q c" . quickrun-compile-only)
-         ("C-c q g" . quickrun-replace-region))
   :config
   (progn
+    (global-set-key
+     (kbd "C-c q")
+     (defhydra quickrun-commands (:color blue)
+       "quickrun"
+       ("q" quickrun "quickrun")
+       ("r" quickrun-region "region")
+       ("s" quickrun-shell "shell")
+       ("c" quickrun-compile-only "compile")
+       ("p" quickrun-replace-region "replace")))
 
     (quickrun-add-command "jrnl"
                           '((:command . "jrnl")
@@ -935,9 +954,14 @@
 
 (use-package lusty-explorer
   :load-path "lisp/lusty-emacs/"
-  :bind (("C-c l f" . lusty-file-explorer)
-         ("C-c l b" . lusty-buffer-explorer)
-         ("C-c l o" . lusty-open-this)))
+  :config
+  (global-set-key
+   (kbd "C-c l")
+   (defhydra lusty-commands (:color blue)
+     "lusty"
+     ("f" lusty-file-explorer "file")
+     ("b" lusty-buffer-explorer "buffer")
+     ("o" lusty-open-this "open"))))
 
 ;;; Evil
 
