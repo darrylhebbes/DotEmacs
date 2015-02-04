@@ -594,6 +594,7 @@
   :mode (("\\.lua$" . lua-mode)
          ("\\.rockspec$" . lua-mode)
          ("\\.busted$" . lua-mode)
+         ("\\.lnvl$" . lua-mode)
          ("\\.spec.lua$" . fundamental-mode)
          ("\\.slua$" . lua-mode)))
 
