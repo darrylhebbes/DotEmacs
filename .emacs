@@ -753,10 +753,10 @@
 ;;; Org Mode:
 
 (use-package org-install
-  :load-path "lisp/org-mode/lisp/"
+  :load-path "lisp/org-8.2.10/lisp/"
   :config
   (progn
-    (use-package org-trello :load-path "lisp/org-trello/")
+    (use-package org-trello :load-path "lisp/org-trello/" :disabled t)
     (add-hook 'org-mode-hook 'typo-mode)
     (setq org-todo-keywords '((sequence "TODO(t)"
                                         "REVIEW(r)"
