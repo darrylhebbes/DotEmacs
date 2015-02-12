@@ -921,7 +921,8 @@
 ;;; Powerline:
 
 (use-package powerline
-  :load-path "lisp/emacs-powerline/")
+  :load-path "lisp/emacs-powerline/"
+  :disabled t)
 
 ;;; REST Client:
 
