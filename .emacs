@@ -1019,3 +1019,8 @@
 (use-package rainbow-blocks
   :load-path "lisp/rainbow-blocks/"
   :bind ("C-c r b" . rainbow-blocks-mode))
+
+;;; Discover:
+
+(use-package discover :load-path "lisp/discover.el/"
+  :config (global-discover-mode 1))
