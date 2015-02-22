@@ -849,8 +849,7 @@
   :load-path "lisp/sqlup-mode.el/")
 
 (use-package edbi
-  :load-path "lisp/emacs-edbi/"
-  :config (use-package edbi-sqlite :load-path "lisp/edbi-sqlite/"))
+  :load-path "lisp/emacs-edbi/")
 
 ;;; DokuWiki:
 
@@ -910,8 +909,10 @@
 ;;; Powerline:
 
 (use-package powerline
-  :load-path "lisp/emacs-powerline/"
-  :disabled t)
+  :load-path "lisp/powerline/"
+  :config
+  (progn
+    (powerline-nano-theme)))
 
 ;;; REST Client:
 
