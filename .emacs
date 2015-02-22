@@ -163,6 +163,7 @@
 (use-package popwin
   :load-path "lisp/popwin-el/"
   :init (popwin-mode 1))
+(use-package hydra :load-path "lisp/hydra/")
 
 ;;; A utility to help manage minor modes.  It gives me a menu where I
 ;;; can enable or disable each minor mode.  And it shows me which
@@ -183,13 +184,12 @@
 ;;; Perl-compatible regular expressions, which I am more comfortable
 ;;; with than Elisp's.
 
-(use-package swoop
-  :load-path "lisp/emacs-swoop/"
-  :bind (("C-c s s" . swoop)
-         ("C-c s m" . swoop-multi)
-         ("C-c s r" . swoop-pcre-regexp)
-         ("C-c s b" . swoop-back-to-last-position))
-  :config (setq swoop-window-split-direction: 'split-window-vertically))
+(defhydra hydra-swoop (global-map "C-c")
+  "swoop"
+  ("s s" swoop)
+  ("s m" swoop-multi "multi")
+  ("s r" swoop-pcre "pcre")
+  ("s b" swoop-back-to-last-position "back"))
 
 ;;; Commands to move the location of buffers on screen, i.e. moving
 ;;; around their windows.
@@ -238,10 +238,13 @@
 ;;; for 'text'.
 
 (bind-key "C-c m t" 'text-mode)
-(bind-key "C-c t a" 'align-regexp)
-(bind-key "C-c t c" 'flyspell-auto-correct-word)
-(bind-key "C-c t f" 'toggle-text-mode-auto-fill)
-(bind-key "C-c t s" 'sort-lines)
+
+(defhydra hydra-text (global-map "C-c")
+  "text"
+  ("t a" align-regexp "align")
+  ("t c" flyspell-auto-correct-word "flyspell")
+  ("t f" toggle-text-mode-auto-fill "auto-fill")
+  ("t s" sort-lines "sort"))
 
 ;;; Improve Japanese word movement.
 
@@ -259,16 +262,20 @@
     (completing-read "Project: " (directory-files "/home/eric/Documents/Logs/"))))
   (find-file (concat "/home/eric/Documents/Logs/" project)))
 
-(bind-key "C-c x i" 'imenu)
-(bind-key "C-c x l" 'ejmr/open-project-log-file)
-(bind-key "C-c x v" 'visit-tags-table)
-(bind-key "C-c x w" 'whitespace-cleanup)
+(defhydra hydra-commands (global-map "C-c")
+  "commands"
+  ("x i" imenu)
+  ("x l" ejmr/open-project-log-file "log")
+  ("x v" visit-tags-table "tags")
+  ("x w" whitespace-cleanup "whitespace"))
 
 ;;; Desktop management:
 
-(bind-key "C-c d c" 'desktop-clear)
-(bind-key "C-c d d" 'desktop-change-dir)
-(bind-key "C-c d s" 'desktop-save)
+(defhydra hydra-desktop (global-map "C-c")
+  "desktop"
+  ("d c" desktop-clear "clear")
+  ("d d" desktop-change-dir "change")
+  ("d s" desktop-save "save"))
 
 ;;; Easily visit recently opened files.
 
@@ -694,14 +701,15 @@
 
 (use-package php-mode
   :load-path "/home/eric/Projects/php-mode"
-  :disabled t
   :config
   (progn
     (use-package php-refactor-mode
       :load-path "lisp/php-refactor-mode.el/"
+      :disabled t
       :config (php-refactor-mode))
     (use-package phpunit
-      :load-path "lisp/phpunit.el/")))
+      :load-path "lisp/phpunit.el/"
+      :disabled t)))
 
 ;;; BBCode:
 
