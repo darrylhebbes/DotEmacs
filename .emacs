@@ -1024,3 +1024,15 @@
 
 (use-package discover :load-path "lisp/discover.el/"
   :config (global-discover-mode 1))
+
+;;; Highlight FIXME, TODO, and similar words:
+
+(use-package fic-mode
+  :config
+  (progn
+    (add-hook 'prog-mode-hook 'turn-on-fic-mode)))
+
+;;; Generate passwords:
+
+(use-package password-generator
+  :load-path "lisp/emacs-password-genarator/")
