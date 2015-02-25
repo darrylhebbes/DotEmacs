@@ -1047,3 +1047,9 @@
   :load-path "lisp/linum-relative/"
   :disabled t
   :config (linum-on))
+
+;;; Fingers:
+
+(use-package fingers
+  :load-path "lisp/fingers.el/"
+  :config (key-chord-define-global "qf" 'global-fingers-mode))
