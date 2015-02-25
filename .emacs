@@ -307,7 +307,6 @@
     (setq key-chord-two-keys-delay 0.5)
     (key-chord-define-global "##" 'server-edit)
     (key-chord-define-global "VV" 'other-window)
-    (key-chord-define-global "$$" 'ispell-buffer)
     ;; Pretty much everything in Enlish word beginning with 'q' is
     ;; follewed the vowel 'u'.  These chords take advantage of that.
     (key-chord-define-global "qq" 'read-only-mode)
