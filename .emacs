@@ -594,6 +594,7 @@
 ;;; Lua:
 
 (use-package lua-mode
+  :load-path "lisp/lua-mode/"
   :init (bind-key "C-c m l" 'lua-mode)
   :config
   (progn
@@ -602,7 +603,7 @@
          ("\\.rockspec$" . lua-mode)
          ("\\.busted$" . lua-mode)
          ("\\.lnvl$" . lua-mode)
-         ("\\.spec.lua$" . fundamental-mode)
+         ("\\.spec.lua$" . lua-mode)
          ("\\.slua$" . lua-mode)))
 
 ;;; Rust:
