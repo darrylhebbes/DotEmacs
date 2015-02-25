@@ -727,6 +727,10 @@
   (progn
     (add-hook 'markdown-mode-hook 'typo-mode)
 
+    (use-package mkdown
+      :load-path "lisp/mkdown.el/"
+      :config (setq markdown-css-path "/home/eric/.emacs.d/lisp/mkdown.el/mkdown.css"))
+
     ;; When writing email I do not want to use auto-fill-mode because
     ;; I do not want arbitrary line-breaks in the message.  This
     ;; function toggles between the settings I prefer for writing
