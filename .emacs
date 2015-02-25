@@ -1040,3 +1040,10 @@
 
 (use-package password-generator
   :load-path "lisp/emacs-password-genarator/")
+
+;;; Relative line numbers:
+
+(use-package linum-relative
+  :load-path "lisp/linum-relative/"
+  :disabled t
+  :config (linum-on))
