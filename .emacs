@@ -573,6 +573,17 @@
   :mode ((".gitignore" . conf-mode)
          (".gitconfig" . conf-mode)))
 
+(use-package git-commit-mode
+  :disabled t
+  :load-path "lisp/git-modes/")
+
+(use-package magit
+  :disabled t
+  :load-path "lisp/magit/"
+  :config
+  (use-package magic-gh-pulls
+    :load-path "lisp/magit-gh-pulls/"))
+
 ;;; I use the verbose flag with git-commit, which includes a diff of
 ;;; what I'm about to commit, and so I use this mode so I can easily
 ;;; read that diff.
