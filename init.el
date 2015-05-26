@@ -451,6 +451,32 @@ _L_ist
       :common-compiles ("make")
       :main-file "main.lua")))
 
+(use-package bts
+  :config
+  (progn
+    (defhydra hydra-bts (:color blue :hint nil)
+"
+    Bug Tracking System
+------------------------------------------------------------
+^Tickets:^        ^Projects:^        ^Query:^
+
+_n_ew             [_pn_] new         [_qn_] new
+_s_ummary         [_pu_] update      [_qu_] update
+                [_pd_] delete      [_qd_] delete
+                [_pD_] delete all  [_qD_] delete all
+"
+      ("n" bts:ticket-new)
+      ("s" bts:summary-open)
+      ("pn" bts:project-new)
+      ("pu" bts:project-update)
+      ("pd" bts:project-remove)
+      ("pD" bts:project-remove-all)
+      ("qn" bts:query-new)
+      ("qu" bts:query-update)
+      ("qd" bts:query-remove)
+      ("qD" bts:query-remove-all))
+    (global-set-key (kbd "C-c b") #'hydra-bts/body)))
+
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . diff-mode))
 
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
