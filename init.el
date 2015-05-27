@@ -190,7 +190,7 @@
 (use-package artbollocks-mode
   :config (add-hook 'text-mode-hook 'artbollocks-mode))
 
-(defhydra hydra-text (:hint nil :idle 1.0)
+(defhydra hydra-text (:hint nil :idle 2.0)
   "
 ^Modes^           ^Commands^            ^Rectangles^
 ----------------------------------------------------------------------
