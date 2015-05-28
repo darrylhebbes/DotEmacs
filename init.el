@@ -431,7 +431,9 @@ _L_ist
     (use-package eproject-tags
       :config (setq eproject-tags-etags "etags"))
     (use-package eproject-compile)
+    (use-package helm-eproject)
     (global-set-key (kbd "C-c e f") #'eproject-find-file)
+    (global-set-key (kbd "C-c e h") #'helm-eproject)
     (global-set-key (kbd "C-c e k") #'eproject-kill-project-buffers)
     (global-set-key (kbd "C-c e v") #'eproject-revisit-project)
     (global-set-key (kbd "C-c e a") #'eproject-open-all-project-files)
