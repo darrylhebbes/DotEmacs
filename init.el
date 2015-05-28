@@ -432,6 +432,7 @@ _L_ist
       :config (setq eproject-tags-etags "etags"))
     (use-package eproject-compile)
     (use-package helm-eproject)
+    (use-package eproject-tasks)
 
     (defun eproject-helm-ag ()
       "Run helm-ag on the project's root directory."
@@ -449,6 +450,7 @@ _L_ist
     (global-set-key (kbd "C-c e c") #'eproject-compile)
     (global-set-key (kbd "C-c e s") #'eproject-multi-isearch-buffers)
     (global-set-key (kbd "C-c e G") #'eproject-helm-ag)
+    (global-set-key (kbd "C-c e S") #'helm-eproject-tasks)
 
     (define-project-type tup (generic)
       (look-for "Tupfile")
@@ -471,6 +473,7 @@ _L_ist
 
     (define-project-type love (lua tup make documentation generic)
       (look-for "main.lua")
+      :tasks (("play" :shell "love *.love"))
       :main-file "main.lua")))
 
 (use-package bts
