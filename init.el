@@ -471,7 +471,10 @@ _L_ist
           (look-for ".busted"))
       :relevant-fils ("\\.lua$"))
 
-    (define-project-type love (lua tup make documentation generic)
+    (define-project-type bash (generic)
+      (look-for "*.sh"))
+
+    (define-project-type love (lua tup make bash documentation generic)
       (look-for "main.lua")
       :tasks (("play" :shell "love *.love"))
       :main-file "main.lua")))
