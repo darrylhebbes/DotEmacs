@@ -30,6 +30,11 @@
 (scroll-bar-mode -1)
 (global-auto-revert-mode 1)
 
+
+(use-package page-break-lines
+  :config (page-break-lines-mode 1))
+
+
 (use-package yasnippet
   :config
   (progn
@@ -55,15 +60,18 @@
     (global-set-key (kbd "C-c y") 'hydra-yasnippet/body)
     (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))))
 
+
 (add-to-list 'load-path "/home/eric/.emacs.d/lisp")
 (autoload 'forth-mode "gforth.el")
 (autoload 'forth-block-mode "gforth.el")
 (add-to-list 'auto-mode-alist '("\\.fs" . forth-mode))
 (add-to-list 'auto-mode-alist '("\\.fb" . forth-block-mode))
 
+
 (use-package lua-mode
   :mode "\\.lnvl$")
 
+
 (use-package recentf
   :config (recentf-mode 1))
 (use-package yaml-mode)
@@ -89,32 +97,38 @@
 (use-package page-break-lines)
 (use-package focus)
 (use-package define-word)
-
 (use-package helm-flyspell
   :config (global-set-key (kbd "M-$") #'helm-flyspell-correct))
 
+
 (use-package adoc-mode
   :mode "\\.adoc$")
 
+
 (use-package textile-mode
   :mode "\\.textile$")
 
+
 (use-package haskell-mode
   :config
   (progn
     (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
     (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)))
 
+
 (add-to-list 'load-path "/home/eric/.emacs.d/lisp/qwe/src")
 (add-to-list 'load-path "/home/eric/.emacs.d/lisp/qwe/ext")
 (use-package qwe)
 
+
 (global-page-break-lines-mode t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+
 (define-key helm-find-files-map (kbd "C-j") 'helm-select-action)
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 
+
 (use-package helm-flycheck)
 (eval-after-load 'flycheck
   '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
@@ -125,9 +139,11 @@
     (add-to-list 'flycheck-disabled-checkers 'python-flake8)
     (add-to-list 'flycheck-disabled-checkers 'python-pylint)))
 
+
 (use-package simple-mode-line
   :config (add-hook 'emacs-startup-hook 'activate-simple-mode-line))
 
+
 (defhydra hydra-yank-pop (:idle 2.0)
   "yank"
   ("C-y" yank nil)
@@ -139,23 +155,28 @@
 (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
 (global-set-key (kbd "M-y") #'hydra-pank-pop/yank-pop)
 
+
 (use-package peep-dired
   :config (define-key dired-mode-map (kbd "M-p") #'peep-dired))
 
+
 (use-package change-inner
   :config
   (progn
     (global-set-key (kbd "M-i") 'change-inner)
     (global-set-key (kbd "M-o") 'change-outer)))
 
+
 (use-package tiny
   :config (global-set-key (kbd "C-;") 'tiny-expand))
 
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (define-key isearch-mode-map (kbd "C-c g") 'helm-git-grep-from-isearch)
 
+
 (global-highlight-parentheses-mode t)
 
 (setq backup-inhibited t)
@@ -163,8 +184,10 @@
 (setq auto-save-list-file-name nil)
 (setq auto-save-default nil)
 
+
 (global-set-key [remap mark-sexp] 'easy-mark)
 
+
 (use-package anzu
   :config
   (progn
@@ -173,6 +196,7 @@
     (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
     (global-set-key (kbd "C-c %") 'anzu-replace-at-cursor-thing)))
 
+
 (use-package olivetti)
 
 (defun ejmr/toggle-writing-mode ()
@@ -225,6 +249,14 @@ art_b_ollocks mode                    _r_eplace
 
 (global-set-key (kbd "C-c t") 'hydra-text/body)
 
+(use-package fix-word
+  :config
+  (progn
+    (global-set-key (kbd "M-u") #'fix-word-upcase)
+    (global-set-key (kbd "M-l") #'fix-word-downcase)
+    (global-set-key (kbd "M-c") #'fix-word-capitalize)))
+
+
 (defhydra hydra-desktop (:color blue :idle 2.0)
   "desktop"
   ("c" desktop-clear "clear")
@@ -234,6 +266,7 @@ art_b_ollocks mode                    _r_eplace
 
 (global-set-key (kbd "C-c d") 'hydra-desktop/body)
 
+
 (defhydra hydra-major (:color blue :idle 2.0)
   "major-mode"
   ("t" text-mode "text")
@@ -245,6 +278,7 @@ art_b_ollocks mode                    _r_eplace
 
 (global-set-key (kbd "C-c m") 'hydra-major/body)
 
+
 (defun ejmr/insert-email-signature ()
   "Insert my email signature into the current buffer."
   (interactive)
@@ -254,6 +288,7 @@ art_b_ollocks mode                    _r_eplace
 (use-package markdown-mode
   :config (define-key markdown-mode-map (kbd "C-c C-w") 'ejmr/insert-email-signature))
 
+
 (use-package corral
   :config
   (progn
@@ -268,6 +303,7 @@ art_b_ollocks mode                    _r_eplace
       ("." hydra-repeat "Repeat"))
     (global-set-key (kbd "C-c c") #'hydra-corral/body)))
 
+
 (defun ejmr/enable-mail-settings ()
   "Enable settings I like when writing mail."
   (interactive)
@@ -282,8 +318,10 @@ art_b_ollocks mode                    _r_eplace
 
 (add-hook 'markdown-mode-hook #'ejmr/possibly-enable-mail-settings)
 
+
 (use-package git-blame)
 
+
 (defhydra hydra-minor ()
   "minor-mode"
   ("i" global-aggressive-indent-mode "indent")
@@ -297,6 +335,7 @@ art_b_ollocks mode                    _r_eplace
 
 (global-set-key (kbd "C-c n") 'hydra-minor/body)
 
+
 (use-package quickrun
   :config
   (progn
@@ -310,6 +349,7 @@ art_b_ollocks mode                    _r_eplace
       ("p" quickrun-replace-region "replace"))
     (global-set-key (kbd "C-c q") 'hydra-quickrun/body)))
 
+
 (defhydra hydra-command (:color blue :idle 2.0)
   "command"
   ("w" whitespace-cleanup "whitespace")
@@ -322,9 +362,11 @@ art_b_ollocks mode                    _r_eplace
 
 (global-set-key (kbd "C-c x") 'hydra-command/body)
 
+
 (global-set-key (kbd "<f8>") 'helm-recentf)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
+
 (use-package swoop
   :config
   (progn
@@ -336,19 +378,24 @@ art_b_ollocks mode                    _r_eplace
       ("b" swoop-back-to-last-position "back"))
     (global-set-key (kbd "C-c s") 'hydra-swoop/body)))
 
+
 (progn
   (setq find-temp-file-directory "/tmp")
   (setq find-temp-template-default "%M/%N-%T.%E"))
 
+
 (global-set-key (kbd "<RET>") 'newline-and-indent)
 (global-set-key (kbd "<C-return>") 'newline)
 (global-set-key (kbd "<M-return>") 'indent-new-comment-line)
 
+
 (add-hook 'prog-mode-hook 'fic-mode)
 
+
 (use-package autopair
   :config (autopair-global-mode))
 
+
 (use-package key-chord
   :config
   (progn
@@ -378,6 +425,7 @@ _4_ kill      _f_ind files
     (key-chord-define-global "qd" #'duplicate-thing)
     (key-chord-define-global "qw" #'easy-kill)))
 
+
 (use-package omni-kill
   :config
   (progn
@@ -406,12 +454,15 @@ _L_ist
       ("w" omni-kill-word))
     (global-set-key (kbd "C-c k") #'hydra-omni-kill/body)))
 
+
 (use-package expand-region
   :config (global-set-key (kbd "C-=") 'er/expand-region))
 
+
 (add-to-list 'load-path "/home/eric/Software/recutils/etc/")
 (use-package rec-mode)
 
+
 (use-package fold-dwim
   :config
   (progn
@@ -423,6 +474,7 @@ _L_ist
 
     (global-set-key (kbd "C-c f") 'hydra-fold/body)))
 
+
 (use-package eproject
   :init (setq eproject-keybind-prefix "C-c e")
   :config
@@ -493,6 +545,7 @@ _L_ist
       :tasks (("play" :shell "love *.love"))
       :main-file "main.lua")))
 
+
 (use-package bts
   :config
   (progn
@@ -519,16 +572,20 @@ _s_ummary         [_pu_] update      [_qu_] update
       ("qD" bts:query-remove-all))
     (global-set-key (kbd "C-c b") #'hydra-bts/body)))
 
+
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . diff-mode))
 
+
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (setq auto-mode-alist
       (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
 
+
 (set-register ?e '(file . "/home/eric/.emacs.d/init.el"))
 (set-register ?t '(file . "/home/eric/Documents/Todo.org"))
 (set-register ?m '(file . "/tmp/mail.md"))
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -582,7 +639,7 @@ _s_ummary         [_pu_] update      [_qu_] update
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
-    (helm-ls-git git-blame faff-theme use-package emoji-cheat-sheet-plus bts-github bts artbollocks-mode corral textile-mode omni-kill flycheck-pyflakes helm-j-cheatsheet helm-flyspell helm-ag define-word chronos omni-scratch eproject helm-gitignore totd csharp-mode ocodo-svg-modelines python-docstring autumn-light-theme peep-dired haskell-snippets fixmee flycheck-hdevtools flycheck-haskell haskell-emacs yaml-mode runner helm-dired-recent-dirs dired-toggle dired-details ix quack guile-scheme geiser chicken-scheme fasm-mode iasm-mode darkroom swiper page-break-lines glsl-mode md-readme dpaste emmet-mode lentic swoop helm-swoop discover-my-major fold-dwim love-minor-mode m-buffer helm-flycheck helm-git-grep flymake-lua olivetti fountain-mode tup-mode simple-mode-line ag ggtags flx-ido operate-on-number unfill highlight-blocks firestarter xkcd sqlplus sqlite edbi js3-mode iterator helm-ack esqlite-helm esqlite erlang epoch-view emoji-display emacsql golden-ratio elwm dummy-h-mode aproject anzu anyins anchored-transpose anaphora adoc-mode gitconfig-mode bbcode-mode whole-line-or-region yasnippet yaxception rainbow-identifiers pandoc-mode change-inner pastebin expand-region ert-expectations erefactor cerbere all-ext all @ aggressive-indent j-mode helm-make key-chord helm fish-mode duplicate-thing doremi-mac doremi-cmd doremi dired-efap lispy tiny form-feed flycheck-pos-tip flycheck-rust rust-mode dokuwiki-mode typo find-temp-file fic-mode recentf-ext tomatinho autopair electric-case haskell-mode go-mode flycheck-package flycheck php-mode hydra seq quickrun pomodoro org moe-theme markdown-mode lua-mode bubbleberry-theme basic-theme atom-dark-theme alect-themes)))
+    (fix-word helm-ls-git git-blame faff-theme use-package emoji-cheat-sheet-plus bts-github bts artbollocks-mode corral textile-mode omni-kill flycheck-pyflakes helm-j-cheatsheet helm-flyspell helm-ag define-word chronos omni-scratch eproject helm-gitignore totd csharp-mode ocodo-svg-modelines python-docstring autumn-light-theme peep-dired haskell-snippets fixmee flycheck-hdevtools flycheck-haskell haskell-emacs yaml-mode runner helm-dired-recent-dirs dired-toggle dired-details ix quack guile-scheme geiser chicken-scheme fasm-mode iasm-mode darkroom swiper page-break-lines glsl-mode md-readme dpaste emmet-mode lentic swoop helm-swoop discover-my-major fold-dwim love-minor-mode m-buffer helm-flycheck helm-git-grep flymake-lua olivetti fountain-mode tup-mode simple-mode-line ag ggtags flx-ido operate-on-number unfill highlight-blocks firestarter xkcd sqlplus sqlite edbi js3-mode iterator helm-ack esqlite-helm esqlite erlang epoch-view emoji-display emacsql golden-ratio elwm dummy-h-mode aproject anzu anyins anchored-transpose anaphora adoc-mode gitconfig-mode bbcode-mode whole-line-or-region yasnippet yaxception rainbow-identifiers pandoc-mode change-inner pastebin expand-region ert-expectations erefactor cerbere all-ext all @ aggressive-indent j-mode helm-make key-chord helm fish-mode duplicate-thing doremi-mac doremi-cmd doremi dired-efap lispy tiny form-feed flycheck-pos-tip flycheck-rust rust-mode dokuwiki-mode typo find-temp-file fic-mode recentf-ext tomatinho autopair electric-case haskell-mode go-mode flycheck-package flycheck php-mode hydra seq quickrun pomodoro org moe-theme markdown-mode lua-mode bubbleberry-theme basic-theme atom-dark-theme alect-themes)))
  '(pastebin-default-domain "pastebin.com/")
  '(pastebin-domain-versions
    (quote
