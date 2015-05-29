@@ -463,8 +463,9 @@ _L_ist
 
     (define-project-type documentation (generic)
       (or (look-for "*.md")
-          (look-for "*.org"))
-      :relevant-files ("\\.md$" "\\.org$"))
+          (look-for "*.org")
+          (look-for "README"))
+      :relevant-files ("\\.md$" "\\.org$" "README"))
 
     (define-project-type lua (generic)
       (or (look-for "*.rockspec")
@@ -473,6 +474,15 @@ _L_ist
 
     (define-project-type bash (generic)
       (look-for "*.sh"))
+
+    (define-project-type travis-ci (generic)
+      (look-for ".travis.yml")
+      :main-file ".travis.yml")
+
+    (define-project-type elisp (generic)
+      (look-for "*.el")
+      :relevant-files ("\\.el$")
+      :irrelevant-files ("\\.elc$"))
 
     (define-project-type love (lua tup make bash documentation generic)
       (look-for "main.lua")
