@@ -30,6 +30,9 @@
 (scroll-bar-mode -1)
 (global-auto-revert-mode 1)
 
+(add-to-list 'load-path "/home/eric/.cask")
+(require 'cask)
+
 
 (use-package page-break-lines
   :config (page-break-lines-mode 1))
@@ -491,6 +494,9 @@ _L_ist
     (global-set-key (kbd "C-c f") 'hydra-fold/body)))
 
 
+(use-package ert-modeline)
+
+
 (use-package eproject
   :init (setq eproject-keybind-prefix "C-c e")
   :config
@@ -551,7 +557,7 @@ _L_ist
 
     (define-project-type elisp (generic)
       (look-for "*.el")
-      :relevant-files ("\\.el$")
+      :relevant-files ("\\.el$" ".ert-runner" "Cask")
       :irrelevant-files ("\\.elc$"))
 
     (define-project-type love (lua)
@@ -655,7 +661,7 @@ _s_ummary         [_pu_] update      [_qu_] update
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
-    (conkeror-minor-mode commander fix-word helm-ls-git git-blame faff-theme use-package emoji-cheat-sheet-plus bts-github bts artbollocks-mode corral textile-mode omni-kill flycheck-pyflakes helm-j-cheatsheet helm-flyspell helm-ag define-word chronos omni-scratch eproject helm-gitignore totd csharp-mode ocodo-svg-modelines python-docstring autumn-light-theme peep-dired haskell-snippets fixmee flycheck-hdevtools flycheck-haskell haskell-emacs yaml-mode runner helm-dired-recent-dirs dired-toggle dired-details ix quack guile-scheme geiser chicken-scheme fasm-mode iasm-mode darkroom swiper page-break-lines glsl-mode md-readme dpaste emmet-mode lentic swoop helm-swoop discover-my-major fold-dwim love-minor-mode m-buffer helm-flycheck helm-git-grep flymake-lua olivetti fountain-mode tup-mode simple-mode-line ag ggtags flx-ido operate-on-number unfill highlight-blocks firestarter xkcd sqlplus sqlite edbi js3-mode iterator helm-ack esqlite-helm esqlite erlang epoch-view emoji-display emacsql golden-ratio elwm dummy-h-mode aproject anzu anyins anchored-transpose anaphora adoc-mode gitconfig-mode bbcode-mode whole-line-or-region yasnippet yaxception rainbow-identifiers pandoc-mode change-inner pastebin expand-region ert-expectations erefactor cerbere all-ext all @ aggressive-indent j-mode helm-make key-chord helm fish-mode duplicate-thing doremi-mac doremi-cmd doremi dired-efap lispy tiny form-feed flycheck-pos-tip flycheck-rust rust-mode dokuwiki-mode typo find-temp-file fic-mode recentf-ext tomatinho autopair electric-case haskell-mode go-mode flycheck-package flycheck php-mode hydra seq quickrun pomodoro org moe-theme markdown-mode lua-mode bubbleberry-theme basic-theme atom-dark-theme alect-themes)))
+    (ert-modeline ert-runner conkeror-minor-mode commander fix-word helm-ls-git git-blame faff-theme use-package emoji-cheat-sheet-plus bts-github bts artbollocks-mode corral textile-mode omni-kill flycheck-pyflakes helm-j-cheatsheet helm-flyspell helm-ag define-word chronos omni-scratch eproject helm-gitignore totd csharp-mode ocodo-svg-modelines python-docstring autumn-light-theme peep-dired haskell-snippets fixmee flycheck-hdevtools flycheck-haskell haskell-emacs yaml-mode runner helm-dired-recent-dirs dired-toggle dired-details ix quack guile-scheme geiser chicken-scheme fasm-mode iasm-mode darkroom swiper page-break-lines glsl-mode md-readme dpaste emmet-mode lentic swoop helm-swoop discover-my-major fold-dwim love-minor-mode m-buffer helm-flycheck helm-git-grep flymake-lua olivetti fountain-mode tup-mode simple-mode-line ag ggtags flx-ido operate-on-number unfill highlight-blocks firestarter xkcd sqlplus sqlite edbi js3-mode iterator helm-ack esqlite-helm esqlite erlang epoch-view emoji-display emacsql golden-ratio elwm dummy-h-mode aproject anzu anyins anchored-transpose anaphora adoc-mode gitconfig-mode bbcode-mode whole-line-or-region yasnippet yaxception rainbow-identifiers pandoc-mode change-inner pastebin expand-region ert-expectations erefactor cerbere all-ext all @ aggressive-indent j-mode helm-make key-chord helm fish-mode duplicate-thing doremi-mac doremi-cmd doremi dired-efap lispy tiny form-feed flycheck-pos-tip flycheck-rust rust-mode dokuwiki-mode typo find-temp-file fic-mode recentf-ext tomatinho autopair electric-case haskell-mode go-mode flycheck-package flycheck php-mode hydra seq quickrun pomodoro org moe-theme markdown-mode lua-mode bubbleberry-theme basic-theme atom-dark-theme alect-themes)))
  '(pastebin-default-domain "pastebin.com/")
  '(pastebin-domain-versions
    (quote
@@ -664,7 +670,7 @@ _s_ummary         [_pu_] update      [_qu_] update
      ("pastebin.example.com" "/pastebin.php"))))
  '(pos-tip-background-color "#ffffff")
  '(pos-tip-foreground-color "#78909C")
- '(sort-fold-case t)
+ '(sort-fold-case t t)
  '(tabbar-background-color "#ffffff"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
