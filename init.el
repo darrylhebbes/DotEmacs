@@ -232,11 +232,11 @@
 (defun ejmr/toggle-writing-mode ()
   "Toggle a distraction-free environment for writing."
   (interactive)
-  (cond ((bound-and-true-p darkroom-tentative-mode)
-         (darkroom-tentative-mode -1)
+  (cond ((bound-and-true-p darkroom-mode)
+         (darkroom-mode -1)
          (menu-bar-mode 1))
         (t
-         (darkroom-tentative-mode 1)
+         (darkroom-mode 1)
          (menu-bar-mode -1))))
 
 (use-package artbollocks-mode
