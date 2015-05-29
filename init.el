@@ -486,7 +486,7 @@ _L_ist
       :relevant-files ("\\.el$")
       :irrelevant-files ("\\.elc$"))
 
-    (define-project-type love (lua tup make bash documentation generic)
+    (define-project-type love (lua)
       (or (look-for "*.love")
           (look-for "conf.lua")
           (look-for "main.lua"))
