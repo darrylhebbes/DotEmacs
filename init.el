@@ -124,6 +124,7 @@
   :config
   (progn
     (defhydra hydra-helm-mode-manager (:color blue)
+      "Modes"
       ("m" helm-switch-major-mode "major")
       ("n" helm-enable-minor-mode "minor on")
       ("N" helm-disable-minor-mode "minor off"))
@@ -226,20 +227,16 @@
     (global-set-key (kbd "C-c %") 'anzu-replace-at-cursor-thing)))
 
 
-(use-package olivetti)
+(use-package darkroom-mode)
 
 (defun ejmr/toggle-writing-mode ()
   "Toggle a distraction-free environment for writing."
   (interactive)
-  (cond ((bound-and-true-p olivetti-mode)
-         (olivetti-mode -1)
-         (olivetti-toggle-hide-modeline)
-         (toggle-frame-fullscreen)
+  (cond ((bound-and-true-p darkroom-tentative-mode)
+         (darkroom-tentative-mode -1)
          (menu-bar-mode 1))
         (t
-         (olivetti-mode 1)
-         (olivetti-toggle-hide-modeline)
-         (toggle-frame-fullscreen)
+         (darkroom-tentative-mode 1)
          (menu-bar-mode -1))))
 
 (use-package artbollocks-mode
@@ -671,7 +668,7 @@ _s_ummary         [_pu_] update      [_qu_] update
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
-    (helm-mode-manager edit-color-stamp ert-modeline ert-runner conkeror-minor-mode commander fix-word helm-ls-git git-blame faff-theme use-package emoji-cheat-sheet-plus bts-github bts artbollocks-mode corral textile-mode omni-kill flycheck-pyflakes helm-j-cheatsheet helm-flyspell helm-ag define-word chronos omni-scratch eproject helm-gitignore totd csharp-mode ocodo-svg-modelines python-docstring autumn-light-theme peep-dired haskell-snippets fixmee flycheck-hdevtools flycheck-haskell haskell-emacs yaml-mode runner helm-dired-recent-dirs dired-toggle dired-details ix quack guile-scheme geiser chicken-scheme fasm-mode iasm-mode darkroom swiper page-break-lines glsl-mode md-readme dpaste emmet-mode lentic swoop helm-swoop discover-my-major fold-dwim love-minor-mode m-buffer helm-flycheck helm-git-grep flymake-lua olivetti fountain-mode tup-mode simple-mode-line ag ggtags flx-ido operate-on-number unfill highlight-blocks firestarter xkcd sqlplus sqlite edbi js3-mode iterator helm-ack esqlite-helm esqlite erlang epoch-view emoji-display emacsql golden-ratio elwm dummy-h-mode aproject anzu anyins anchored-transpose anaphora adoc-mode gitconfig-mode bbcode-mode whole-line-or-region yasnippet yaxception rainbow-identifiers pandoc-mode change-inner pastebin expand-region ert-expectations erefactor cerbere all-ext all @ aggressive-indent j-mode helm-make key-chord helm fish-mode duplicate-thing doremi-mac doremi-cmd doremi dired-efap lispy tiny form-feed flycheck-pos-tip flycheck-rust rust-mode dokuwiki-mode typo find-temp-file fic-mode recentf-ext tomatinho autopair electric-case haskell-mode go-mode flycheck-package flycheck php-mode hydra seq quickrun pomodoro org moe-theme markdown-mode lua-mode bubbleberry-theme basic-theme atom-dark-theme alect-themes)))
+    (helm-open-github helm-mode-manager edit-color-stamp ert-modeline ert-runner conkeror-minor-mode commander fix-word helm-ls-git git-blame faff-theme use-package emoji-cheat-sheet-plus bts-github bts artbollocks-mode corral textile-mode omni-kill flycheck-pyflakes helm-j-cheatsheet helm-flyspell helm-ag define-word chronos omni-scratch eproject helm-gitignore totd csharp-mode ocodo-svg-modelines python-docstring autumn-light-theme peep-dired haskell-snippets fixmee flycheck-hdevtools flycheck-haskell haskell-emacs yaml-mode runner helm-dired-recent-dirs dired-toggle dired-details ix quack guile-scheme geiser chicken-scheme fasm-mode iasm-mode darkroom swiper page-break-lines glsl-mode md-readme dpaste emmet-mode lentic swoop helm-swoop discover-my-major fold-dwim love-minor-mode m-buffer helm-flycheck helm-git-grep flymake-lua olivetti fountain-mode tup-mode simple-mode-line ag ggtags flx-ido operate-on-number unfill highlight-blocks firestarter xkcd sqlplus sqlite edbi js3-mode iterator helm-ack esqlite-helm esqlite erlang epoch-view emoji-display emacsql golden-ratio elwm dummy-h-mode aproject anzu anyins anchored-transpose anaphora adoc-mode gitconfig-mode bbcode-mode whole-line-or-region yasnippet yaxception rainbow-identifiers pandoc-mode change-inner pastebin expand-region ert-expectations erefactor cerbere all-ext all @ aggressive-indent j-mode helm-make key-chord helm fish-mode duplicate-thing doremi-mac doremi-cmd doremi dired-efap lispy tiny form-feed flycheck-pos-tip flycheck-rust rust-mode dokuwiki-mode typo find-temp-file fic-mode recentf-ext tomatinho autopair electric-case haskell-mode go-mode flycheck-package flycheck php-mode hydra seq quickrun pomodoro org moe-theme markdown-mode lua-mode bubbleberry-theme basic-theme atom-dark-theme alect-themes)))
  '(pastebin-default-domain "pastebin.com/")
  '(pastebin-domain-versions
    (quote
