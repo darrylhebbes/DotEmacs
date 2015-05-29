@@ -469,11 +469,13 @@ _L_ist
 
     (define-project-type lua (generic)
       (or (look-for "*.rockspec")
-          (look-for ".busted"))
-      :relevant-fils ("\\.lua$"))
+          (look-for ".busted")
+          (look-for "main.lua"))
+      :relevant-files ("\\.lua$"))
 
     (define-project-type bash (generic)
-      (look-for "*.sh"))
+      (look-for "*.sh")
+      :relevant-files ("\\.sh$"))
 
     (define-project-type travis-ci (generic)
       (look-for ".travis.yml")
@@ -485,7 +487,9 @@ _L_ist
       :irrelevant-files ("\\.elc$"))
 
     (define-project-type love (lua tup make bash documentation generic)
-      (look-for "main.lua")
+      (or (look-for "*.love")
+          (look-for "conf.lua")
+          (look-for "main.lua"))
       :tasks (("play" :shell "love *.love"))
       :main-file "main.lua")))
 
