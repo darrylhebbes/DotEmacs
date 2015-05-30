@@ -570,6 +570,13 @@ _L_ist
       :relevant-files ("\\.el$" ".ert-runner" "Cask")
       :irrelevant-files ("\\.elc$"))
 
+    (define-project-type java (generic)
+      (or (look-for "pom.xml")
+          (look-for "build.xml"))
+      :relevant-files ("\\.java" "\\.xml")
+      :irrelevant-files ("\\.class")
+      :common-compiles ("ant" "maven"))
+
     (define-project-type love (lua)
       (or (look-for "*.love")
           (look-for "conf.lua")
