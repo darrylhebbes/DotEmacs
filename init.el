@@ -514,6 +514,7 @@ _L_ist
     (use-package eproject-compile)
     (use-package helm-eproject)
     (use-package eproject-tasks)
+    (use-package eproject-python)
 
     (defun eproject-helm-ag ()
       "Run helm-ag on the project's root directory."
