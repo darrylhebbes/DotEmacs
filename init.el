@@ -227,17 +227,17 @@
     (global-set-key (kbd "C-c %") 'anzu-replace-at-cursor-thing)))
 
 
-(use-package darkroom-mode)
-
-(defun ejmr/toggle-writing-mode ()
-  "Toggle a distraction-free environment for writing."
-  (interactive)
-  (cond ((bound-and-true-p darkroom-mode)
-         (darkroom-mode -1)
-         (menu-bar-mode 1))
-        (t
-         (darkroom-mode 1)
-         (menu-bar-mode -1))))
+(use-package darkroom
+  :config
+  (defun ejmr/toggle-writing-mode ()
+    "Toggle a distraction-free environment for writing."
+    (interactive)
+    (cond ((bound-and-true-p darkroom-mode)
+           (darkroom-mode -1)
+           (menu-bar-mode 1))
+          (t
+           (darkroom-mode 1)
+           (menu-bar-mode -1)))))
 
 (use-package artbollocks-mode
   :config (add-hook 'text-mode-hook 'artbollocks-mode))
