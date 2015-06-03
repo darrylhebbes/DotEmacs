@@ -691,6 +691,11 @@ _s_ummary         [_pu_] update      [_qu_] update
      ("pastebin.example.com" "/pastebin.php"))))
  '(pos-tip-background-color "#ffffff")
  '(pos-tip-foreground-color "#78909C")
+ '(safe-local-variable-values
+   (quote
+    ((firestarter-type . failure)
+     (firestarter . "make --directory=/home/eric/Projects/LNVL")
+     (firestarter . ert-run-tests-interactively))))
  '(sort-fold-case t t)
  '(tabbar-background-color "#ffffff"))
 (custom-set-faces
