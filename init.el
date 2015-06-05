@@ -700,7 +700,8 @@ _s_ummary         [_pu_] update      [_qu_] update
  '(pos-tip-foreground-color "#78909C")
  '(safe-local-variable-values
    (quote
-    ((firestarter-type . failure)
+    ((lua-indent-level . 2)
+     (firestarter-type . failure)
      (firestarter . "make --directory=/home/eric/Projects/LNVL")
      (firestarter . ert-run-tests-interactively))))
  '(sort-fold-case t t)
