@@ -42,6 +42,14 @@
   :config (bury-successful-compilation 1))
 
 
+(use-package org
+  :config
+  (progn
+    (defun ejmr/enable-org-mode-settings ()
+      (auto-fill-mode 1))
+    (add-hook 'org-mode-hook #'ejmr/enable-org-mode-settings)))
+
+
 (use-package js3-mode
   :mode ("\\.js$" . js3-mode))
 
