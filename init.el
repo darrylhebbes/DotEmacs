@@ -1,5 +1,13 @@
-;;;; Emacs configuration for Eric James Michael Ritz
-;;;;     <ejmr@plutono.com>
+;;; init.el --- Emacs Settings
+;;
+;;; Commentary:
+;;
+;; Emacs configuration for Eric James Michael Ritz
+;;     <ejmr@plutono.com>
+;;
+;;
+;;
+;;; Code:
 
 (server-start)
 
@@ -650,83 +658,8 @@ _s_ummary         [_pu_] update      [_qu_] update
 (set-register ?m '(file . "/tmp/mail.md"))
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(ansi-term-color-vector
-   [unspecified "#FAFAFA" "#FF1744" "#66BB6A" "#FFA000" "#42A5F5" "#7E57C2" "#0097A7" "#546E7A"])
- '(browse-url-browser-function (quote browse-url-conkeror))
- '(browse-url-generic-program "conkeror")
- '(browse-url-text-browser "eww")
- '(custom-enabled-themes (quote (minimal-light)))
- '(custom-safe-themes
-   (quote
-    ("c3e6b52caa77cb09c049d3c973798bc64b5c43cc437d449eacf35b3e776bf85c" "c1390663960169cd92f58aad44ba3253227d8f715c026438303c09b9fb66cdfb" "fb7b5b24d459ccf40f44659506a111ff0df9a07117a00aaee4999952a92f056a" "b9183de9666c3a16a7ffa7faaa8e9941b8d0ab50f9aaba1ca49f2f3aec7e3be9" "4af6fad34321a1ce23d8ab3486c662de122e8c6c1de97baed3aa4c10fe55e060" default)))
- '(evil-emacs-state-cursor (quote ("#D50000" bar)))
- '(evil-insert-state-cursor (quote ("#D50000" hbar)))
- '(evil-normal-state-cursor (quote ("#FFA000" box)))
- '(evil-visual-state-cursor (quote ("#66BB6A" box)))
- '(fci-rule-character-color "#d9d9d9")
- '(fci-rule-color "#d9d9d9" t)
- '(highlight-symbol-colors
-   (quote
-    ("#FFA000" "#66BB6A" "#0097A7" "#42A5F5" "#7E57C2" "#D84315")))
- '(highlight-symbol-foreground-color "#546E7A")
- '(highlight-tail-colors
-   (if
-       (eq
-        (quote light)
-        (quote light))
-       (quote
-        (("#FF5722" . 0)
-         ("#FFA000" . 10)
-         ("#FFD600" . 30)
-         ("#f2f2f2" . 60)
-         ("#FAFAFA" . 80)))
-     (quote
-      (("#F8BBD0" . 0)
-       ("#EC407A" . 10)
-       ("#B388FF" . 30)
-       ("#f2f2f2" . 60)
-       ("#FAFAFA" . 80)))))
- '(indent-tabs-mode nil)
- '(lua-documentation-url "http://www.lua.org/manual/")
- '(lua-indent-level 4)
- '(package-archives
-   (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("org" . "http://orgmode.org/elpa/")
-     ("melpa" . "http://melpa.org/packages/")
-     ("marmalade" . "http://marmalade-repo.org/packages/"))))
- '(package-selected-packages
-   (quote
-    (imenu-list package-build shut-up epl git commander f dash s)))
- '(pastebin-default-domain "pastebin.com/")
- '(pastebin-domain-versions
-   (quote
-    (("pastebin.com" "/api_public.php")
-     ("pastbin.com" "/api")
-     ("pastebin.example.com" "/pastebin.php"))))
- '(pos-tip-background-color "#ffffff")
- '(pos-tip-foreground-color "#78909C")
- '(safe-local-variable-values
-   (quote
-    ((firestarter . "make -C /home/eric/Projects/LAVO game")
-     (firestarter . "tup")
-     (lua-indent-level . 2)
-     (firestarter-type . failure)
-     (firestarter . "make --directory=/home/eric/Projects/LNVL")
-     (firestarter . ert-run-tests-interactively))))
- '(sort-fold-case t t)
- '(tabbar-background-color "#ffffff"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(anzu-mode-line ((t (:foreground "green" :weight bold))))
- '(js3-external-variable-face ((t (:foreground "black" :weight bold)))))
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
+
+;;; init.el ends here
