@@ -50,6 +50,10 @@
     (add-hook 'org-mode-hook #'ejmr/enable-org-mode-settings)))
 
 
+(use-package shrink-whitespace
+  :config (global-set-key (kbd "M-\\") #'shrink-whitespace))
+
+
 (use-package js3-mode
   :mode ("\\.js$" . js3-mode))
 
@@ -363,9 +367,12 @@ art_b_ollocks mode                    _r_eplace
 (use-package git-blame)
 
 
+(use-package imenu-list)
+
 (defhydra hydra-minor ()
   "minor-mode"
   ("i" global-aggressive-indent-mode "indent")
+  ("m" imenu-list-minor-mode "imenu-list")
   ("f" global-flycheck-mode "flycheck")
   ("c" focus-mode "focus")
   ("b" highlight-blocks-mode "hl-blocks")
@@ -699,7 +706,7 @@ _s_ummary         [_pu_] update      [_qu_] update
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
-    (shadchen namespaces git el2markdown yatemplate recursive-narrow undo-tree inf-php helm-open-github helm-mode-manager edit-color-stamp ert-modeline ert-runner conkeror-minor-mode commander fix-word helm-ls-git git-blame faff-theme use-package emoji-cheat-sheet-plus bts-github bts artbollocks-mode corral textile-mode omni-kill flycheck-pyflakes helm-j-cheatsheet helm-flyspell helm-ag define-word chronos omni-scratch eproject helm-gitignore totd csharp-mode ocodo-svg-modelines python-docstring autumn-light-theme peep-dired haskell-snippets fixmee flycheck-hdevtools flycheck-haskell haskell-emacs yaml-mode runner helm-dired-recent-dirs dired-toggle dired-details ix quack guile-scheme geiser chicken-scheme fasm-mode iasm-mode darkroom swiper page-break-lines glsl-mode md-readme dpaste emmet-mode lentic swoop helm-swoop discover-my-major fold-dwim love-minor-mode m-buffer helm-flycheck helm-git-grep flymake-lua olivetti fountain-mode tup-mode simple-mode-line ag ggtags flx-ido operate-on-number unfill highlight-blocks firestarter xkcd sqlplus sqlite edbi js3-mode iterator helm-ack esqlite-helm esqlite erlang epoch-view emoji-display emacsql golden-ratio elwm dummy-h-mode aproject anzu anyins anchored-transpose anaphora adoc-mode gitconfig-mode bbcode-mode whole-line-or-region yasnippet yaxception rainbow-identifiers pandoc-mode change-inner pastebin expand-region ert-expectations erefactor cerbere all-ext all @ aggressive-indent j-mode helm-make key-chord helm fish-mode duplicate-thing doremi-mac doremi-cmd doremi dired-efap lispy tiny form-feed flycheck-pos-tip flycheck-rust rust-mode dokuwiki-mode typo find-temp-file fic-mode recentf-ext tomatinho autopair electric-case haskell-mode go-mode flycheck-package flycheck php-mode hydra seq quickrun pomodoro org moe-theme markdown-mode lua-mode bubbleberry-theme basic-theme atom-dark-theme alect-themes)))
+    (imenu-list package-build shut-up epl git commander f dash s)))
  '(pastebin-default-domain "pastebin.com/")
  '(pastebin-domain-versions
    (quote
@@ -710,7 +717,8 @@ _s_ummary         [_pu_] update      [_qu_] update
  '(pos-tip-foreground-color "#78909C")
  '(safe-local-variable-values
    (quote
-    ((firestarter . "tup")
+    ((firestarter . "make -C /home/eric/Projects/LAVO game")
+     (firestarter . "tup")
      (lua-indent-level . 2)
      (firestarter-type . failure)
      (firestarter . "make --directory=/home/eric/Projects/LNVL")
