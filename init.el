@@ -371,12 +371,10 @@ art_b_ollocks mode                    _r_eplace
 
 (defhydra hydra-minor ()
   "minor-mode"
-  ("i" global-aggressive-indent-mode "indent")
-  ("m" imenu-list-minor-mode "imenu-list")
+  ("i" imenu-list-minor-mode "imenu-list")
   ("f" global-flycheck-mode "flycheck")
   ("c" focus-mode "focus")
   ("b" highlight-blocks-mode "hl-blocks")
-  ("g" git-blame-mode "git-blame")
   ("v" view-mode "view")
   ("s" firestarter-mode "firestarter")
   ("y" yas-minor-mode "yasnippet"))
