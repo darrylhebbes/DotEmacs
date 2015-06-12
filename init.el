@@ -198,10 +198,6 @@
     (add-to-list 'flycheck-disabled-checkers 'python-pylint)))
 
 
-(use-package simple-mode-line
-  :config (add-hook 'emacs-startup-hook 'activate-simple-mode-line))
-
-
 (defhydra hydra-yank-pop (:idle 2.0)
   "yank"
   ("C-y" yank nil)
@@ -482,6 +478,7 @@ _4_ kill      _f_ind files
 
 
 (use-package omni-kill
+  :disabled t
   :config
   (progn
     (defhydra hydra-omni-kill (:color blue :hint nil)
