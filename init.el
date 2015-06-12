@@ -53,6 +53,7 @@
 (use-package org
   :config
   (progn
+    (use-package ox-pandoc)
     (defun ejmr/enable-org-mode-settings ()
       (auto-fill-mode 1))
     (add-hook 'org-mode-hook #'ejmr/enable-org-mode-settings)))
