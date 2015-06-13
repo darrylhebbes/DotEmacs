@@ -373,9 +373,11 @@ art_b_ollocks mode                    _r_eplace
 
 
 (use-package imenu-list)
+(use-package annotate)
 
 (defhydra hydra-minor ()
   "minor-mode"
+  ("a" annotate-mode "annotate")
   ("i" imenu-list-minor-mode "imenu-list")
   ("f" global-flycheck-mode "flycheck")
   ("c" focus-mode "focus")
