@@ -403,6 +403,8 @@ art_b_ollocks mode                    _r_eplace
     (global-set-key (kbd "C-c q") 'hydra-quickrun/body)))
 
 
+(use-package find-temp-file)
+
 (defhydra hydra-command (:color blue :idle 2.0)
   "command"
   ("w" whitespace-cleanup "whitespace")
@@ -651,11 +653,6 @@ _s_ummary         [_pu_] update      [_qu_] update
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (setq auto-mode-alist
       (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
-
-
-(set-register ?e '(file . "/home/eric/.emacs.d/init.el"))
-(set-register ?t '(file . "/home/eric/Documents/Todo.org"))
-(set-register ?m '(file . "/tmp/mail.md"))
 
 
 (setq custom-file "~/.emacs.d/custom.el")
