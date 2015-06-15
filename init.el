@@ -52,11 +52,10 @@
 
 (use-package org
   :config
-  (progn
-    (use-package ox-pandoc)
-    (defun ejmr/enable-org-mode-settings ()
-      (auto-fill-mode 1))
-    (add-hook 'org-mode-hook #'ejmr/enable-org-mode-settings)))
+  (use-package ox-pandoc)
+  (defun ejmr/enable-org-mode-settings ()
+    (auto-fill-mode 1))
+  (add-hook 'org-mode-hook #'ejmr/enable-org-mode-settings))
 
 
 (use-package shrink-whitespace
@@ -68,17 +67,15 @@
 
 (use-package conkeror-minor-mode
   :config
-  (progn
-    (defun ejmr/maybe-enable-conkeror-minor-mode ()
-      (when (string-match "conkeror" (buffer-file-name))
-        (conkeror-minor-mode 1)))
-    (add-hook 'js3-mode-hook #'ejmr/maybe-enable-conkeror-minor-mode)))
+  (defun ejmr/maybe-enable-conkeror-minor-mode ()
+    (when (string-match "conkeror" (buffer-file-name))
+      (conkeror-minor-mode 1)))
+  (add-hook 'js3-mode-hook #'ejmr/maybe-enable-conkeror-minor-mode))
 
 
 (use-package yasnippet
   :config
-  (progn
-    (defhydra hydra-yasnippet (:color blue :hint nil)
+  (defhydra hydra-yasnippet (:color blue :hint nil)
       "
               YASnippets
 --------------------------------------------
@@ -97,8 +94,8 @@
       ("g" yas/global-mode)
       ("m" yas/minor-mode)
       ("a" yas-reload-all))
-    (global-set-key (kbd "C-c y") 'hydra-yasnippet/body)
-    (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))))
+  (global-set-key (kbd "C-c y") 'hydra-yasnippet/body)
+  (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt)))
 
 
 (use-package forth-mode
@@ -112,9 +109,8 @@
 
 (use-package recursive-narrow
   :config
-  (progn
-    (global-set-key (kbd "C-x n n") #'recursive-narrow-or-widen-dwim)
-    (global-set-key (kbd "C-x n w") #'recursive-widen-dwim)))
+  (global-set-key (kbd "C-x n n") #'recursive-narrow-or-widen-dwim)
+  (global-set-key (kbd "C-x n w") #'recursive-widen-dwim))
 
 
 (use-package recentf
@@ -148,13 +144,12 @@
 
 (use-package helm-mode-manager
   :config
-  (progn
-    (defhydra hydra-helm-mode-manager (:color blue)
-      "Modes"
-      ("m" helm-switch-major-mode "major")
-      ("n" helm-enable-minor-mode "minor on")
-      ("N" helm-disable-minor-mode "minor off"))
-    (global-set-key (kbd "C-c h") #'hydra-helm-mode-manager/body)))
+  (defhydra hydra-helm-mode-manager (:color blue)
+    "Modes"
+    ("m" helm-switch-major-mode "major")
+    ("n" helm-enable-minor-mode "minor on")
+    ("N" helm-disable-minor-mode "minor off"))
+  (global-set-key (kbd "C-c h") #'hydra-helm-mode-manager/body))
 
 
 (use-package adoc-mode
@@ -167,9 +162,8 @@
 
 (use-package haskell-mode
   :config
-  (progn
-    (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-    (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)))
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent))
 
 
 (add-to-list 'load-path "/home/eric/.emacs.d/lisp/qwe/src")
@@ -191,9 +185,8 @@
 
 (use-package flycheck-pyflakes
   :config
-  (progn
-    (add-to-list 'flycheck-disabled-checkers 'python-flake8)
-    (add-to-list 'flycheck-disabled-checkers 'python-pylint)))
+  (add-to-list 'flycheck-disabled-checkers 'python-flake8)
+  (add-to-list 'flycheck-disabled-checkers 'python-pylint))
 
 
 (defhydra hydra-yank-pop (:idle 2.0)
@@ -214,9 +207,8 @@
 
 (use-package change-inner
   :config
-  (progn
-    (global-set-key (kbd "M-i") 'change-inner)
-    (global-set-key (kbd "M-o") 'change-outer)))
+  (global-set-key (kbd "M-i") 'change-inner)
+  (global-set-key (kbd "M-o") 'change-outer))
 
 
 (use-package tiny
@@ -242,11 +234,10 @@
 
 (use-package anzu
   :config
-  (progn
-    (global-anzu-mode 1)
-    (global-set-key (kbd "M-%") 'anzu-query-replace)
-    (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
-    (global-set-key (kbd "C-c %") 'anzu-replace-at-cursor-thing)))
+  (global-anzu-mode 1)
+  (global-set-key (kbd "M-%") 'anzu-query-replace)
+  (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+  (global-set-key (kbd "C-c %") 'anzu-replace-at-cursor-thing))
 
 
 (use-package darkroom
@@ -297,12 +288,12 @@ art_b_ollocks mode                    _r_eplace
 
 (global-set-key (kbd "C-c t") 'hydra-text/body)
 
+
 (use-package fix-word
   :config
-  (progn
-    (global-set-key (kbd "M-u") #'fix-word-upcase)
-    (global-set-key (kbd "M-l") #'fix-word-downcase)
-    (global-set-key (kbd "M-c") #'fix-word-capitalize)))
+  (global-set-key (kbd "M-u") #'fix-word-upcase)
+  (global-set-key (kbd "M-l") #'fix-word-downcase)
+  (global-set-key (kbd "M-c") #'fix-word-capitalize))
 
 
 (defhydra hydra-desktop (:color blue :idle 2.0)
@@ -339,17 +330,16 @@ art_b_ollocks mode                    _r_eplace
 
 (use-package corral
   :config
-  (progn
-    (defhydra hydra-corral ()
-      "corral"
-      ("(" corral-parentheses-backward "Back")
-      (")" corral-parentheses-forward "Forward")
-      ("[" corral-brackets-backward "Back")
-      ("]" corral-brackets-forward "Forward")
-      ("{" corral-braces-backward "Back")
-      ("}" corral-braces-forward "Forward")
-      ("." hydra-repeat "Repeat"))
-    (global-set-key (kbd "C-c c") #'hydra-corral/body)))
+  (defhydra hydra-corral ()
+    "corral"
+    ("(" corral-parentheses-backward "Back")
+    (")" corral-parentheses-forward "Forward")
+    ("[" corral-brackets-backward "Back")
+    ("]" corral-brackets-forward "Forward")
+    ("{" corral-braces-backward "Back")
+    ("}" corral-braces-forward "Forward")
+    ("." hydra-repeat "Repeat"))
+  (global-set-key (kbd "C-c c") #'hydra-corral/body))
 
 
 (defun ejmr/enable-mail-settings ()
@@ -389,16 +379,15 @@ art_b_ollocks mode                    _r_eplace
 
 (use-package quickrun
   :config
-  (progn
-    (defhydra hydra-quickrun (:color blue)
-      "quickrun"
-      ("q" quickrun "run")
-      ("r" quickrun-region "region")
-      ("w" quickrun-with-arg "with-arg")
-      ("s" quickrun-shell "shell")
-      ("c" quickrun-compile-only "compile")
-      ("p" quickrun-replace-region "replace"))
-    (global-set-key (kbd "C-c q") 'hydra-quickrun/body)))
+  (defhydra hydra-quickrun (:color blue)
+    "quickrun"
+    ("q" quickrun "run")
+    ("r" quickrun-region "region")
+    ("w" quickrun-with-arg "with-arg")
+    ("s" quickrun-shell "shell")
+    ("c" quickrun-compile-only "compile")
+    ("p" quickrun-replace-region "replace"))
+  (global-set-key (kbd "C-c q") 'hydra-quickrun/body))
 
 
 (use-package find-temp-file)
@@ -422,14 +411,13 @@ art_b_ollocks mode                    _r_eplace
 
 (use-package swoop
   :config
-  (progn
-    (defhydra hydra-swoop (:color blue)
-      "swoop"
-      ("s" swoop)
-      ("m" swoop-multi "multi")
-      ("p" swoop-pcre-regexp "pcre")
-      ("b" swoop-back-to-last-position "back"))
-    (global-set-key (kbd "C-c s") 'hydra-swoop/body)))
+  (defhydra hydra-swoop (:color blue)
+    "swoop"
+    ("s" swoop)
+    ("m" swoop-multi "multi")
+    ("p" swoop-pcre-regexp "pcre")
+    ("b" swoop-back-to-last-position "back"))
+  (global-set-key (kbd "C-c s") 'hydra-swoop/body))
 
 
 (progn
@@ -451,11 +439,10 @@ art_b_ollocks mode                    _r_eplace
 
 (use-package key-chord
   :config
-  (progn
-    (key-chord-mode 1)
-    (setq key-chord-two-keys-delay 0.5)
+  (key-chord-mode 1)
+  (setq key-chord-two-keys-delay 0.5)
 
-    (defhydra hydra-chord (:color blue :hint nil)
+  (defhydra hydra-chord (:color blue :hint nil)
       "
 ^Windows^    ^Files and Buffers^
 -------------------------------
@@ -473,18 +460,17 @@ _4_ kill      _f_ind files
       ("l" helm-buffers-list)
       ("f" helm-find-files))
 
-    (key-chord-define-global "qq" 'hydra-chord/body)
-    (key-chord-define-global "qn" 'operate-on-number-at-point)
-    (key-chord-define-global "qd" #'duplicate-thing)
-    (key-chord-define-global "qw" #'easy-kill)))
+  (key-chord-define-global "qq" 'hydra-chord/body)
+  (key-chord-define-global "qn" 'operate-on-number-at-point)
+  (key-chord-define-global "qd" #'duplicate-thing)
+  (key-chord-define-global "qw" #'easy-kill))
 
 
 (use-package omni-kill
   :disabled t
   :config
-  (progn
-    (defhydra hydra-omni-kill (:color blue :hint nil)
-      "
+  (defhydra hydra-omni-kill (:color blue :hint nil)
+    "
 Omni Kill
 --------------------------------------------------
 _d_efun      _n_umber        _S_exp
@@ -493,20 +479,20 @@ _f_ilename   _P_page         _w_ord
 _l_ine       _s_ymbol        _W_hitespace
 _L_ist
 "
-      ("d" omni-kill-defun)
-      ("e" omni-kill-email)
-      ("f" omni-kill-filename)
-      ("l" omni-kill-line)
-      ("L" omni-kill-list)
-      ("n" omni-kill-number)
-      ("P" omni-kill-page)
-      ("n" omni-kill-sentence)
-      ("S" omni-kill-sexp)
-      ("s" omni-kill-symbol)
-      ("u" omni-kill-url)
-      ("W" omni-kill-whitespace)
-      ("w" omni-kill-word))
-    (global-set-key (kbd "C-c k") #'hydra-omni-kill/body)))
+    ("d" omni-kill-defun)
+    ("e" omni-kill-email)
+    ("f" omni-kill-filename)
+    ("l" omni-kill-line)
+    ("L" omni-kill-list)
+    ("n" omni-kill-number)
+    ("P" omni-kill-page)
+    ("n" omni-kill-sentence)
+    ("S" omni-kill-sexp)
+    ("s" omni-kill-symbol)
+    ("u" omni-kill-url)
+    ("W" omni-kill-whitespace)
+    ("w" omni-kill-word))
+  (global-set-key (kbd "C-c k") #'hydra-omni-kill/body))
 
 
 (use-package expand-region
@@ -519,14 +505,13 @@ _L_ist
 
 (use-package fold-dwim
   :config
-  (progn
-    (defhydra hydra-fold (:pre (hs-minor-mode 1))
-      "fold"
-      ("t" fold-dwim-toggle "toggle")
-      ("h" fold-dwim-hide-all "hide-all")
-      ("s" fold-dwim-show-all "show-all"))
+  (defhydra hydra-fold (:pre (hs-minor-mode 1))
+    "fold"
+    ("t" fold-dwim-toggle "toggle")
+    ("h" fold-dwim-hide-all "hide-all")
+    ("s" fold-dwim-show-all "show-all"))
 
-    (global-set-key (kbd "C-c f") 'hydra-fold/body)))
+  (global-set-key (kbd "C-c f") 'hydra-fold/body))
 
 
 (use-package ert-modeline)
@@ -535,83 +520,82 @@ _L_ist
 (use-package eproject
   :init (setq eproject-keybind-prefix "C-c e")
   :config
-  (progn
-    (use-package eproject-extras)
-    (use-package eproject-tags
-      :config (setq eproject-tags-etags "etags"))
-    (use-package eproject-compile)
-    (use-package helm-eproject)
-    (use-package eproject-tasks)
-    (use-package eproject-python)
+  (use-package eproject-extras)
+  (use-package eproject-tags
+    :config (setq eproject-tags-etags "etags"))
+  (use-package eproject-compile)
+  (use-package helm-eproject)
+  (use-package eproject-tasks)
+  (use-package eproject-python)
 
-    (defun eproject-helm-ag ()
-      "Run helm-ag on the project's root directory."
-      (interactive)
-      (helm-ag (eproject-root)))
+  (defun eproject-helm-ag ()
+    "Run helm-ag on the project's root directory."
+    (interactive)
+    (helm-ag (eproject-root)))
 
-    (global-set-key (kbd "C-c e f") #'eproject-find-file)
-    (global-set-key (kbd "C-c e h") #'helm-eproject)
-    (global-set-key (kbd "C-c e k") #'eproject-kill-project-buffers)
-    (global-set-key (kbd "C-c e r") #'eproject-revisit-project)
-    (global-set-key (kbd "C-c e a") #'eproject-open-all-project-files)
-    (global-set-key (kbd "C-c e g") #'eproject-grep)
-    (global-set-key (kbd "C-c e t") #'eproject-tags)
-    (global-set-key (kbd "C-c e T") #'eproject-todo)
-    (global-set-key (kbd "C-c e c") #'eproject-compile)
-    (global-set-key (kbd "C-c e s") #'eproject-multi-isearch-buffers)
-    (global-set-key (kbd "C-c e G") #'eproject-helm-ag)
-    (global-set-key (kbd "C-c e S") #'helm-eproject-tasks)
+  (global-set-key (kbd "C-c e f") #'eproject-find-file)
+  (global-set-key (kbd "C-c e h") #'helm-eproject)
+  (global-set-key (kbd "C-c e k") #'eproject-kill-project-buffers)
+  (global-set-key (kbd "C-c e r") #'eproject-revisit-project)
+  (global-set-key (kbd "C-c e a") #'eproject-open-all-project-files)
+  (global-set-key (kbd "C-c e g") #'eproject-grep)
+  (global-set-key (kbd "C-c e t") #'eproject-tags)
+  (global-set-key (kbd "C-c e T") #'eproject-todo)
+  (global-set-key (kbd "C-c e c") #'eproject-compile)
+  (global-set-key (kbd "C-c e s") #'eproject-multi-isearch-buffers)
+  (global-set-key (kbd "C-c e G") #'eproject-helm-ag)
+  (global-set-key (kbd "C-c e S") #'helm-eproject-tasks)
 
-    (define-project-type tup (generic)
-      (or (look-for "Tupfile")
-          (look-for "Tupfile.lua"))
-      :common-compiles ("tup"))
+  (define-project-type tup (generic)
+    (or (look-for "Tupfile")
+        (look-for "Tupfile.lua"))
+    :common-compiles ("tup"))
 
-    (define-project-type make (generic)
-      (look-for "Makefile")
-      :common-compiles ("make")
-      :main-file "Makefile")
+  (define-project-type make (generic)
+    (look-for "Makefile")
+    :common-compiles ("make")
+    :main-file "Makefile")
 
-    (define-project-type documentation (generic)
-      (or (look-for "*.md")
-          (look-for "*.org")
-          (look-for "*.adoc")
-          (look-for "*.textile")
-          (look-for "README"))
-      :relevant-files ("\\.md$" "\\.org$" "README" "\\.adoc$" "\\.textile"))
+  (define-project-type documentation (generic)
+    (or (look-for "*.md")
+        (look-for "*.org")
+        (look-for "*.adoc")
+        (look-for "*.textile")
+        (look-for "README"))
+    :relevant-files ("\\.md$" "\\.org$" "README" "\\.adoc$" "\\.textile"))
 
-    (define-project-type lua (generic)
-      (or (look-for "*.rockspec")
-          (look-for ".busted")
-          (look-for "main.lua"))
-      :relevant-files ("\\.lua$"))
+  (define-project-type lua (generic)
+    (or (look-for "*.rockspec")
+        (look-for ".busted")
+        (look-for "main.lua"))
+    :relevant-files ("\\.lua$"))
 
-    (define-project-type bash (generic)
-      (look-for "*.sh")
-      :relevant-files ("\\.sh$"))
+  (define-project-type bash (generic)
+    (look-for "*.sh")
+    :relevant-files ("\\.sh$"))
 
-    (define-project-type travis-ci (generic)
-      (look-for ".travis.yml")
-      :main-file ".travis.yml")
+  (define-project-type travis-ci (generic)
+    (look-for ".travis.yml")
+    :main-file ".travis.yml")
 
-    (define-project-type elisp (generic)
-      (look-for "*.el")
-      :relevant-files ("\\.el$" ".ert-runner" "Cask")
-      :irrelevant-files ("\\.elc$"))
+  (define-project-type elisp (generic)
+    (look-for "*.el")
+    :relevant-files ("\\.el$" ".ert-runner" "Cask")
+    :irrelevant-files ("\\.elc$"))
 
-    (define-project-type java (generic)
-      (or (look-for "pom.xml")
-          (look-for "build.xml"))
-      :relevant-files ("\\.java" "\\.xml")
-      :irrelevant-files ("\\.class")
-      :common-compiles ("ant" "maven"))
+  (define-project-type java (generic)
+    (or (look-for "pom.xml")
+        (look-for "build.xml"))
+    :relevant-files ("\\.java" "\\.xml")
+    :irrelevant-files ("\\.class")
+    :common-compiles ("ant" "maven"))
 
-    (define-project-type love (lua)
-      (or (look-for "*.love")
-          (look-for "conf.lua")
-          (look-for "main.lua"))
-      :tasks (("play" :shell "love *.love"))
-      :main-file "main.lua")))
+  (define-project-type love (lua)
+    (or (look-for "*.love")
+        (look-for "conf.lua")
+        (look-for "main.lua"))
+    :tasks (("play" :shell "love *.love"))
+    :main-file "main.lua"))
 
 
 (use-package undo-tree
@@ -620,9 +604,8 @@ _L_ist
 
 (use-package bts
   :config
-  (progn
-    (defhydra hydra-bts (:color blue :hint nil)
-"
+  (defhydra hydra-bts (:color blue :hint nil)
+    "
     Bug Tracking System
 ------------------------------------------------------------
 ^Tickets:^        ^Projects:^        ^Query:^
@@ -632,17 +615,17 @@ _s_ummary         [_pu_] update      [_qu_] update
                 [_pd_] delete      [_qd_] delete
                 [_pD_] delete all  [_qD_] delete all
 "
-      ("n" bts:ticket-new)
-      ("s" bts:summary-open)
-      ("pn" bts:project-new)
-      ("pu" bts:project-update)
-      ("pd" bts:project-remove)
-      ("pD" bts:project-remove-all)
-      ("qn" bts:query-new)
-      ("qu" bts:query-update)
-      ("qd" bts:query-remove)
-      ("qD" bts:query-remove-all))
-    (global-set-key (kbd "C-c b") #'hydra-bts/body)))
+    ("n" bts:ticket-new)
+    ("s" bts:summary-open)
+    ("pn" bts:project-new)
+    ("pu" bts:project-update)
+    ("pd" bts:project-remove)
+    ("pD" bts:project-remove-all)
+    ("qn" bts:query-new)
+    ("qu" bts:query-update)
+    ("qd" bts:query-remove)
+    ("qD" bts:query-remove-all))
+  (global-set-key (kbd "C-c b") #'hydra-bts/body))
 
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . diff-mode))
