@@ -101,11 +101,9 @@
     (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))))
 
 
-(add-to-list 'load-path "/home/eric/.emacs.d/lisp")
-(autoload 'forth-mode "gforth.el")
-(autoload 'forth-block-mode "gforth.el")
-(add-to-list 'auto-mode-alist '("\\.fs" . forth-mode))
-(add-to-list 'auto-mode-alist '("\\.fb" . forth-block-mode))
+(use-package forth-mode
+  :load-path "/home/eric/.emacs.d/lisp/"
+  :mode ("\\.fs$" . forth-mode))
 
 
 (use-package lua-mode
