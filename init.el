@@ -570,6 +570,10 @@ _L_ist
         (look-for "main.lua"))
     :relevant-files ("\\.lua$"))
 
+  (define-project-type scheme (generic)
+    (look-for "*.scm")
+    :relevant-files ("\\.scm*"))
+
   (define-project-type bash (generic)
     (look-for "*.sh")
     :relevant-files ("\\.sh$"))
