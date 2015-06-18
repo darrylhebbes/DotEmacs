@@ -594,6 +594,11 @@ _L_ist
     :irrelevant-files ("\\.class")
     :common-compiles ("ant" "maven"))
 
+  (define-project-type php (generic)
+    (look-for "composer.json")
+    :relevant-files ("\\.php")
+    :common-compiles ("composer install"))
+
   (define-project-type love (lua)
     (or (look-for "*.love")
         (look-for "conf.lua")
