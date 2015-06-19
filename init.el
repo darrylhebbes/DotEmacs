@@ -551,6 +551,7 @@ _L_ist
         (look-for "Main.hs")
         (look-for "Setup.hs"))
     :main-file "Main.hs"
+    :relevant-files ("\\.hs" "\\.lhs")
     :common-compiles ("cabal build"))
 
   (define-project-type tup (generic)
@@ -593,6 +594,11 @@ _L_ist
     (look-for "*.el")
     :relevant-files ("\\.el$" ".ert-runner" "Cask")
     :irrelevant-files ("\\.elc$"))
+
+  (define-project-type common-lisp (generic)
+    (or (look-for "*.lisp")
+        (look-for "*.asd"))
+    :relevant-files ("\\.lisp"))
 
   (define-project-type java (generic)
     (or (look-for "pom.xml")
