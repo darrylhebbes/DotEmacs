@@ -171,6 +171,11 @@
 (use-package qwe)
 
 
+(use-package smalltalk-mode
+  :load-path "/home/eric/Software/GNU Smalltalk/"
+  :mode "\\.st$")
+
+
 (global-page-break-lines-mode t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -358,6 +363,8 @@ art_b_ollocks mode                    _r_eplace
 
 
 (use-package git-blame)
+(use-package git-messenger
+  :config (global-set-key (kbd "C-x v p") #'git-messenger:popup-message))
 
 
 (use-package imenu-list)
