@@ -546,6 +546,13 @@ _L_ist
   (global-set-key (kbd "C-c e G") #'eproject-helm-ag)
   (global-set-key (kbd "C-c e S") #'helm-eproject-tasks)
 
+  (define-project-type haskell (generic)
+    (or (look-for "*.cabal")
+        (look-for "Main.hs")
+        (look-for "Setup.hs"))
+    :main-file "Main.hs"
+    :common-compiles ("cabal build"))
+
   (define-project-type tup (generic)
     (or (look-for "Tupfile")
         (look-for "Tupfile.lua"))
