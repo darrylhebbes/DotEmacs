@@ -103,6 +103,12 @@
   :mode ("\\.fs$" . forth-mode))
 
 
+(use-package tsm
+  :load-path "/home/eric/Software/PicoLisp/lib/el/"
+  :config
+  (use-package picolisp :mode ("\\.l$" . picolisp-mode)))
+
+
 (use-package lua-mode
   :mode "\\.lnvl$")
 
