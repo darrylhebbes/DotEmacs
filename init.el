@@ -397,6 +397,9 @@ art_b_ollocks mode                    _r_eplace
   (global-set-key (kbd "C-c q") 'hydra-quickrun/body))
 
 
+(use-package fish-mode :mode "\\.fish$")
+
+
 (use-package find-temp-file)
 
 (defhydra hydra-command (:color blue :idle 2.0)
