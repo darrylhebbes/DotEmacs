@@ -596,7 +596,7 @@ _L_ist
 
   (define-project-type scheme (generic)
     (look-for "*.scm")
-    :relevant-files ("\\.scm*"))
+    :relevant-files ("\\.scm$"))
 
   (define-project-type bash (generic)
     (look-for "*.sh")
