@@ -339,6 +339,18 @@ art_b_ollocks mode                    _r_eplace
   :config (define-key markdown-mode-map (kbd "C-c C-w") 'ejmr/insert-email-signature))
 
 
+(use-package avy
+  :config
+  (defhydra hydra-avy (:color blue)
+    "avy-goto"
+    ("c" avy-goto-char "char")
+    ("C" avy-goto-char-2 "char-2")
+    ("l" avy-goto-line "line")
+    ("w" avy-goto-word-1 "word")
+    ("W" avy-goto-word-0 "word-0"))
+  (global-set-key (kbd "C-c a") #'hydra-avy/body))
+
+
 (use-package corral
   :config
   (defhydra hydra-corral ()
