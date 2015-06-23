@@ -373,8 +373,8 @@ art_b_ollocks mode                    _r_eplace
   (typo-mode 1))
 
 (defun ejmr/possibly-enable-mail-settings ()
-  "Enable my mail settings when visiting `/tmp/mail.md'."
-  (if (string= "/tmp/mail.md" (buffer-file-name))
+  "Enable my mail settings when visiting my draft mail file."
+  (if (string= "/home/eric/Documents/Mail.md" (buffer-file-name))
       (ejmr/enable-mail-settings)))
 
 (add-hook 'markdown-mode-hook #'ejmr/possibly-enable-mail-settings)
