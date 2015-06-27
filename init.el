@@ -53,6 +53,23 @@
 (use-package org
   :config
   (use-package ox-pandoc)
+  (defhydra hydra-org (:color red :hint nil)
+    "
+^Navigation^
+--------------------------------------------------
+_n_ext heading
+_p_rev heading
+_N_ext heading at same level
+_P_rev heading at same level
+_u_p   heading
+_g_o to"
+    ("n" outline-next-visible-heading)
+    ("p" outline-previous-visible-heading)
+    ("N" org-forward-heading-same-level)
+    ("P" org-backward-heading-same-level)
+    ("u" outline-up-heading)
+    ("g" org-goto :exit t))
+  (global-set-key (kbd "C-c o") #'hydra-org/body)
   (defun ejmr/enable-org-mode-settings ()
     (auto-fill-mode 1))
   (add-hook 'org-mode-hook #'ejmr/enable-org-mode-settings))
@@ -482,6 +499,42 @@ art_b_ollocks mode                    _r_eplace
 
 (use-package autopair
   :config (autopair-global-mode))
+
+
+(progn
+  (defhydra hydra-window (:hint nil)
+    "
+          Split: _v_ert  _s_:horz
+         Delete: _c_lose  _o_nly
+  Switch Window: _h_:left  _j_:down  _k_:up  _l_:right
+        Buffers: _p_revious  _n_ext  _b_:select  _f_ind-file  _F_projectile
+         Winner: _u_ndo  _r_edo
+         Resize: _H_:splitter left  _J_:splitter down  _K_:splitter up  _L_:splitter right
+           Move: _a_:up  _z_:down  _i_menu"
+    ("z" scroll-up-line)
+    ("a" scroll-down-line)
+    ("i" idomenu)
+    ("u" winner-undo)
+    ("r" winner-redo)
+    ("h" windmove-left)
+    ("j" windmove-down)
+    ("k" windmove-up)
+    ("l" windmove-right)
+    ("p" previous-buffer)
+    ("n" next-buffer)
+    ("b" ido-switch-buffer) 
+    ("f" ido-find-file)
+    ("F" projectile-find-file)
+    ("s" split-window-below)
+    ("v" split-window-right)
+    ("c" delete-window)
+    ("o" delete-other-windows)
+    ("H" hydra-move-splitter-left)
+    ("J" hydra-move-splitter-down)
+    ("K" hydra-move-splitter-up)
+    ("L" hydra-move-splitter-right)
+    ("q" nil))
+  (global-set-key (kbd "C-c w") #'hydra-window/body))
 
 
 (use-package key-chord
