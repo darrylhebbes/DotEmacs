@@ -73,8 +73,21 @@
   (add-hook 'js3-mode-hook #'ejmr/maybe-enable-conkeror-minor-mode))
 
 
+(progn
+  (use-package rainbow-blocks)
+  (use-package ranibow-identifiers)
+  (use-package rainbow-delimiters)
+  (defhydra hydra-rainbow ()
+    "rainbow"
+    ("b" rainbow-blocks-mode "blocks")
+    ("i" rainbow-identifiers-mode "identifiers")
+    ("d" rainbow-delimiters-mode "delimiters"))
+  (global-set-key (kbd "C-c r") #'hydra-rainbow/body))
+
+
 (use-package yasnippet
   :config
+  (use-package auto-yasnippet)
   (defhydra hydra-yasnippet (:color blue :hint nil)
       "
               YASnippets
@@ -84,6 +97,9 @@
   _g_lobal    _d_irectory      _i_nsert
   _m_inor     _f_ile           _t_ryout
   _e_xtra     _a_ll            _n_ew
+                      auto _c_reate
+                      auto e_x_pand
+                      auto _o_pen
 "
       ("d" yas-load-directory)
       ("e" yas-activate-extra-mode)
@@ -93,7 +109,10 @@
       ("t" yas-tryout-snippet)
       ("g" yas/global-mode)
       ("m" yas/minor-mode)
-      ("a" yas-reload-all))
+      ("a" yas-reload-all)
+      ("c" aya-create)
+      ("x" aya-expand)
+      ("o" aya-open-line))
   (global-set-key (kbd "C-c y") 'hydra-yasnippet/body)
   (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt)))
 
