@@ -139,10 +139,8 @@ _g_o to"
   :mode ("\\.fs$" . forth-mode))
 
 
-(use-package tsm
-  :load-path "/home/eric/Software/PicoLisp/lib/el/"
-  :config
-  (use-package picolisp :mode ("\\.l$" . picolisp-mode)))
+(use-package picolisp-mode
+  :mode ("\\.l$" . picolisp-mode))
 
 
 (use-package lua-mode
@@ -336,6 +334,13 @@ art_b_ollocks mode                    _r_eplace
 (global-set-key (kbd "C-c t") 'hydra-text/body)
 
 
+(use-package string-inflection
+  :config (global-set-key (kbd "C-\"") #'string-inflection-all-cycle))
+
+
+(use-package unicode-enbox)
+
+
 (use-package fix-word
   :config
   (global-set-key (kbd "M-u") #'fix-word-upcase)
@@ -363,6 +368,9 @@ art_b_ollocks mode                    _r_eplace
   ("m" markdown-mode "markdown"))
 
 (global-set-key (kbd "C-c m") 'hydra-major/body)
+
+
+(use-package poly-markdown)
 
 
 (defun ejmr/insert-email-signature ()
@@ -399,6 +407,9 @@ art_b_ollocks mode                    _r_eplace
     ("}" corral-braces-forward "Forward")
     ("." hydra-repeat "Repeat"))
   (global-set-key (kbd "C-c c") #'hydra-corral/body))
+
+
+(use-package racket-mode)
 
 
 (defun ejmr/enable-mail-settings ()
@@ -462,7 +473,6 @@ art_b_ollocks mode                    _r_eplace
   ("i" helm-imenu "imenu")
   ("g" helm-git-grep "git-grep")
   ("l" helm-ls-git-ls "git-ls")
-  ("n" gnus "news")
   ("v" visit-tags-table "visit-tags")
   ("t" find-temp-file "temp"))
 
