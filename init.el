@@ -203,7 +203,7 @@ _g_o to"
 (use-package haskell-mode
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent))
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation))
 
 
 (add-to-list 'load-path "/home/eric/.emacs.d/lisp/qwe/src")
@@ -729,6 +729,12 @@ _L_ist
     :main-file "__init__.py"
     :relevant-files ("\\.py")
     :irrelevant-files ("\\.pyc"))
+
+  (define-project-type ruby (generic)
+    (or (look-for "Gemfile")
+        (look-for "*.gemspec")
+        (look-for "Rakefile"))
+    :relevant-files ("\\.rb"))
 
   (define-project-type love (lua)
     (or (look-for "*.love")
