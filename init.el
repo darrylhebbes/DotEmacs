@@ -443,8 +443,7 @@ art_b_ollocks mode                    _r_eplace
   ("c" focus-mode "focus")
   ("b" highlight-blocks-mode "hl-blocks")
   ("v" view-mode "view")
-  ("s" firestarter-mode "firestarter")
-  ("y" yas-minor-mode "yasnippet"))
+  ("s" firestarter-mode "firestarter"))
 
 (global-set-key (kbd "C-c n") 'hydra-minor/body)
 
