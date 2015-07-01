@@ -773,6 +773,11 @@ _s_ummary         [_pu_] update      [_qu_] update
   (global-set-key (kbd "C-c b") #'hydra-bts/body))
 
 
+(use-package llvm-mode
+  :config
+  (use-package autodisass-llvm-bitcode))
+
+
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . diff-mode))
 
 
