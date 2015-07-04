@@ -644,6 +644,14 @@ _L_ist
 (use-package ert-modeline)
 
 
+(use-package lispy
+  :config
+  (defun ejmr/enable-scheme-mode-settings ()
+    (autopair-mode -1)
+    (lispy-mode 1))
+  (add-hook 'scheme-mode-hook #'ejmr/enable-scheme-mode-settings))
+
+
 (use-package eproject
   :init (setq eproject-keybind-prefix "C-c e")
   :config
