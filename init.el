@@ -193,7 +193,13 @@ _g_o to"
 
 
 (use-package adoc-mode
-  :mode "\\.adoc$")
+  :mode "\\.adoc$"
+  :config
+  (defun ejmr/enable-adoc-mode-settings ()
+    (auto-fill-mode 1)
+    (flyspell-mode 1)
+    (typo-mode 1))
+  (add-hook 'adoc-mode-hook #'ejmr/enable-adoc-mode-settings))
 
 
 (use-package textile-mode
@@ -448,8 +454,20 @@ art_b_ollocks mode                    _r_eplace
 (global-set-key (kbd "C-c n") 'hydra-minor/body)
 
 
+(use-package solid-mode
+  :load-path "/home/eric/Software/Solid/etc/")
+
+
 (use-package quickrun
   :config
+  
+  (quickrun-add-command
+   "solid"
+   '((:command . "solid")
+     (:exec . "%c %s"))
+   :default "solid"
+   :mode 'solid-mode)
+  
   (defhydra hydra-quickrun (:color blue)
     "quickrun"
     ("q" quickrun "run")
@@ -655,6 +673,11 @@ _L_ist
   (global-set-key (kbd "C-c e G") #'eproject-helm-ag)
   (global-set-key (kbd "C-c e S") #'helm-eproject-tasks)
 
+  (define-project-type elisp (generic)
+    (look-for "*.el")
+    :relevant-files ("\\.el$" ".ert-runner" "Cask")
+    :irrelevant-files ("\\.elc$"))
+
   (define-project-type haskell (generic)
     (or (look-for "*.cabal")
         (look-for "Main.hs")
@@ -662,24 +685,6 @@ _L_ist
     :main-file "Main.hs"
     :relevant-files ("\\.hs" "\\.lhs")
     :common-compiles ("cabal build"))
-
-  (define-project-type tup (generic)
-    (or (look-for "Tupfile")
-        (look-for "Tupfile.lua"))
-    :common-compiles ("tup"))
-
-  (define-project-type make (generic)
-    (look-for "Makefile")
-    :common-compiles ("make")
-    :main-file "Makefile")
-
-  (define-project-type documentation (generic)
-    (or (look-for "*.md")
-        (look-for "*.org")
-        (look-for "*.adoc")
-        (look-for "*.textile")
-        (look-for "README"))
-    :relevant-files ("\\.md$" "\\.org$" "README" "\\.adoc$" "\\.textile"))
 
   (define-project-type lua (generic)
     (or (look-for "*.rockspec")
@@ -698,11 +703,6 @@ _L_ist
   (define-project-type travis-ci (generic)
     (look-for ".travis.yml")
     :main-file ".travis.yml")
-
-  (define-project-type elisp (generic)
-    (look-for "*.el")
-    :relevant-files ("\\.el$" ".ert-runner" "Cask")
-    :irrelevant-files ("\\.elc$"))
 
   (define-project-type common-lisp (generic)
     (or (look-for "*.lisp")
@@ -740,7 +740,25 @@ _L_ist
         (look-for "conf.lua")
         (look-for "main.lua"))
     :tasks (("play" :shell "love *.love"))
-    :main-file "main.lua"))
+    :main-file "main.lua")
+
+  (define-project-type tup (generic)
+    (or (look-for "Tupfile")
+        (look-for "Tupfile.lua"))
+    :common-compiles ("tup"))
+
+  (define-project-type make (generic)
+    (look-for "Makefile")
+    :common-compiles ("make")
+    :main-file "Makefile")
+
+  (define-project-type documentation (generic)
+    (or (look-for "*.md")
+        (look-for "*.org")
+        (look-for "*.adoc")
+        (look-for "*.textile")
+        (look-for "README"))
+    :relevant-files ("\\.md$" "\\.org$" "README" "\\.adoc$" "\\.textile")))
 
 
 (use-package undo-tree
