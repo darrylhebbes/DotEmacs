@@ -648,7 +648,8 @@ _L_ist
   :config
   (defun ejmr/enable-scheme-mode-settings ()
     (autopair-mode -1)
-    (lispy-mode 1))
+    (lispy-mode 1)
+    (geiser-mode -1))
   (add-hook 'scheme-mode-hook #'ejmr/enable-scheme-mode-settings))
 
 
