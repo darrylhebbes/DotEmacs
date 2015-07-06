@@ -730,14 +730,6 @@ _L_ist
     :relevant-files ("\\.php")
     :common-compiles ("composer install"))
 
-  (define-project-type python (generic)
-    (or (look-for "setup.py")
-        (look-for "*.egg-info")
-        (look-for "__init__.py"))
-    :main-file "__init__.py"
-    :relevant-files ("\\.py")
-    :irrelevant-files ("\\.pyc"))
-
   (define-project-type ruby (generic)
     (or (look-for "Gemfile")
         (look-for "*.gemspec")
