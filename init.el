@@ -193,7 +193,8 @@ _g_o to"
 
 
 (use-package adoc-mode
-  :mode "\\.adoc$"
+  :mode (("\\.adoc$" . adoc-mode)
+         ("\\.asciidoc$" . adoc-mode))
   :config
   (defun ejmr/enable-adoc-mode-settings ()
     (auto-fill-mode 1)
