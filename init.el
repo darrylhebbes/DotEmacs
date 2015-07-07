@@ -441,7 +441,7 @@ art_b_ollocks mode                    _r_eplace
 (use-package imenu-list)
 (use-package annotate)
 
-(defhydra hydra-minor ()
+(defhydra hydra-minor (:idle 2.0)
   "minor-mode"
   ("a" annotate-mode "annotate")
   ("i" imenu-list-minor-mode "imenu-list")
@@ -449,6 +449,7 @@ art_b_ollocks mode                    _r_eplace
   ("c" focus-mode "focus")
   ("b" highlight-blocks-mode "hl-blocks")
   ("v" view-mode "view")
+  ("l" lispy-mode "lispy")
   ("s" firestarter-mode "firestarter"))
 
 (global-set-key (kbd "C-c n") 'hydra-minor/body)
