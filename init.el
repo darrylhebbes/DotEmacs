@@ -242,7 +242,7 @@ _g_o to"
   (add-to-list 'flycheck-disabled-checkers 'python-pylint))
 
 
-(defhydra hydra-yank-pop (:idle 2.0)
+(defhydra hydra-yank-pop ()
   "yank"
   ("C-y" yank nil)
   ("M-y" yank-pop nil)
@@ -308,7 +308,7 @@ _g_o to"
 (use-package artbollocks-mode
   :config (add-hook 'text-mode-hook 'artbollocks-mode))
 
-(defhydra hydra-text (:hint nil :idle 2.0)
+(defhydra hydra-text (:hint nil)
   "
 ^Modes^           ^Commands^            ^Rectangles^
 ----------------------------------------------------------------------
@@ -356,7 +356,7 @@ art_b_ollocks mode                    _r_eplace
   (global-set-key (kbd "M-c") #'fix-word-capitalize))
 
 
-(defhydra hydra-desktop (:color blue :idle 2.0)
+(defhydra hydra-desktop (:color blue)
   "desktop"
   ("c" desktop-clear "clear")
   ("s" desktop-save "save")
@@ -364,18 +364,6 @@ art_b_ollocks mode                    _r_eplace
   ("d" desktop-change-dir "dir"))
 
 (global-set-key (kbd "C-c d") 'hydra-desktop/body)
-
-
-(defhydra hydra-major (:color blue :idle 2.0)
-  "major-mode"
-  ("t" text-mode "text")
-  ("d" diff-mode "diff")
-  ("l" lua-mode "lua")
-  ("p" php-mode "php")
-  ("a" mail-mode "mail")
-  ("m" markdown-mode "markdown"))
-
-(global-set-key (kbd "C-c m") 'hydra-major/body)
 
 
 (use-package poly-markdown)
@@ -443,19 +431,6 @@ art_b_ollocks mode                    _r_eplace
 (use-package imenu-list)
 (use-package annotate)
 
-(defhydra hydra-minor (:idle 2.0)
-  "minor-mode"
-  ("a" annotate-mode "annotate")
-  ("i" imenu-list-minor-mode "imenu-list")
-  ("f" global-flycheck-mode "flycheck")
-  ("c" focus-mode "focus")
-  ("b" highlight-blocks-mode "hl-blocks")
-  ("v" view-mode "view")
-  ("l" lispy-mode "lispy")
-  ("s" firestarter-mode "firestarter"))
-
-(global-set-key (kbd "C-c n") 'hydra-minor/body)
-
 
 (use-package solid-mode
   :load-path "/home/eric/Software/Solid/etc/")
@@ -487,7 +462,7 @@ art_b_ollocks mode                    _r_eplace
 
 (use-package find-temp-file)
 
-(defhydra hydra-command (:color blue :idle 2.0)
+(defhydra hydra-command (:color blue)
   "command"
   ("w" whitespace-cleanup "whitespace")
   ("i" helm-imenu "imenu")
