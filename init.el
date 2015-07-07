@@ -158,7 +158,8 @@ _g_o to"
 (use-package yaml-mode)
 (use-package tomatinho
   :config (global-set-key (kbd "<f12>") 'tomatinho))
-(use-package hydra)
+(use-package hydra
+  :config (global-set-key (kbd "C-s-h") #'hydra-pause-resume))
 (use-package highlight-parentheses)
 (use-package helm-config)
 (use-package helm-git-grep)
