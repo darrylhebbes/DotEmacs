@@ -265,7 +265,9 @@ _g_o to"
 
 
 (use-package tiny
-  :config (global-set-key (kbd "C-;") 'tiny-expand))
+  :config
+  (tiny-setup-default)
+  (global-set-key (kbd "C-s-t") 'tiny-expand))
 
 
 (global-set-key (kbd "M-x") 'helm-M-x)
