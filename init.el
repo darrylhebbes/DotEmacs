@@ -169,6 +169,10 @@ _g_o to"
 (use-package helm-ag)
 (use-package helm-j-cheatsheet)
 (use-package helm-make)
+(use-package swiper-helm
+  :config
+  (global-set-key (kbd "C-s") #'swiper-helm)
+  (global-set-key (kbd "C-r") #'swiper-helm))
 (use-package aggressive-indent)
 (use-package pastebin)
 (use-package bbcode-mode)
