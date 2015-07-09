@@ -50,9 +50,11 @@
   :config (bury-successful-compilation 1))
 
 
+(use-package pandoc-mode)
+
+
 (use-package org
   :config
-  (use-package ox-pandoc)
   (defhydra hydra-org (:color red :hint nil)
     "
 ^Navigation^
@@ -266,7 +268,6 @@ _g_o to"
 
 (use-package tiny
   :config
-  (tiny-setup-default)
   (global-set-key (kbd "C-s-t") 'tiny-expand))
 
 
