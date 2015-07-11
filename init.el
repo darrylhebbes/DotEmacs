@@ -638,6 +638,15 @@ _L_ist
     (geiser-mode -1))
   (add-hook 'scheme-mode-hook #'ejmr/enable-scheme-mode-settings))
 
+(define-skeleton ejmr/scsh-skeleton
+  "Inserts the basic structure for a Scheme Shell script."
+  nil
+  "#!/usr/local/bin/scsh \\\n"
+  "-e main -s\n"
+  "!#\n\n"
+  > "(define (main arguments)\n"
+  > _ ")")
+
 
 (use-package eproject
   :init (setq eproject-keybind-prefix "C-c e")
