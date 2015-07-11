@@ -573,6 +573,7 @@ _4_ kill      _f_ind files
       ("f" helm-find-files))
 
   (key-chord-define-global "qq" 'hydra-chord/body)
+  (key-chord-define-global "qr" #'read-only-mode)
   (key-chord-define-global "qn" 'operate-on-number-at-point)
   (key-chord-define-global "qd" #'duplicate-thing)
   (key-chord-define-global "qw" #'easy-kill))
