@@ -107,7 +107,7 @@ _g_o to"
 (use-package yasnippet
   :config
   (use-package auto-yasnippet)
-  (defhydra hydra-yasnippet (:color blue :hint nil)
+  (defhydra hydra-yasnippet (:color red :hint nil)
       "
               YASnippets
 --------------------------------------------
