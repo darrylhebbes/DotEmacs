@@ -562,6 +562,7 @@ _o_ther       _k_ill buffer
 _0_ delete    _s_ave buffer
 _1_ only      _l_ist buffers
 _4_ kill      _f_ind files
+            _r_evert buffer
 "
       ("o" other-window)
       ("0" delete-window)
@@ -570,6 +571,7 @@ _4_ kill      _f_ind files
       ("k" kill-buffer)
       ("s" save-buffer)
       ("l" helm-buffers-list)
+      ("r" revert-buffer)
       ("f" helm-find-files))
 
   (key-chord-define-global "qq" 'hydra-chord/body)
@@ -632,6 +634,7 @@ _L_ist
 
 (use-package lispy
   :config
+  (define-key lispy-mode-map (kbd "V") #'eproject-find-file)
   (defun ejmr/enable-scheme-mode-settings ()
     (autopair-mode -1)
     (lispy-mode 1)
