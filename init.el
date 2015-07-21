@@ -55,22 +55,18 @@
 
 (use-package org
   :config
-  (defhydra hydra-org (:color red :hint nil)
-    "
-^Navigation^
---------------------------------------------------
-_n_ext heading
-_p_rev heading
-_N_ext heading at same level
-_P_rev heading at same level
-_u_p   heading
-_g_o to"
-    ("n" outline-next-visible-heading)
-    ("p" outline-previous-visible-heading)
-    ("N" org-forward-heading-same-level)
-    ("P" org-backward-heading-same-level)
-    ("u" outline-up-heading)
-    ("g" org-goto :exit t))
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "|" "DONE(d)")
+          (sequence "REPORT(r)" "BUG(b)" "TESTING(e)" "|" "FIXED(f)")
+          (sequence "|" "CANCELED(c)")))
+  (defhydra hydra-org (:color red :columns 3)
+    "Org Mode Movements"
+    ("n" outline-next-visible-heading "next heading")
+    ("p" outline-previous-visible-heading "prev heading")
+    ("N" org-forward-heading-same-level "next heading at same level")
+    ("P" org-backward-heading-same-level "prev heading at same level")
+    ("u" outline-up-heading "up heading")
+    ("g" org-goto "goto" :exit t))
   (global-set-key (kbd "C-c o") #'hydra-org/body)
   (defun ejmr/enable-org-mode-settings ()
     (auto-fill-mode 1))
@@ -107,31 +103,20 @@ _g_o to"
 (use-package yasnippet
   :config
   (use-package auto-yasnippet)
-  (defhydra hydra-yasnippet (:color red :hint nil)
-      "
-              YASnippets
---------------------------------------------
-  ^Modes:^    ^Load/Visit:^    ^Actions:^
-
-  _g_lobal    _d_irectory      _i_nsert
-  _m_inor     _f_ile           _t_ryout
-  _e_xtra     _a_ll            _n_ew
-                      auto _c_reate
-                      auto e_x_pand
-                      auto _o_pen
-"
-      ("d" yas-load-directory)
-      ("e" yas-activate-extra-mode)
-      ("i" yas-insert-snippet)
-      ("f" yas-visit-snippet-file :color blue)
-      ("n" yas-new-snippet)
-      ("t" yas-tryout-snippet)
-      ("g" yas/global-mode)
-      ("m" yas/minor-mode)
-      ("a" yas-reload-all)
-      ("c" aya-create)
-      ("x" aya-expand)
-      ("o" aya-open-line))
+  (defhydra hydra-yasnippet (:color red :columns 3)
+      "YASnippet"
+      ("g" yas/global-mode "global mode")
+      ("m" yas/minor-mode "minor mode")
+      ("e" yas-activate-extra-mode "extra mode")
+      ("d" yas-load-directory "load directory")
+      ("f" yas-visit-snippet-file :color blue "load file")
+      ("a" yas-reload-all "load all")
+      ("i" yas-insert-snippet "insert")
+      ("t" yas-tryout-snippet "tryout")
+      ("n" yas-new-snippet "new")
+      ("c" aya-create "aya-create")
+      ("x" aya-expand "aya-expand")
+      ("o" aya-open-line "aya-open"))
   (global-set-key (kbd "C-c y") 'hydra-yasnippet/body)
   (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt)))
 
@@ -394,14 +379,16 @@ art_b_ollocks mode                    _r_eplace
     ("C" avy-goto-char-2 "char-2")
     ("l" avy-goto-line "line")
     ("w" avy-goto-word-1 "word")
-    ("W" avy-goto-word-0 "word-0"))
+    ("W" avy-goto-word-0 "word-0")
+    ("s" avy-goto-subword-1 "subword") 
+    ("S" avy-goto-subword-0 "subword-0"))
   (global-set-key (kbd "C-c a") #'hydra-avy/body))
 
 
 (use-package corral
   :config
-  (defhydra hydra-corral ()
-    "corral"
+  (defhydra hydra-corral (:columns 4)
+    "Corral"
     ("(" corral-parentheses-backward "Back")
     (")" corral-parentheses-forward "Forward")
     ("[" corral-brackets-backward "Back")
@@ -453,8 +440,8 @@ art_b_ollocks mode                    _r_eplace
    :default "solid"
    :mode 'solid-mode)
   
-  (defhydra hydra-quickrun (:color blue)
-    "quickrun"
+  (defhydra hydra-quickrun (:color blue :columns 2)
+    "Quickrun"
     ("q" quickrun "run")
     ("r" quickrun-region "region")
     ("w" quickrun-with-arg "with-arg")
@@ -469,8 +456,8 @@ art_b_ollocks mode                    _r_eplace
 
 (use-package find-temp-file)
 
-(defhydra hydra-command (:color blue)
-  "command"
+(defhydra hydra-command (:color blue :columns 2)
+  "Command"
   ("w" whitespace-cleanup "whitespace")
   ("i" helm-imenu "imenu")
   ("g" helm-git-grep "git-grep")
