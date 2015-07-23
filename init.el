@@ -53,6 +53,9 @@
 (use-package pandoc-mode)
 
 
+(use-package toml-mode)
+
+
 (use-package org
   :config
   (setq org-todo-keywords
