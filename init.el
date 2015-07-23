@@ -738,6 +738,12 @@ _L_ist
     :common-compiles ("make")
     :main-file "Makefile")
 
+  (define-project-type rust (generic)
+    (look-for "Cargo.toml")
+    :common-compiles ("cargo")
+    :main-file "main.rs"
+    :relevant-files ("Cargo.toml" "\\.rs$"))
+
   (define-project-type documentation (generic)
     (or (look-for "*.md")
         (look-for "*.org")
