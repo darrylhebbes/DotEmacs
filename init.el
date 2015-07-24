@@ -465,6 +465,7 @@ art_b_ollocks mode                    _r_eplace
   ("i" helm-imenu "imenu")
   ("g" helm-git-grep "git-grep")
   ("l" helm-ls-git-ls "git-ls")
+  ("r" revert-buffer "revert-buffer")
   ("v" visit-tags-table "visit-tags")
   ("t" find-temp-file "temp"))
 
@@ -797,6 +798,10 @@ _s_ummary         [_pu_] update      [_qu_] update
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (setq auto-mode-alist
       (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+
+
+(use-package comment-dwim-2
+  :config (global-set-key (kbd "M-;") #'comment-dwim-2))
 
 
 (setq custom-file "~/.emacs.d/custom.el")
