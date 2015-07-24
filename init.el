@@ -85,6 +85,7 @@
 
 
 (use-package guide-key
+  :disabled t
   :config
   (setq guide-key/recursive-key-sequence-flag t)
   (setq guide-key/guide-key-sequence
@@ -102,6 +103,9 @@
           "M-s"
           "M-g"))
   (guide-key-mode 1))
+
+(use-package helm-descbinds
+  :config (helm-descbinds-mode))
 
 
 (use-package js3-mode
