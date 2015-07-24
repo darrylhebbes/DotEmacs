@@ -134,7 +134,8 @@
 
 
 (use-package lua-mode
-  :mode "\\.lnvl$")
+  :mode (("\\.lnvl$" . lua-mode)
+         (".luacheckrc" . lua-mode)))
 
 
 (use-package recursive-narrow
