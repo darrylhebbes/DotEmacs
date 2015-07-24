@@ -804,6 +804,11 @@ _s_ummary         [_pu_] update      [_qu_] update
   :config (global-set-key (kbd "M-;") #'comment-dwim-2))
 
 
+(use-package general-close
+  :load-path "/home/eric/.emacs.d/lisp/general-close"
+  :config (global-set-key (kbd "C-s-c") #'general-close))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
