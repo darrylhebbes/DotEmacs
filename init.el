@@ -46,6 +46,10 @@
   :config (page-break-lines-mode 1))
 
 
+(use-package ws-butler
+  :config (add-hook 'prog-mode-hook 'ws-butler-mode))
+
+
 (use-package bury-successful-compilation
   :config (bury-successful-compilation 1))
 
