@@ -851,6 +851,22 @@ _s_ummary         [_pu_] update      [_qu_] update
   :config (global-set-key (kbd "C-s-c") #'general-close))
 
 
+(use-package origami
+  :config
+  (defhydra hydra-origami (:color red :hint nil)
+    "
+  _o_pen node    _n_ext fold       toggle _f_orward
+  _c_lose node   _p_revious fold   toggle _a_ll
+  "
+    ("o" origami-open-node)
+    ("c" origami-close-node)
+    ("n" origami-next-fold)
+    ("p" origami-previous-fold)
+    ("f" origami-forward-toggle-node)
+    ("a" origami-toggle-all-nodes))
+  (global-set-key (kbd "C-c g") #'hydra-origami/body))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
