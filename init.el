@@ -84,6 +84,24 @@
   :config (global-set-key (kbd "M-\\") #'shrink-whitespace))
 
 
+(use-package guide-key
+  :config
+  (setq guide-key/recursive-key-sequence-flag t)
+  (setq guide-key/guide-key-sequence
+        '("C-x r"
+          "C-x 8"
+          "C-x v"
+          "C-x C-k"
+          "C-x a"
+          "C-x n"
+          "C-x ESC"
+          "C-h"
+          "C-c e"
+          "M-s"
+          "M-g"))
+  (guide-key-mode 1))
+
+
 (use-package js3-mode
   :mode ("\\.js$" . js3-mode))
 
