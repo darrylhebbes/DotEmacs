@@ -315,6 +315,17 @@
   (global-set-key (kbd "C-c %") 'anzu-replace-at-cursor-thing))
 
 
+(use-package langtool
+  :config
+  (setq langtool-language-tool-jar "/home/eric/Software/LanguageTool/languagetool-commandline.jar")
+  (defhydra hydra-langtool ()
+    "langtool"
+    ("c" langtool-check "check")
+    ("b" langtool-correct-buffer "correct-buffer")
+    ("s" langtool-show-message-at-point "show-at-point")
+    ("d" langtool-check-done "done" :color blue))
+  (global-set-key (kbd "C-c l") #'hydra-langtool/body))
+
 (use-package darkroom
   :config
   (defun ejmr/toggle-writing-mode ()
