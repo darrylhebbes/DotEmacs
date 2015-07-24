@@ -97,6 +97,8 @@
           "C-x ESC"
           "C-h"
           "C-c e"
+          "C-c @"
+          "C-c ,"
           "M-s"
           "M-g"))
   (guide-key-mode 1))
@@ -187,7 +189,9 @@
 (use-package aggressive-indent)
 (use-package pastebin)
 (use-package bbcode-mode)
-(use-package flycheck)
+(use-package flycheck
+  :config (use-package flycheck-tip
+            :config (flycheck-tip-use-timer 'verbose)))
 (use-package anyins)
 (use-package firestarter)
 (use-package highlight-blocks)
@@ -496,7 +500,11 @@ art_b_ollocks mode                    _r_eplace
 
 
 (global-set-key (kbd "<f8>") 'helm-recentf)
-(global-set-key (kbd "C-h C-m") 'discover-my-major)
+
+
+(use-package discover-my-major
+  :config
+  (global-set-key (kbd "C-h C-m") #'discover-my-major))
 
 
 (use-package swoop
