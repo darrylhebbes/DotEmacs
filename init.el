@@ -23,8 +23,8 @@
 
 (package-initialize)
 
-(eval-when-compile
-  (require 'use-package))
+(require 'use-package)
+(require 'bind-key)
 
 (setq inhibit-startup-message t)
 (setq c-default-style "linux")
@@ -535,6 +535,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 
 (use-package find-temp-file)
+(use-package lively)
 
 (defhydra hydra-command (:color blue :columns 2)
   "Command"
@@ -542,11 +543,20 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("i" helm-imenu "imenu")
   ("g" helm-git-grep "git-grep")
   ("l" helm-ls-git-ls "git-ls")
+  ("L" lively "lively")
+  ("S" lively-stop "lively-stop")
   ("r" revert-buffer "revert-buffer")
   ("v" visit-tags-table "visit-tags")
   ("t" find-temp-file "temp"))
 
 (global-set-key (kbd "C-c x") 'hydra-command/body)
+
+
+(use-package bm
+  :config
+  (global-set-key (kbd "<f9>") #'bm-next)
+  (global-set-key (kbd "<S-f9>") #'bm-previous)
+  (global-set-key (kbd "<C-f9>") #'bm-toggle))
 
 
 (global-set-key (kbd "<f8>") 'helm-recentf)
@@ -930,7 +940,6 @@ _s_ummary         [_pu_] update      [_qu_] update
 
 
 (use-package general-close
-  :load-path "/home/eric/.emacs.d/lisp/general-close"
   :config (global-set-key (kbd "C-s-c") #'general-close))
 
 
