@@ -512,7 +512,14 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 (use-package quickrun
   :config
-  
+
+  (quickrun-add-command
+   "scheme/guile"
+   '((:command . "guile")
+     (:exec . "%c %s"))
+   :default "scheme"
+   :mode 'scheme-mode)
+
   (quickrun-add-command
    "solid"
    '((:command . "solid")
@@ -522,6 +529,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   
   (defhydra hydra-quickrun (:color blue :columns 2)
     "Quickrun"
+    ("h" helm-quickrun "helm")
     ("q" quickrun "run")
     ("r" quickrun-region "region")
     ("w" quickrun-with-arg "with-arg")
