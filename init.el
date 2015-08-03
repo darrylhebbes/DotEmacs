@@ -781,6 +781,7 @@ _L_ist
 
 
 (use-package lispy
+  :diminish lispy-mode
   :config
   (define-key lispy-mode-map (kbd "V") #'eproject-find-file)
   (defun ejmr/enable-scheme-mode-settings ()
@@ -800,6 +801,7 @@ _L_ist
 
 
 (use-package eproject
+  :diminish eproject-mode
   :init (setq eproject-keybind-prefix "C-c e")
   :config
   (use-package eproject-extras)
