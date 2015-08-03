@@ -46,6 +46,10 @@
   :config (page-break-lines-mode 1))
 
 
+(use-package eyebrowse
+  :config (eyebrowse-mode t))
+
+
 (use-package ws-butler
   :config (add-hook 'prog-mode-hook 'ws-butler-mode))
 
@@ -63,7 +67,7 @@
 (use-package org
   :config
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "|" "DONE(d)")
+        '((sequence "TODO(t)" "IN PROGRESS(p)" "|" "DONE(d)")
           (sequence "REPORT(r)" "BUG(b)" "TESTING(e)" "|" "FIXED(f)")
           (sequence "|" "CANCELED(c)")))
   (defhydra hydra-org (:color red :columns 3)
@@ -702,46 +706,46 @@ _L_ist
 (use-package eno
   :config
   (bind-keys
-    ("s-n a". eno-word-goto)
-    ("s-n b". eno-word-copy)
-    ("s-n c". eno-word-cut)
-    ("s-n d". eno-word-paste)
-    ("s-n e". eno-symbol-goto)
-    ("s-n f". eno-symbol-copy)
-    ("s-n g". eno-symbol-cut)
-    ("s-n h". eno-symbol-paste)
-    ("s-n i". eno-str-goto)
-    ("s-n j". eno-str-copy)
-    ("s-n k". eno-str-cut)
-    ("s-n i". eno-str-paste)
-    ("s-n m". eno-line-goto)
-    ("s-n n". eno-line-copy)
-    ("s-n o". eno-line-cut)
-    ("s-n p". eno-line-paste)
-    ("s-n q". eno-paren-goto)
-    ("s-n r". eno-paren-copy)
-    ("s-n s". eno-paren-cut)
-    ("s-n t". eno-paren-paste)
-    ("s-N a". eno-symbol-copy-to)
-    ("s-N b". eno-symbol-cut-to)
-    ("s-N c". eno-symbol-paste-to)
-    ("s-N d". eno-line-copy-to)
-    ("s-N e". eno-line-cut-to)
-    ("s-N f". eno-line-paste-to)
-    ("s-N g". eno-line-comment-to)
-    ("s-N h". eno-symbol-copy-from-to)
-    ("s-N i". eno-symbol-cut-from-to)
-    ("s-N j". eno-symbol-paste-from-to)
-    ("s-N k". eno-line-copy-from-to)
-    ("s-N l". eno-line-cut-from-to)
-    ("s-N m". eno-line-paste-from-to)
-    ("s-N n". eno-line-comment-from-to)
-    ("s-N o". eno-word-goto-inline)
-    ("s-N p". eno-word-copy-to-inline)
-    ("s-N q". eno-word-cut-to-inline)
-    ("s-N r". eno-word-paste-to-inline)
-    ("s-N s". eno-url-open)
-    ("s-N t". eno-clear-overlay)))
+    ("C-s-n a". eno-word-goto)
+    ("C-s-n b". eno-word-copy)
+    ("C-s-n c". eno-word-cut)
+    ("C-s-n d". eno-word-paste)
+    ("C-s-n e". eno-symbol-goto)
+    ("C-s-n f". eno-symbol-copy)
+    ("C-s-n g". eno-symbol-cut)
+    ("C-s-n h". eno-symbol-paste)
+    ("C-s-n i". eno-str-goto)
+    ("C-s-n j". eno-str-copy)
+    ("C-s-n k". eno-str-cut)
+    ("C-s-n i". eno-str-paste)
+    ("C-s-n m". eno-line-goto)
+    ("C-s-n n". eno-line-copy)
+    ("C-s-n o". eno-line-cut)
+    ("C-s-n p". eno-line-paste)
+    ("C-s-n q". eno-paren-goto)
+    ("C-s-n r". eno-paren-copy)
+    ("C-s-n s". eno-paren-cut)
+    ("C-s-n t". eno-paren-paste)
+    ("M-s-n a". eno-symbol-copy-to)
+    ("M-s-n b". eno-symbol-cut-to)
+    ("M-s-n c". eno-symbol-paste-to)
+    ("M-s-n d". eno-line-copy-to)
+    ("M-s-n e". eno-line-cut-to)
+    ("M-s-n f". eno-line-paste-to)
+    ("M-s-n g". eno-line-comment-to)
+    ("M-s-n h". eno-symbol-copy-from-to)
+    ("M-s-n i". eno-symbol-cut-from-to)
+    ("M-s-n j". eno-symbol-paste-from-to)
+    ("M-s-n k". eno-line-copy-from-to)
+    ("M-s-n l". eno-line-cut-from-to)
+    ("M-s-n m". eno-line-paste-from-to)
+    ("M-s-n n". eno-line-comment-from-to)
+    ("M-s-n o". eno-word-goto-inline)
+    ("M-s-n p". eno-word-copy-to-inline)
+    ("M-s-n q". eno-word-cut-to-inline)
+    ("M-s-n r". eno-word-paste-to-inline)
+    ("M-s-n s". eno-url-open)
+    ("M-s-n t". eno-clear-overlay)))
 
 
 (use-package expand-region
