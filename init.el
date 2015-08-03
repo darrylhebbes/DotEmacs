@@ -50,6 +50,9 @@
   :config (eyebrowse-mode t))
 
 
+(use-package electric-operator)
+
+
 (use-package ws-butler
   :config (add-hook 'prog-mode-hook 'ws-butler-mode))
 
@@ -166,6 +169,8 @@
 
 
 (use-package lua-mode
+  :config
+  (add-hook 'lua-mode-hook #'electric-operator-mode)
   :mode (("\\.lnvl$" . lua-mode)
          (".luacheckrc" . lua-mode)))
 
