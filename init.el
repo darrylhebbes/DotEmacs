@@ -54,6 +54,7 @@
 
 
 (use-package ws-butler
+  :diminish ws-butler-mode
   :config (add-hook 'prog-mode-hook 'ws-butler-mode))
 
 
@@ -188,7 +189,7 @@
   :config (global-set-key (kbd "<f12>") 'tomatinho))
 (use-package hydra
   :config (global-set-key (kbd "C-s-h") #'hydra-pause-resume))
-(use-package highlight-parentheses)
+(use-package highlight-parentheses :diminish highlight-parentheses-mode)
 (use-package helm-config)
 (use-package helm-git-grep)
 (use-package helm-ls-git)
@@ -211,7 +212,7 @@
 (use-package highlight-blocks)
 (use-package tup-mode)
 (use-package love-minor-mode)
-(use-package page-break-lines)
+(use-package page-break-lines :diminish page-break-lines-mode)
 (use-package focus)
 (use-package define-word)
 (use-package helm-flyspell
@@ -322,6 +323,7 @@
 
 
 (use-package anzu
+  :diminish anzu-mode
   :config
   (global-anzu-mode 1)
   (global-set-key (kbd "M-%") 'anzu-query-replace)
@@ -606,10 +608,12 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 (global-set-key (kbd "<M-return>") 'indent-new-comment-line)
 
 
+(use-package fic-mode :diminish fic-mode)
 (add-hook 'prog-mode-hook 'fic-mode)
 
 
 (use-package autopair
+  :diminish autopair-mode
   :config (autopair-global-mode))
 
 
@@ -911,6 +915,7 @@ _L_ist
 
 
 (use-package undo-tree
+  :diminish undo-tree-mode
   :config (global-undo-tree-mode))
 
 
