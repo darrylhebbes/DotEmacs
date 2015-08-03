@@ -196,6 +196,7 @@
 (use-package helm-j-cheatsheet)
 (use-package helm-make)
 (use-package swiper-helm
+  :disabled t
   :config
   (global-set-key (kbd "C-s") #'swiper-helm)
   (global-set-key (kbd "C-r") #'swiper-helm))
