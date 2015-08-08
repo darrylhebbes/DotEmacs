@@ -148,7 +148,7 @@
       ("m" yas/minor-mode "minor mode")
       ("e" yas-activate-extra-mode "extra mode")
       ("d" yas-load-directory "load directory")
-      ("f" yas-visit-snippet-file :color blue "load file")
+      ("f" yas-visit-snippet-file "load file" :color blue)
       ("a" yas-reload-all "load all")
       ("i" yas-insert-snippet "insert")
       ("t" yas-tryout-snippet "tryout")
