@@ -170,8 +170,6 @@
 
 
 (use-package lua-mode
-  :config
-  (add-hook 'lua-mode-hook #'electric-operator-mode)
   :mode (("\\.lnvl$" . lua-mode)
          (".luacheckrc" . lua-mode)))
 
