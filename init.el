@@ -574,9 +574,9 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 (use-package bm
   :config
-  (global-set-key (kbd "<f9>") #'bm-next)
-  (global-set-key (kbd "<S-f9>") #'bm-previous)
-  (global-set-key (kbd "<C-f9>") #'bm-toggle))
+  (global-set-key (kbd "<f9>") #'bm-toggle)
+  (global-set-key (kbd "<M-f9>") #'bm-previous)
+  (global-set-key (kbd "<C-f9>") #'bm-next))
 
 
 (global-set-key (kbd "<f8>") 'helm-recentf)
@@ -727,7 +727,7 @@ _L_ist
     ("C-s-n i". eno-str-goto)
     ("C-s-n j". eno-str-copy)
     ("C-s-n k". eno-str-cut)
-    ("C-s-n i". eno-str-paste)
+    ("C-s-n l". eno-str-paste)
     ("C-s-n m". eno-line-goto)
     ("C-s-n n". eno-line-copy)
     ("C-s-n o". eno-line-cut)
