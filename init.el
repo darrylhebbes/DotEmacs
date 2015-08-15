@@ -352,6 +352,9 @@
            (darkroom-mode 1)
            (menu-bar-mode -1)))))
 
+(use-package fountain-mode
+  :mode ("\\.fountain$" . fountain-mode))
+
 (use-package artbollocks-mode
   :config (add-hook 'text-mode-hook 'artbollocks-mode))
 
