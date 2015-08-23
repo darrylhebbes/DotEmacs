@@ -917,6 +917,9 @@ _L_ist
     :relevant-files ("\\.md$" "\\.org$" "README" "\\.adoc$" "\\.textile")))
 
 
+(use-package jdee)
+
+
 (use-package undo-tree
   :diminish undo-tree-mode
   :config (global-undo-tree-mode))
