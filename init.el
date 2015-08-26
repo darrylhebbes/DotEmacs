@@ -194,6 +194,7 @@
 (use-package helm-ag)
 (use-package helm-j-cheatsheet)
 (use-package helm-make)
+(use-package helm-pages)
 (use-package swiper-helm
   :disabled t
   :config
@@ -564,6 +565,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("i" helm-imenu "imenu")
   ("g" helm-git-grep "git-grep")
   ("l" helm-ls-git-ls "git-ls")
+  ("p" helm-pages "pages")
   ("L" lively "lively")
   ("S" lively-stop "lively-stop")
   ("r" revert-buffer "revert-buffer")
