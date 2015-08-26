@@ -41,6 +41,9 @@
 (add-to-list 'load-path "/home/eric/.cask")
 (require 'cask)
 
+(global-set-key (kbd "<C-prior>") #'backward-page)
+(global-set-key (kbd "<C-next>") #'forward-page)
+
 
 (use-package page-break-lines
   :config (page-break-lines-mode 1))
