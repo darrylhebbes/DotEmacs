@@ -188,6 +188,9 @@
 (use-package hydra
   :config (global-set-key (kbd "C-s-h") #'hydra-pause-resume))
 (use-package highlight-parentheses :diminish highlight-parentheses-mode)
+(use-package highlight-thing
+  :config (global-highlight-thing-mode)
+  :diminish highlight-thing-mode)
 (use-package helm-config)
 (use-package helm-git-grep)
 (use-package helm-hoogle)
