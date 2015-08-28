@@ -196,6 +196,7 @@
   :diminish highlight-thing-mode)
 (use-package helm-config)
 (use-package helm-git-grep)
+(use-package helm-themes)
 (use-package helm-hoogle)
 (use-package helm-pydoc)
 (use-package helm-perldoc)
@@ -691,6 +692,7 @@ _4_ kill      _f_ind files
       ("f" helm-find-files))
 
   (key-chord-define-global "qq" 'hydra-chord/body)
+  (key-chord-define-global "qt" #'global-highlight-thing-mode)
   (key-chord-define-global "qr" #'read-only-mode)
   (key-chord-define-global "qn" 'operate-on-number-at-point)
   (key-chord-define-global "qd" #'duplicate-thing)
