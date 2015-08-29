@@ -204,7 +204,10 @@
 (use-package helm-ag)
 (use-package helm-j-cheatsheet)
 (use-package helm-make)
-(use-package helm-pages)
+(use-package helm-pages
+  :config
+  (global-set-key (kbd "C-x [") #'helm-pages)
+  (global-set-key (kbd "C-x ]") #'helm-pages))
 (use-package swiper-helm
   :disabled t
   :config
