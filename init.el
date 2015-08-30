@@ -119,6 +119,9 @@
   :config (helm-descbinds-mode))
 
 
+(use-package nasm-mode)
+
+
 (use-package js3-mode
   :mode ("\\.js$" . js3-mode))
 
@@ -571,6 +574,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 (use-package find-temp-file)
 (use-package lively)
+(use-package keyword-search)
 
 (defhydra hydra-command (:color blue :columns 2)
   "Command"
@@ -578,7 +582,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("i" helm-imenu "imenu")
   ("g" helm-git-grep "git-grep")
   ("l" helm-ls-git-ls "git-ls")
-  ("p" helm-pages "pages")
+  ("k" keyword-search "keyword-search")
   ("L" lively "lively")
   ("S" lively-stop "lively-stop")
   ("r" revert-buffer "revert-buffer")
