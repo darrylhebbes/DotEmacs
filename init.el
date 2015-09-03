@@ -678,7 +678,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   (key-chord-mode 1)
   (setq key-chord-two-keys-delay 0.5)
 
-  (defhydra hydra-chord (:color blue :hint nil)
+  (defhydra hydra-main-chords (:color blue :hint nil)
       "
 ^Windows^    ^Files and Buffers^
 -------------------------------
@@ -698,7 +698,15 @@ _4_ kill      _f_ind files
       ("r" revert-buffer)
       ("f" helm-find-files))
 
-  (key-chord-define-global "qq" 'hydra-chord/body)
+  (defhydra hydra-occur-chords (:color blue)
+    "occur"
+    ("o" occur "occur")
+    ("k" keep-lines "keep-lines")
+    ("f" flush-lunes "flush-lines")
+    ("h" highlight-phrase "highlight"))
+
+  (key-chord-define-global "qq" 'hydra-main-chords/body)
+  (key-chord-define-global "qo" 'hydra-occur-chords/body)
   (key-chord-define-global "qt" #'global-highlight-thing-mode)
   (key-chord-define-global "qr" #'read-only-mode)
   (key-chord-define-global "qn" 'operate-on-number-at-point)
