@@ -45,6 +45,9 @@
 (global-set-key (kbd "<C-next>") #'forward-page)
 
 
+(use-package nameless)
+
+
 (use-package page-break-lines
   :config (page-break-lines-mode 1))
 
