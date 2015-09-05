@@ -71,6 +71,9 @@
 (use-package toml-mode)
 
 
+(use-package logmode)
+
+
 (use-package org
   :config
   (setq org-todo-keywords
