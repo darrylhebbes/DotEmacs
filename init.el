@@ -455,15 +455,10 @@ art_b_ollocks mode                    _r_eplace
   (defhydra hydra-markdown (:hint nil)
     "
 Formatting        C-c C-s    _s_: bold          _e_: italic     _b_: blockquote   _p_: pre-formatted    _c_: code
-
 Headings          C-c C-t    _h_: automatic     _1_: h1         _2_: h2           _3_: h3               _4_: h4
-
 Lists             C-c C-x    _m_: insert item
-
 Demote/Promote    C-c C-x    _l_: promote       _r_: demote     _u_: move up      _d_: move down
-
 Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote     _W_: wiki-link      _R_: reference
-
 "
     ("s" markdown-insert-bold)
     ("e" markdown-insert-italic)
