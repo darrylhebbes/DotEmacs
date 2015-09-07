@@ -1018,6 +1018,10 @@ _s_ummary         [_pu_] update      [_qu_] update
   (global-set-key (kbd "C-c g") #'hydra-origami/body))
 
 
+(use-package c0-mode
+  :mode "\\.[ch]0$")
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
