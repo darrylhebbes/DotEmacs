@@ -594,6 +594,17 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 (global-set-key (kbd "C-c x") 'hydra-command/body)
 
 
+(defhydra hydra-remember (:columns 2)
+  ("r" remember "remember")
+  ("R" remember-region "region")
+  ("c" remember-clipboard "clipboard")
+  ("f" remember-finalize "finalize" :color blue)
+  ("d" remember-destroy "destroy" :color blue)
+  ("n" remember-notes "notes" :color blue))
+
+(global-set-key (kbd "<f7>") #'hydra-remember/body)
+
+
 (use-package bm
   :config
   (global-set-key (kbd "<f9>") #'bm-toggle)
