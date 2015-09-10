@@ -485,6 +485,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 (use-package avy
   :config
+  (global-set-key (kbd "M-g g") #'avy-goto-line)
   (defhydra hydra-avy (:color blue)
     "avy-goto"
     ("c" avy-goto-char "char")
