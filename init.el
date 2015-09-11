@@ -1034,6 +1034,9 @@ _s_ummary         [_pu_] update      [_qu_] update
   :mode "\\.[ch]0$")
 
 
+(use-package modalka)
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
