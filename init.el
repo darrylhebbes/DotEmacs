@@ -1078,6 +1078,12 @@ _s_ummary         [_pu_] update      [_qu_] update
   (modalka-define-kbd "x o" "C-x o"))
 
 
+(use-package dynamic-ruler
+  :config
+  (global-set-key (kbd "<f5>") #'dynamic-ruler)
+  (global-set-key (kbd "<M-f5>") #'dynamic-ruler-vertical))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
