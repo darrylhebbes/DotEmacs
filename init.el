@@ -1034,7 +1034,43 @@ _s_ummary         [_pu_] update      [_qu_] update
   :mode "\\.[ch]0$")
 
 
-(use-package modalka)
+(use-package modalka
+  :config
+  (global-set-key (kbd "<f6>") #'modalka-global-mode)
+  (modalka-define-kbd "a" "C-a")
+  (modalka-define-kbd "e" "C-e")
+  (modalka-define-kbd "A" "C-M-a")
+  (modalka-define-kbd "E" "C-M-e")
+  (modalka-define-kbd "f" "C-f")
+  (modalka-define-kbd "F" "M-f")
+  (modalka-define-kbd "b" "C-b")
+  (modalka-define-kbd "B" "M-b")
+  (modalka-define-kbd "p" "C-p")
+  (modalka-define-kbd "n" "C-n")
+  (modalka-define-kbd "k" "C-k")
+  (modalka-define-kbd "K" "M-k")
+  (modalka-define-kbd "w" "C-w")
+  (modalka-define-kbd "y" "C-y")
+  (modalka-define-kbd "W" "M-w")
+  (modalka-define-kbd "Y" "M-y")
+  (modalka-define-kbd "d" "C-d")
+  (modalka-define-kbd "D" "M-d")
+  (modalka-define-kbd "SPC" "C-SPC")
+  (modalka-define-kbd "h" "M-h")
+  (modalka-define-kbd "t" "M-t")
+  (modalka-define-kbd "q" "M-q")
+  (modalka-define-kbd ";" "M-;")
+  (modalka-define-kbd "/" "C-/")
+  (modalka-define-kbd "=" "C-=")
+  (modalka-define-kbd "o" "C-o")
+  (modalka-define-kbd "s" "C-s")
+  (modalka-define-kbd "r" "C-r")
+  (modalka-define-kbd "x b" "C-x C-b")
+  (modalka-define-kbd "x f" "C-x C-f")
+  (modalka-define-kbd "x 0" "C-x 0")
+  (modalka-define-kbd "x 1" "C-x 1")
+  (modalka-define-kbd "x 2" "C-x 2")
+  (modalka-define-kbd "x o" "C-x o"))
 
 
 (setq custom-file "~/.emacs.d/custom.el")
