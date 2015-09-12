@@ -1020,12 +1020,14 @@ _s_ummary         [_pu_] update      [_qu_] update
     "
   _o_pen node    _n_ext fold       toggle _f_orward
   _c_lose node   _p_revious fold   toggle _a_ll
+                               toggle _r_ecursively
   "
     ("o" origami-open-node)
     ("c" origami-close-node)
     ("n" origami-next-fold)
     ("p" origami-previous-fold)
     ("f" origami-forward-toggle-node)
+    ("r" origami-recursively-toggle-node)
     ("a" origami-toggle-all-nodes))
   (global-set-key (kbd "C-c g") #'hydra-origami/body))
 
