@@ -184,6 +184,7 @@
 
 (use-package lua-mode
   :mode (("\\.lnvl$" . lua-mode)
+         ("\\.spec\\.lua$" . fundamental-mode)
          (".luacheckrc" . lua-mode)))
 
 
