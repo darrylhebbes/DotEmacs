@@ -1087,6 +1087,11 @@ _s_ummary         [_pu_] update      [_qu_] update
   (global-set-key (kbd "<M-f5>") #'dynamic-ruler-vertical))
 
 
+(use-package 0blayout
+  :config
+  (0blayout-add-keybindings-with-prefix "C-c C-0"))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
