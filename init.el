@@ -1049,6 +1049,8 @@ _s_ummary         [_pu_] update      [_qu_] update
   (modalka-define-kbd "B" "M-b")
   (modalka-define-kbd "p" "C-p")
   (modalka-define-kbd "n" "C-n")
+  (modalka-define-kbd "v" "C-v")
+  (modalka-define-kbd "V" "M-v")
   (modalka-define-kbd "k" "C-k")
   (modalka-define-kbd "K" "M-k")
   (modalka-define-kbd "w" "C-w")
