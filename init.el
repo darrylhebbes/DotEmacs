@@ -103,23 +103,11 @@
 
 
 (use-package guide-key
-  :disabled t
   :config
   (setq guide-key/recursive-key-sequence-flag t)
   (setq guide-key/guide-key-sequence
-        '("C-x r"
-          "C-x 8"
-          "C-x v"
-          "C-x C-k"
-          "C-x a"
-          "C-x n"
-          "C-x ESC"
-          "C-h"
-          "C-c e"
-          "C-c @"
-          "C-c ,"
-          "M-s"
-          "M-g"))
+        '("C-s-n"
+          "M-s-n"))
   (guide-key-mode 1))
 
 (use-package helm-descbinds
@@ -591,6 +579,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("S" lively-stop "lively-stop")
   ("r" revert-buffer "revert-buffer")
   ("v" visit-tags-table "visit-tags")
+  ("b" helm-descbinds "helm-descbinds")
   ("t" find-temp-file "temp"))
 
 (global-set-key (kbd "C-c x") 'hydra-command/body)
