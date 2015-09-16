@@ -112,6 +112,7 @@
   (guide-key-mode 1))
 
 (use-package which-key
+  :diminish which-key-mode
   :config
   (which-key-mode)
   (which-key-setup-side-window-right-bottom)
