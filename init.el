@@ -1070,6 +1070,8 @@ _s_ummary         [_pu_] update      [_qu_] update
   (modalka-define-kbd "r" "C-r")
   (modalka-define-kbd "x b" "C-x C-b")
   (modalka-define-kbd "x f" "C-x C-f")
+  (modalka-define-kbd "x r" "C-x C-r")
+  (modalka-define-kbd "x k" "C-x k")
   (modalka-define-kbd "x s" "C-x C-s")
   (modalka-define-kbd "x t" "C-x C-t")
   (modalka-define-kbd "x 0" "C-x 0")
