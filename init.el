@@ -103,12 +103,20 @@
 
 
 (use-package guide-key
+  :disabled t
   :config
   (setq guide-key/recursive-key-sequence-flag t)
   (setq guide-key/guide-key-sequence
         '("C-s-n"
           "M-s-n"))
   (guide-key-mode 1))
+
+(use-package which-key
+  :config
+  (which-key-mode)
+  (which-key-setup-side-window-right-bottom)
+  (setq which-key-use-C-h-for-paging t
+        which-key-prevent-C-h-from-cycling t))
 
 (use-package helm-descbinds
   :config (helm-descbinds-mode))
