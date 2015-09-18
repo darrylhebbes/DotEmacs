@@ -38,6 +38,10 @@
 (scroll-bar-mode -1)
 (global-auto-revert-mode 1)
 
+(defun ejmr/create-initial-buffer ()
+  (bookmark-bmenu-list)
+  (switch-to-buffer "*Bookmark List*"))
+
 (add-to-list 'load-path "/home/eric/.cask")
 (require 'cask)
 
