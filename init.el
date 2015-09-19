@@ -592,7 +592,6 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("S" lively-stop "lively-stop")
   ("r" revert-buffer "revert-buffer")
   ("v" visit-tags-table "visit-tags")
-  ("b" helm-descbinds "helm-descbinds")
   ("t" find-temp-file "temp"))
 
 (global-set-key (kbd "C-c x") 'hydra-command/body)
