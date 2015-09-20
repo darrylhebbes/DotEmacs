@@ -627,10 +627,12 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 
 (use-package swoop
+  :init (use-package helm-swoop)
   :config
   (defhydra hydra-swoop (:color blue)
     "swoop"
-    ("s" swoop)
+    ("h" helm-swoop "helm")
+    ("s" swoop "swoop")
     ("m" swoop-multi "multi")
     ("p" swoop-pcre-regexp "pcre")
     ("b" swoop-back-to-last-position "back"))
