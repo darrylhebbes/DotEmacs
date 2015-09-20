@@ -835,10 +835,14 @@ _L_ist
   :config
   (define-key lispy-mode-map (kbd "V") #'eproject-find-file)
   (define-key lispy-mode-map (kbd "T") #'ert)
-  (defun ejmr/enable-scheme-mode-settings ()
-    (autopair-mode -1)
-    (geiser-mode -1))
-  (add-hook 'scheme-mode-hook #'ejmr/enable-scheme-mode-settings))
+  (defun ejmr/toggle-lispy-mode ()
+    (interactive)
+    (if lispy-mode
+        (progn (lispy-mode -1)
+               (autopair-mode 1))
+      (progn (lispy-mode 1)
+             (autopair-mode -1))))
+  (define-key emacs-lisp-mode-map (kbd "C-c C-l") #'ejmr/toggle-lispy-mode))
 
 (define-skeleton ejmr/scsh-skeleton
   "Inserts the basic structure for a Scheme Shell script."
