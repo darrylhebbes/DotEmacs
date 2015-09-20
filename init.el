@@ -49,6 +49,9 @@
 (global-set-key (kbd "<C-next>") #'forward-page)
 
 
+(use-package bookmark+)
+
+
 (use-package nameless
   :config (add-hook 'emacs-lisp-mode-hook #'nameless-mode))
 
