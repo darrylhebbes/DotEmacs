@@ -834,9 +834,9 @@ _L_ist
   :diminish lispy-mode
   :config
   (define-key lispy-mode-map (kbd "V") #'eproject-find-file)
+  (define-key lispy-mode-map (kbd "T") #'ert)
   (defun ejmr/enable-scheme-mode-settings ()
     (autopair-mode -1)
-    (lispy-mode 1)
     (geiser-mode -1))
   (add-hook 'scheme-mode-hook #'ejmr/enable-scheme-mode-settings))
 
