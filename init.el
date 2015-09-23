@@ -49,6 +49,10 @@
 (global-set-key (kbd "<C-next>") #'forward-page)
 
 
+(use-package pc-bufsw
+  :config (pc-bufsw-default-keybindings))
+
+
 (use-package bookmark+)
 
 
