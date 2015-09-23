@@ -494,6 +494,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 (use-package avy
   :config
+  (use-package link-hint)
   (global-set-key (kbd "M-g g") #'avy-goto-line)
   (defhydra hydra-avy (:color blue)
     "avy-goto"
@@ -503,7 +504,9 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
     ("w" avy-goto-word-1 "word")
     ("W" avy-goto-word-0 "word-0")
     ("s" avy-goto-subword-1 "subword")
-    ("S" avy-goto-subword-0 "subword-0"))
+    ("S" avy-goto-subword-0 "subword-0")
+    ("u" link-hint-open-link "open-URI")
+    ("U" link-hint-copy-link "copy-URI"))
   (global-set-key (kbd "C-c a") #'hydra-avy/body))
 
 
