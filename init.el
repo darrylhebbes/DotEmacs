@@ -740,6 +740,16 @@ _4_ kill      _f_ind files
     ("r" diffview-region "region")
     ("m" diffview-message "message"))
 
+  (use-package helm-open-github
+    :config
+    (defhydra hydra-helm-open-github (:color blue)
+      "helm-open-github"
+      ("c" helm-open-github-from-commit "commit")
+      ("f" helm-open-github-from-file "file")
+      ("i" helm-open-github-from-issues "issue")
+      ("p" helm-open-github-from-pull-requests "pull-request"))
+    (key-chord-define-global "qg" #'hydra-helm-open-github/body))
+
   (key-chord-define-global "qv" 'hydra-diffview-chords/body)
   (key-chord-define-global "qq" 'hydra-main-chords/body)
   (key-chord-define-global "qo" 'hydra-occur-chords/body)
