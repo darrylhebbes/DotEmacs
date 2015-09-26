@@ -61,7 +61,7 @@
 
 
 (use-package page-break-lines
-  :config (page-break-lines-mode 1))
+  :config (global-page-break-lines-mode 1))
 
 
 (use-package eyebrowse
