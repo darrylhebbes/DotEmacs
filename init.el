@@ -1129,6 +1129,9 @@ _s_ummary         [_pu_] update      [_qu_] update
   (0blayout-add-keybindings-with-prefix "C-c C-0"))
 
 
+(use-package shader-mode)
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
