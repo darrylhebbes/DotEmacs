@@ -566,6 +566,12 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
    :mode 'scheme-mode)
 
   (quickrun-add-command
+   "eslisp/javascript"
+   '((:command . "eslc")
+     (:exec . "%c %s"))
+   :mode 'lisp-mode)
+
+  (quickrun-add-command
    "solid"
    '((:command . "solid")
      (:exec . "%c %s"))
@@ -908,6 +914,11 @@ _L_ist
   (global-set-key (kbd "C-c e s") #'eproject-multi-isearch-buffers)
   (global-set-key (kbd "C-c e G") #'eproject-helm-ag)
   (global-set-key (kbd "C-c e S") #'helm-eproject-tasks)
+
+  (define-project-type eslisp (generic)
+    (look-for "*.esl")
+    :relevant-files ("\\.esl$")
+    :common-compiles ("eslc"))
 
   (define-project-type elisp (generic)
     (look-for "*.el")
