@@ -569,7 +569,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
    "eslisp/javascript"
    '((:command . "eslc")
      (:exec . "%c %s"))
-   :mode 'lisp-mode)
+   :mode 'prog-mode)
 
   (quickrun-add-command
    "solid"
