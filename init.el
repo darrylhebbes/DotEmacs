@@ -800,6 +800,7 @@ _L_ist
     ("w" omni-kill-word))
   (global-set-key (kbd "C-c k") #'hydra-omni-kill/body))
 
+
 (use-package eno
   :config
   (bind-keys
