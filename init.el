@@ -1157,6 +1157,11 @@ _s_ummary         [_pu_] update      [_qu_] update
   :config (powerline-default-theme))
 
 
+(use-package format-sql
+  :config
+  (bind-key "C-c C-f" #'format-sql-buffer sql-mode-map))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
