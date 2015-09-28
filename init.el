@@ -223,10 +223,6 @@
 (use-package helm-ag)
 (use-package helm-j-cheatsheet)
 (use-package helm-make)
-(use-package helm-pages
-  :config
-  (global-set-key (kbd "C-x [") #'helm-pages)
-  (global-set-key (kbd "C-x ]") #'helm-pages))
 (use-package swiper-helm
   :disabled t
   :config
@@ -248,6 +244,16 @@
 (use-package define-word)
 (use-package helm-flyspell
   :config (global-set-key (kbd "M-$") #'helm-flyspell-correct))
+
+
+(use-package helm-pages
+  :config
+  (defhydra hydra-page-breaks (global-map "C-x")
+    "pages"
+    ("[" backward-page "backward")
+    ("]" forward-page "forward")
+    ("M-p" helm-pages "helm" :color blue)
+    ("RET" nil "quit")))
 
 
 (use-package helm-mode-manager
