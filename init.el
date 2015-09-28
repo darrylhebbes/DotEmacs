@@ -602,6 +602,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 (use-package find-temp-file)
 (use-package lively)
 (use-package keyword-search)
+(use-package restart-emacs)
 
 (defhydra hydra-command (:color blue :columns 2)
   "Command"
@@ -613,6 +614,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("L" lively "lively")
   ("S" lively-stop "lively-stop")
   ("r" revert-buffer "revert-buffer")
+  ("R" restart-emacs "restart")
   ("v" visit-tags-table "visit-tags")
   ("t" find-temp-file "temp"))
 
