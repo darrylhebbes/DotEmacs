@@ -1143,6 +1143,10 @@ _s_ummary         [_pu_] update      [_qu_] update
 (use-package shader-mode)
 
 
+(use-package powerline
+  :config (powerline-default-theme))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
