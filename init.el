@@ -745,12 +745,14 @@ _4_ kill      _f_ind files
     ("f" flush-lunes "flush-lines")
     ("h" highlight-phrase "highlight"))
 
-  (use-package diffview)
-  (defhydra hydra-diffview-chords (:color blue)
-    "diffview"
-    ("c" diffview-current "current")
-    ("r" diffview-region "region")
-    ("m" diffview-message "message"))
+  (use-package diffview
+    :config
+    (defhydra hydra-diffview-chords (:color blue)
+      "diffview"
+      ("c" diffview-current "current")
+      ("r" diffview-region "region")
+      ("m" diffview-message "message"))
+    (key-chord-define-global "qv" 'hydra-diffview-chords/body))
 
   (use-package helm-open-github
     :config
@@ -762,7 +764,6 @@ _4_ kill      _f_ind files
       ("p" helm-open-github-from-pull-requests "pull-request"))
     (key-chord-define-global "qg" #'hydra-helm-open-github/body))
 
-  (key-chord-define-global "qv" 'hydra-diffview-chords/body)
   (key-chord-define-global "qq" 'hydra-main-chords/body)
   (key-chord-define-global "qo" 'hydra-occur-chords/body)
   (key-chord-define-global "qt" #'global-highlight-thing-mode)
