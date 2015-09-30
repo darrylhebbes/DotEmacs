@@ -607,7 +607,6 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 (defhydra hydra-command (:color blue :columns 2)
   "Command"
   ("w" whitespace-cleanup "whitespace")
-  ("i" helm-imenu "imenu")
   ("g" helm-git-grep "git-grep")
   ("l" helm-ls-git-ls "git-ls")
   ("k" keyword-search "keyword-search")
