@@ -551,6 +551,14 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 (use-package git-blame)
 (use-package git-messenger
   :config (global-set-key (kbd "C-x v p") #'git-messenger:popup-message))
+(use-package gist
+  :config
+  (defhydra hydra-gist (:color blue)
+    "gist"
+    ("l" gist-list "list")
+    ("p" gist-region-or-buffer "post region or buffer")
+    ("v" gist-region-or-buffer-private "post privately"))
+  (global-set-key (kbd "C-c i") #'hydra-gist/body))
 
 
 (use-package imenu-list)
