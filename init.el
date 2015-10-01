@@ -865,6 +865,7 @@ _L_ist
 
 
 (use-package fold-dwim
+  :disabled t
   :config
   (defhydra hydra-fold (:pre (hs-minor-mode 1))
     "fold"
@@ -873,6 +874,23 @@ _L_ist
     ("s" fold-dwim-show-all "show-all"))
 
   (global-set-key (kbd "C-c f") 'hydra-fold/body))
+
+(use-package vimish-fold
+  :config
+  (vimish-fold-global-mode 1)
+  (defhydra hydra-vimish-fold (:columns 2)
+    "fold"
+    ("a" vimish-fold-avy "avy")
+    ("f" vimish-fold "fold")
+    ("n" vimish-fold-next-fold "next")
+    ("p" vimish-fold-previous-fold "previous")
+    ("d" vimish-fold-delete "delete")
+    ("D" vimish-fold-delete-all "delete-all")
+    ("u" vimish-fold-unfold "unfold")
+    ("U" vimish-fold-unfold-all "unfold-all")
+    ("t" vimish-fold-toggle "toggle")
+    ("q" nil "quit" :color blue))
+  (global-set-key (kbd "C-c f") #'hydra-vimish-fold/body))
 
 
 (use-package ert-modeline)
