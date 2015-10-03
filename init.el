@@ -138,7 +138,11 @@
 
 
 (use-package js3-mode
-  :mode ("\\.js$" . js3-mode))
+  :mode ("\\.js$" . js3-mode)
+  :config
+  (use-package jscs
+    :config
+    (add-hook 'js3-mode-hook #'jscs-indent-apply)))
 
 (use-package conkeror-minor-mode
   :config
@@ -707,7 +711,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
     ("l" windmove-right)
     ("p" previous-buffer)
     ("n" next-buffer)
-    ("b" ido-switch-buffer) 
+    ("b" ido-switch-buffer)
     ("f" ido-find-file)
     ("F" projectile-find-file)
     ("s" split-window-below)
