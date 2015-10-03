@@ -1050,7 +1050,7 @@ _L_ist
 
 (use-package undo-tree
   :diminish undo-tree-mode
-  :config (global-undo-tree-mode))
+  :config (global-undo-tree-mode 1))
 
 
 (use-package bts
