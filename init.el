@@ -1005,6 +1005,8 @@ _L_ist
   (define-project-type php (generic)
     (look-for "composer.json")
     :relevant-files ("\\.php" "\\.json" "\\.sql" "\\.html")
+    :irrelevant-files ("\\.lock")
+    :main-file "composer.json"
     :common-compiles ("composer install"))
 
   (define-project-type ruby (generic)
