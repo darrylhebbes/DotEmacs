@@ -314,8 +314,15 @@
   '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
 
 (use-package flycheck-pyflakes
+  :disabled t
   :config
   (add-to-list 'flycheck-disabled-checkers 'python-flake8)
+  (add-to-list 'flycheck-disabled-checkers 'python-pylint))
+
+(use-package flycheck-mypy
+  :config
+  (add-to-list 'flycheck-disabled-checkers 'python-flake8)
+  (add-to-list 'flycheck-disabled-checkers 'python-pycompile)
   (add-to-list 'flycheck-disabled-checkers 'python-pylint))
 
 
