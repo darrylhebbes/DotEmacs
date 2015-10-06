@@ -615,6 +615,12 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   (global-set-key (kbd "C-c q") 'hydra-quickrun/body))
 
 
+(use-package multi-compile
+  :config
+  (setq multi-compile-completion-system 'helm)
+  (setq multi-compile-alist nil))
+
+
 (use-package fish-mode :mode "\\.fish$")
 
 
