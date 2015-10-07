@@ -778,7 +778,7 @@ _4_ kill      _f_ind files
       ("c" diffview-current "current")
       ("r" diffview-region "region")
       ("m" diffview-message "message"))
-    (key-chord-define-global "qv" 'hydra-diffview-chords/body))
+    (key-chord-define-global "QV" 'hydra-diffview-chords/body))
 
   (use-package helm-open-github
     :config
@@ -788,15 +788,15 @@ _4_ kill      _f_ind files
       ("f" helm-open-github-from-file "file")
       ("i" helm-open-github-from-issues "issue")
       ("p" helm-open-github-from-pull-requests "pull-request"))
-    (key-chord-define-global "qg" #'hydra-helm-open-github/body))
+    (key-chord-define-global "QG" #'hydra-helm-open-github/body))
 
-  (key-chord-define-global "qq" 'hydra-main-chords/body)
-  (key-chord-define-global "qo" 'hydra-occur-chords/body)
-  (key-chord-define-global "qt" #'global-highlight-thing-mode)
-  (key-chord-define-global "qr" #'read-only-mode)
-  (key-chord-define-global "qn" 'operate-on-number-at-point)
-  (key-chord-define-global "qd" #'duplicate-thing)
-  (key-chord-define-global "qw" #'easy-kill))
+  (key-chord-define-global "QQ" #'hydra-main-chords/body)
+  (key-chord-define-global "QO" #'hydra-occur-chords/body)
+  (key-chord-define-global "QT" #'global-highlight-thing-mode)
+  (key-chord-define-global "QR" #'read-only-mode)
+  (key-chord-define-global "QN" #'operate-on-number-at-point)
+  (key-chord-define-global "QD" #'duplicate-thing)
+  (key-chord-define-global "QW" #'easy-kill))
 
 
 (use-package omni-kill
