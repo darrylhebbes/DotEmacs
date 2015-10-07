@@ -711,6 +711,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 
 (progn
+  (use-package hydra-examples)
   (defhydra hydra-window (:hint nil)
     "
           Split: _v_ert  _s_:horz
