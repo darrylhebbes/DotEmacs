@@ -367,7 +367,14 @@
 (setq auto-save-default nil)
 
 
-(global-set-key [remap mark-sexp] 'easy-mark)
+(use-package easy-kill
+  :config
+  (use-package easy-kill-extras
+    :config
+    (global-set-key [remap mark-word] #'easy-mark-word)
+    (global-set-key [remap zap-to-char] 'easy-mark-to-char))
+  (global-set-key [remap mark-sexp] #'easy-mark)
+  (global-set-key [remap kill-ring-save] 'easy-kill))
 
 
 (use-package anzu
@@ -795,8 +802,7 @@ _4_ kill      _f_ind files
   (key-chord-define-global "QT" #'global-highlight-thing-mode)
   (key-chord-define-global "QR" #'read-only-mode)
   (key-chord-define-global "QN" #'operate-on-number-at-point)
-  (key-chord-define-global "QD" #'duplicate-thing)
-  (key-chord-define-global "QW" #'easy-kill))
+  (key-chord-define-global "QD" #'duplicate-thing))
 
 
 (use-package omni-kill
