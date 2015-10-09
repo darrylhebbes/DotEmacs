@@ -420,6 +420,7 @@
   :config (add-hook 'text-mode-hook 'artbollocks-mode))
 
 (use-package helm-words)
+(use-package helm-unicode)
 
 (defhydra hydra-text (:hint nil)
   "
@@ -431,7 +432,7 @@ _l_ine mode        _D_efine word        o_p_en
 fly_s_pell mode      (_d_ at point)     _c_lear
 _t_ypo mode        _i_spell buffer      _n_umber
 art_b_ollocks mode _h_elm word          _r_eplace
-                                    _I_nsert
+                 helm _u_nicode       _I_nsert
 "
   ("w" ejmr/toggle-writing-mode)
   ("b" artbollocks-mode)
@@ -443,6 +444,7 @@ art_b_ollocks mode _h_elm word          _r_eplace
   ("I" string-insert-rectangle :color blue)
   ("n" rectangle-number-lines :color blue)
   ("p" open-rectangle :color blue)
+  ("u" helm-unicode :color blue)
   ("f" auto-fill-mode)
   ("a" align-regexp)
   ("i" ispell-buffer :color blue)
