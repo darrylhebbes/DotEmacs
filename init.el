@@ -1214,6 +1214,14 @@ _s_ummary         [_pu_] update      [_qu_] update
     :config (bind-key "C-c C-f" #'format-sql-buffer sql-mode-map)))
 
 
+(use-package uimage
+  :config
+  (add-hook 'info-mode-hook #'uimage-mode)
+  (add-hook 'org-mode-hook #'uimage-mode)
+  (add-hook 'markdown-mode-hook #'uimage-mode)
+  (add-hook 'prog-mode-hook #'uimage-mode))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
