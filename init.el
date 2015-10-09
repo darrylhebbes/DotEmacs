@@ -419,6 +419,8 @@
 (use-package artbollocks-mode
   :config (add-hook 'text-mode-hook 'artbollocks-mode))
 
+(use-package helm-words)
+
 (defhydra hydra-text (:hint nil)
   "
 ^Modes^           ^Commands^            ^Rectangles^
@@ -428,11 +430,12 @@ _f_ill mode        s_o_rt               _y_ank
 _l_ine mode        _D_efine word        o_p_en
 fly_s_pell mode      (_d_ at point)     _c_lear
 _t_ypo mode        _i_spell buffer      _n_umber
-art_b_ollocks mode                    _r_eplace
+art_b_ollocks mode _h_elm word          _r_eplace
                                     _I_nsert
 "
   ("w" ejmr/toggle-writing-mode)
   ("b" artbollocks-mode)
+  ("h" helm-word :color blue)
   ("r" string-rectangle :color blue)
   ("k" kill-rectangle :color blue)
   ("y" yank-rectangle :color blue)
