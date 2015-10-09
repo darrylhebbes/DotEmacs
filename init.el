@@ -221,7 +221,11 @@
 (use-package helm-git-grep)
 (use-package helm-themes)
 (use-package helm-hoogle)
-(use-package helm-pydoc)
+(use-package helm-pydoc
+  :config
+  (eval-after-load "python"
+    '(define-key python-mode-map (kbd "C-c C-d") #'helm-pydoc)))
+(use-package helm-bind-key)
 (use-package helm-perldoc)
 (use-package helm-ls-git)
 (use-package helm-ag)
