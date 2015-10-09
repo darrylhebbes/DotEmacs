@@ -240,8 +240,10 @@
 (use-package pastebin)
 (use-package bbcode-mode)
 (use-package flycheck
-  :config (use-package flycheck-tip
-            :config (flycheck-tip-use-timer 'verbose)))
+  :config
+  (setq flycheck-global-modes '(not view-mode python-mode))
+  (use-package flycheck-tip
+    :config (flycheck-tip-use-timer 'verbose)))
 (use-package anyins)
 (use-package firestarter)
 (use-package highlight-blocks)
@@ -251,6 +253,7 @@
 (use-package focus)
 (use-package define-word)
 (use-package helm-flyspell
+  :disabled t
   :config (global-set-key (kbd "M-$") #'helm-flyspell-correct))
 
 
@@ -1224,6 +1227,7 @@ _s_ummary         [_pu_] update      [_qu_] update
 
 
 (use-package uimage
+  :diminish uimage-mode
   :config
   (add-hook 'info-mode-hook #'uimage-mode)
   (add-hook 'org-mode-hook #'uimage-mode)
