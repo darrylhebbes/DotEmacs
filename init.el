@@ -241,7 +241,7 @@
 (use-package bbcode-mode)
 (use-package flycheck
   :config
-  (setq flycheck-global-modes '(not view-mode python-mode))
+  (setq flycheck-global-modes nil)
   (use-package flycheck-tip
     :config (flycheck-tip-use-timer 'verbose)))
 (use-package anyins)
@@ -309,7 +309,6 @@
 
 
 (global-page-break-lines-mode t)
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 
 (define-key helm-find-files-map (kbd "C-j") 'helm-select-action)
