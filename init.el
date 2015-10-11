@@ -1234,6 +1234,11 @@ _s_ummary         [_pu_] update      [_qu_] update
   (add-hook 'prog-mode-hook #'uimage-mode))
 
 
+(use-package cargo
+  :config
+  (add-hook 'rust-mode-hook #'cargo-minor-mode))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
