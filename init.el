@@ -807,10 +807,12 @@ _4_ kill      _f_ind files
 
   (use-package helm-open-github
     :config
+    (use-package github-browse-file)
     (defhydra hydra-helm-open-github (:color blue)
       "helm-open-github"
       ("c" helm-open-github-from-commit "commit")
       ("f" helm-open-github-from-file "file")
+      ("b" github-browse-file-blame "blame")
       ("i" helm-open-github-from-issues "issue")
       ("p" helm-open-github-from-pull-requests "pull-request"))
     (key-chord-define-global "QG" #'hydra-helm-open-github/body))
