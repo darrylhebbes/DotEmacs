@@ -315,9 +315,15 @@
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 
 
-(use-package helm-flycheck)
-(eval-after-load 'flycheck
-  '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
+(use-package helm-flycheck
+  :config
+  (define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck)
+  (key-chord-define-global "QF"
+   (defhydra flycheck-hydra ()
+     "errors"
+     ("n" flycheck-next-error "next")
+     ("p" flycheck-previous-error "previous")
+     ("q" nil "quit" :color blue))))
 
 (use-package flycheck-pyflakes
   :disabled t
