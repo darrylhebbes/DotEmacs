@@ -1095,6 +1095,7 @@ _L_ist
 
 
 (use-package bts
+  :disabled t
   :config
   (defhydra hydra-bts (:color blue :hint nil)
     "
