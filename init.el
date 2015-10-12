@@ -809,6 +809,14 @@ _4_ kill      _f_ind files
       ("p" helm-open-github-from-pull-requests "pull-request"))
     (key-chord-define-global "QG" #'hydra-helm-open-github/body))
 
+  (key-chord-define-global "QZ"
+   (defhydra hydra-zoom ()
+     "zoom"
+     ("+" text-scale-increase "in")
+     ("-" text-scale-decrease "out")
+     ("0" (text-scale-adjust 0) "reset")
+     ("q" nil "quit" :color blue)))
+
   (key-chord-define-global "QQ" #'hydra-main-chords/body)
   (key-chord-define-global "QO" #'hydra-occur-chords/body)
   (key-chord-define-global "QT" #'global-highlight-thing-mode)
