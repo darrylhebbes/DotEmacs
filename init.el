@@ -826,7 +826,19 @@ _4_ kill      _f_ind files
   (key-chord-define-global "QQ" #'hydra-main-chords/body)
   (key-chord-define-global "QO" #'hydra-occur-chords/body)
   (key-chord-define-global "QT" #'global-highlight-thing-mode)
-  (key-chord-define-global "QR" #'read-only-mode)
+
+  (defun ejmr/toggle-read-only-and-view-modes ()
+    (interactive)
+    (if view-mode
+        (progn
+          (read-only-mode 0)
+          (view-mode 0))
+      (progn
+        (read-only-mode 1)
+        (view-mode 1))))
+
+  (key-chord-define-global "QR" #'ejmr/toggle-read-only-and-view-modes)
+
   (key-chord-define-global "QN" #'operate-on-number-at-point)
   (key-chord-define-global "QD" #'duplicate-thing))
 
