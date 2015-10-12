@@ -354,6 +354,17 @@
   :config (define-key dired-mode-map (kbd "M-p") #'peep-dired))
 
 
+(use-package look-mode
+  :config
+  (key-chord-define-global "QL"
+   (defhydra hydra-look ()
+     "look-at"
+     ("a" look-at-files "files")
+     ("n" look-at-next-file "next")
+     ("p" look-at-previous-file "prev")
+     ("t" look-at-this-file "this" :color blue))))
+
+
 (use-package change-inner
   :config
   (global-set-key (kbd "M-i") 'change-inner)
