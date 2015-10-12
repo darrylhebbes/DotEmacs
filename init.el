@@ -1279,6 +1279,18 @@ _s_ummary         [_pu_] update      [_qu_] update
   (add-hook 'rust-mode-hook #'cargo-minor-mode))
 
 
+(use-package 4clojure
+  :config
+  (key-chord-define-global "Q4"
+   (defhydra hydra-4clojure (:color blue)
+     "4clojure"
+     ("o" 4clojure-open-question "open-question")
+     ("c" 4clojure-check-answers "check-answers")
+     ("n" 4clojure-next-question "next" :color red)
+     ("p" 4clojure-previous-question "previous" :color red)
+     ("q" nil "quit"))))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
