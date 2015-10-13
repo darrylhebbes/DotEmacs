@@ -576,7 +576,8 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   (global-set-key (kbd "C-c c") #'hydra-corral/body))
 
 
-(use-package racket-mode)
+(use-package racket-mode
+  :mode ("\\.nu$" . racket-mode))
 
 
 (defun ejmr/enable-mail-settings ()
