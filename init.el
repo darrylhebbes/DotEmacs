@@ -1296,6 +1296,10 @@ _s_ummary         [_pu_] update      [_qu_] update
     :config
     (bind-key "C-c C-r" #'cljr-helm clojure-mode-map)))
 
+(use-package clojure-cheatsheet
+  :config
+  (bind-key "C-c C-c" #'clojure-cheatsheet clojure-mode-map))
+
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
