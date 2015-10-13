@@ -1301,6 +1301,10 @@ _s_ummary         [_pu_] update      [_qu_] update
   (bind-key "C-c C-c" #'clojure-cheatsheet clojure-mode-map))
 
 
+(use-package name-this-color
+  :disabled t)
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
