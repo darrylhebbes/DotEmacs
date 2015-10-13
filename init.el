@@ -1290,6 +1290,12 @@ _s_ummary         [_pu_] update      [_qu_] update
      ("p" 4clojure-previous-question "previous" :color red)
      ("q" nil "quit"))))
 
+(use-package clj-refactor
+  :config
+  (use-package cljr-helm
+    :config
+    (bind-key "C-c C-r" #'cljr-helm clojure-mode-map)))
+
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
