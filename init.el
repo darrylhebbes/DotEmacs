@@ -1281,7 +1281,7 @@ _s_ummary         [_pu_] update      [_qu_] update
 
 (use-package 4clojure
   :config
-  (key-chord-define-global "Q4"
+  (key-chord-define-global "Q$"
    (defhydra hydra-4clojure (:color blue)
      "4clojure"
      ("o" 4clojure-open-question "open-question")
