@@ -323,7 +323,8 @@
      "errors"
      ("n" flycheck-next-error "next")
      ("p" flycheck-previous-error "previous")
-     ("q" nil "quit" :color blue))))
+     ("h" helm-flycheck "helm" :color blue)
+     ("q" nil "quit"))))
 
 (use-package flycheck-pyflakes
   :disabled t
