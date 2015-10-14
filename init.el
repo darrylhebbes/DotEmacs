@@ -356,7 +356,7 @@
 
 (use-package look-mode
   :config
-  (key-chord-define-global "QL"
+  (key-chord-define-global "QK"
    (defhydra hydra-look ()
      "look-at"
      ("a" look-at-files "files")
