@@ -561,6 +561,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 (use-package corral
   :config
+  (setq corral-preserve-point t)
   (defhydra hydra-corral (:columns 4)
     "Corral"
     ("(" corral-parentheses-backward "Back")
