@@ -238,7 +238,14 @@
 (use-package highlight-thing
   :config (global-highlight-thing-mode)
   :diminish highlight-thing-mode)
-(use-package helm-config)
+
+
+(use-package flx)
+(use-package helm-config
+  :config
+  (use-package helm-flx
+    :config
+    (helm-flx-mode 1)))
 (use-package helm-git-grep)
 (use-package helm-themes)
 (use-package helm-hoogle)
