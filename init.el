@@ -549,14 +549,24 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   :config
   (use-package link-hint)
   (global-set-key (kbd "M-g g") #'avy-goto-line)
-  (defhydra hydra-avy (global-map "M-g" :color blue)
+  (defhydra hydra-avy-1 (global-map "M-g" :color blue)
     "avy-goto"
     ("c" avy-goto-char "char")
     ("C" avy-goto-char-2 "char-2")
     ("w" avy-goto-word-1 "word")
+    ("W" avy-goto-word-0 "word-0")
+    ("i" avy-isearch "isearch")
     ("s" avy-goto-subword-1 "subword")
+    ("S" avy-goto-subword-0 "subword-0")
     ("u" link-hint-open-link "open-URI")
-    ("U" link-hint-copy-link "copy-URI")))
+    ("U" link-hint-copy-link "copy-URI"))
+  (global-set-key
+   (kbd "C-c a")
+   (defhydra hydra-avy-2 (:color blue)
+     "avy-edit"
+     ("c" avy-copy-line "copy-line")
+     ("r" avy-copy-region "copy-region")
+     ("m" avy-move-line "move-line"))))
 
 
 (use-package corral
