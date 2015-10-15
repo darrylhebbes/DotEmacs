@@ -616,7 +616,11 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   (global-set-key (kbd "C-c i") #'hydra-gist/body))
 
 
-(use-package imenu-list)
+(use-package imenu-list
+  :config
+  (global-set-key (kbd "C-x c L") #'imenu-list))
+
+
 (use-package annotate)
 
 
