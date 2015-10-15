@@ -49,6 +49,27 @@
 (global-set-key (kbd "<C-next>") #'forward-page)
 
 
+(use-package php-mode
+  :load-path "/home/eric/Projects/php-mode"
+  :config
+  (use-package php-eldoc
+    :disabled t
+    :config
+    (add-hook 'php-mode-hook 'php-eldoc-enable))
+  (use-package php-refactor-mode
+    :diminish php-refactor-mode
+    :config
+    (setq php-refactor-keymap-prefix (kbd "C-c M-r"))
+    (add-hook 'php-mode-hook 'php-refactor-mode))
+  (use-package phpunit)
+  (use-package php-boris)
+  (use-package php-boris-minor-mode
+    :disabled t
+    :diminish php-boris-minor-mode
+    :config
+    (add-hook 'php-mode-hook 'php-boris-minor-mode)))
+
+
 (use-package pc-bufsw
   :config (pc-bufsw-default-keybindings))
 
