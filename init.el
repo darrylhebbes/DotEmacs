@@ -1346,6 +1346,12 @@ _s_ummary         [_pu_] update      [_qu_] update
   :disabled t)
 
 
+(use-package keyfreq
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
