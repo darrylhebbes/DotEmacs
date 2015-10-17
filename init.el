@@ -1200,6 +1200,13 @@ _s_ummary         [_pu_] update      [_qu_] update
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . diff-mode))
 
+(defun ejmr/auto-fill-git-commit-messages ()
+  (interactive)
+  (if (string= "COMMIT_EDITMSG" (buffer-name))
+      (auto-fill-mode 1)))
+
+(add-hook 'diff-mode-hook #'ejmr/auto-fill-git-commit-messages)
+
 
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (setq auto-mode-alist
