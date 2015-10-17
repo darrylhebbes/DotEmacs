@@ -1359,6 +1359,12 @@ _s_ummary         [_pu_] update      [_qu_] update
   (keyfreq-autosave-mode 1))
 
 
+(use-package beacon
+  :diminish beacon-mode
+  :config
+  (beacon-mode 1))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
