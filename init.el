@@ -1365,6 +1365,14 @@ _s_ummary         [_pu_] update      [_qu_] update
   (beacon-mode 1))
 
 
+(use-package go-mode-autoloads
+  :config
+  (use-package go-dlv)
+  (use-package go-eldoc
+    :config
+    (add-hook 'go-mode-hook 'go-eldoc-setup)))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
