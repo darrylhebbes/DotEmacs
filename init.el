@@ -252,7 +252,6 @@
 (use-package flx)
 (use-package helm-config
   :config
-  (setq completing-read-function #'helm--completing-read-default)
   (global-set-key (kbd "M-s o") #'helm-occur)
   (use-package helm-flx
     :config
@@ -298,7 +297,10 @@
 
 (use-package swiper
   :config
-  (use-package ivy :config (use-package ivy-hydra)))
+  (use-package ivy :config (use-package ivy-hydra))
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (global-set-key (kbd "C-c v") #'swiper))
 
 
 (use-package helm-pages
