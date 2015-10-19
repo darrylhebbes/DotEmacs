@@ -1378,6 +1378,9 @@ _s_ummary         [_pu_] update      [_qu_] update
   (magic-filetype-enable-vim-filetype))
 
 
+(use-package ascii-art-to-unicode)
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
