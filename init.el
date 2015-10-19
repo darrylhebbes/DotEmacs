@@ -548,9 +548,17 @@ art_b_ollocks mode _h_elm word          _r_eplace
   (goto-char (point-max))
   (insert-file-contents "/home/eric/.signature"))
 
+(define-skeleton ejmr/markdeep-skeleton
+  "Inserts the HTML tags for Markdeep documents."
+  nil
+  "<style class=\"fallback\">body{white-space:pre;font-family:monospace}</style>"
+  "<scriptsrc=\"markdeep.min.js\"></script>"
+  "<script src=\"http://casual-effects.com/markdeep/latest/markdeep.min.js\"></script>")
+
 (use-package markdown-mode
   :config
   (define-key markdown-mode-map (kbd "C-c w") 'ejmr/insert-email-signature)
+  (define-key markdown-mode-map (kbd "C-c C-d") #'ejmr/markdeep-skeleton)
   (defhydra hydra-markdown (:hint nil)
     "
 Formatting        C-c C-s    _s_: bold          _e_: italic     _b_: blockquote   _p_: pre-formatted    _c_: code
