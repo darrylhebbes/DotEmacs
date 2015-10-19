@@ -136,6 +136,9 @@
   (add-hook 'org-mode-hook #'ejmr/enable-org-mode-settings))
 
 
+(use-package pdf-tools)
+
+
 (use-package shrink-whitespace
   :config (global-set-key (kbd "M-\\") #'shrink-whitespace))
 
