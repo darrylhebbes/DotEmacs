@@ -736,6 +736,20 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 (use-package restart-emacs)
 (use-package bongo)
 
+(global-set-key
+ (kbd "C-c b")
+ (defhydra hydra-bongo (:color amaranth :columns 3)
+   "bongo"
+   ("SPC" bongo-pause/resume "pause/resume")
+   ("n" bongo-next "next")
+   ("p" bongo-previous "previous")
+   ("r" bongo-play-random "random")
+   ("t" bongo-reset-playlist "reset")
+   ("s" bongo-seek "seek")
+   ("v" volume-lower-10 "lower volume")
+   ("V" volume-raise-10 "raise volume")
+   ("q" bongo-quit "quit" :color blue)))
+
 (defhydra hydra-command (:color blue :columns 4)
   "Command"
   ("w" whitespace-cleanup "whitespace")
