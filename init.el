@@ -1328,6 +1328,7 @@ _s_ummary         [_pu_] update      [_qu_] update
 
 
 (use-package 4clojure
+  :disabled t
   :config
   (key-chord-define-global "Q$"
    (defhydra hydra-4clojure (:color blue)
