@@ -297,10 +297,14 @@
 
 (use-package swiper
   :config
-  (use-package ivy :config (use-package ivy-hydra))
-  (ivy-mode 1)
+  (use-package ivy
+    :diminish ivy-mode
+    :config
+    (use-package ivy-hydra
+      :config
+      (global-set-key (kbd "C-c v") #'hydra-ivy/body)))
   (setq ivy-use-virtual-buffers t)
-  (global-set-key (kbd "C-c v") #'swiper))
+  (global-set-key (kbd "C-s-w") #'swiper))
 
 
 (use-package helm-pages
