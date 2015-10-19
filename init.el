@@ -252,6 +252,7 @@
 (use-package flx)
 (use-package helm-config
   :config
+  (setq completing-read-function #'helm--completing-read-default)
   (global-set-key (kbd "M-s o") #'helm-occur)
   (use-package helm-flx
     :config
@@ -293,6 +294,11 @@
 (use-package helm-flyspell
   :disabled t
   :config (global-set-key (kbd "M-$") #'helm-flyspell-correct))
+
+
+(use-package swiper
+  :config
+  (use-package ivy :config (use-package ivy-hydra)))
 
 
 (use-package helm-pages
@@ -722,8 +728,9 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 (use-package lively)
 (use-package keyword-search)
 (use-package restart-emacs)
+(use-package bongo)
 
-(defhydra hydra-command (:color blue :columns 2)
+(defhydra hydra-command (:color blue :columns 4)
   "Command"
   ("w" whitespace-cleanup "whitespace")
   ("g" helm-git-grep "git-grep")
@@ -734,6 +741,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("r" revert-buffer "revert-buffer")
   ("R" restart-emacs "restart")
   ("v" visit-tags-table "visit-tags")
+  ("b" bongo "bongo")
   ("t" find-temp-file "temp"))
 
 (global-set-key (kbd "C-c x") 'hydra-command/body)
