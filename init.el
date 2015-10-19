@@ -1373,6 +1373,11 @@ _s_ummary         [_pu_] update      [_qu_] update
     (add-hook 'go-mode-hook 'go-eldoc-setup)))
 
 
+(use-package magic-filetype
+  :config
+  (magic-filetype-enable-vim-filetype))
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
