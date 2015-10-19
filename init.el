@@ -252,6 +252,7 @@
 (use-package flx)
 (use-package helm-config
   :config
+  (global-set-key (kbd "M-s o") #'helm-occur)
   (use-package helm-flx
     :config
     (helm-flx-mode 1)))
