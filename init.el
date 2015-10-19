@@ -112,6 +112,12 @@
 
 (use-package org
   :config
+  (use-package org-elisp-help)
+  (use-package ox-pandoc)
+  (use-package org-pdfview
+    :config
+    (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
+    (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open)))
   (setq org-todo-keywords
         '((sequence "TODO(t)" "IN PROGRESS(p)" "|" "DONE(d)")
           (sequence "REPORT(r)" "BUG(b)" "TESTING(e)" "|" "FIXED(f)")
