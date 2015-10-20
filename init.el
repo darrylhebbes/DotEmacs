@@ -252,6 +252,9 @@
 (use-package flx)
 (use-package helm-config
   :config
+  (use-package helm-dash
+    :disabled t
+    :config (global-set-key (kbd "M-s-d") #'helm-dash))
   (global-set-key (kbd "M-s o") #'helm-occur)
   (use-package helm-flx
     :config
@@ -1204,7 +1207,8 @@ _L_ist
     :relevant-files ("\\.md$" "\\.org$" "README" "\\.adoc$" "\\.textile")))
 
 
-(use-package jdee)
+(use-package jdee
+  :disabled t)
 
 
 (use-package undo-tree
