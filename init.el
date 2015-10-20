@@ -254,6 +254,7 @@
   :config
   (use-package helm-gitignore)
   (use-package helm-gitlab :disabled t)
+  (use-package helm-helm-commands)
   (use-package helm-dash
     :disabled t
     :config (global-set-key (kbd "M-s-d") #'helm-dash))
