@@ -252,6 +252,7 @@
 (use-package flx)
 (use-package helm-config
   :config
+  (use-package helm-gitignore)
   (use-package helm-dash
     :disabled t
     :config (global-set-key (kbd "M-s-d") #'helm-dash))
