@@ -404,7 +404,7 @@
   ("l" helm-show-kill-ring "list" :color blue))
 
 (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
-(global-set-key (kbd "M-y") #'hydra-pank-pop/yank-pop)
+(global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
 
 
 (use-package peep-dired
